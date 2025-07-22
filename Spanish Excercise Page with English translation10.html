@@ -1,0 +1,1069 @@
+﻿<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Práctica de Verbos en Español</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <!-- Chosen Palette: Calm Harmony (Stone, Teal) -->
+    <!-- Application Structure Plan: A tab-based SPA with sections for each major verb tense (Presente, Pretérito Indefinido, etc.) and a comparison view. This structure allows users to focus on one concept at a time, which is better for learning than a long, scrolling document. The core of each section is an interactive verb conjugator and a practice quiz, turning the static reference material into an active learning tool. This task-oriented design directly addresses the user's goal of practicing conjugations. A new "Identificar Verbo" tab is added to allow users to find the base form of a given conjugated verb, and now, to identify its full conjugation details (tense, person, infinitive), enhancing exploration and understanding of verb roots and forms. -->
+    <!-- Visualization & Content Choices: 
+        - Tense Explanations (Inform): Presented as structured HTML text (lists, paragraphs) for clarity.
+        - Conjugation Tables (Organize): Static tables from the report are made dynamic. A user inputs a verb, and JS populates the table. This makes the data explorable. Library: Vanilla JS + HTML Table.
+        - Interactive Conjugator (Engage): An input/button combo allows users to see conjugations for any verb, promoting exploration beyond the listed examples. Method: JS DOM manipulation.
+        - Practice Quiz (Engage/Test): A simple fill-in-blank quiz provides active recall practice, a key to memorization. Method: JS logic.
+        - Infinitive Finder (Organize/Engage): A new input/button allows users to find the infinitive of a given conjugated form, leveraging a predefined lookup table for common verbs. Method: JS DOM manipulation and lookup.
+        - Random Verb Suggester (Engage): A button that randomly selects a verb and starts the practice, promoting varied practice without manual input. Method: JS random selection and event triggering.
+        - Conjugation Identifier (Organize/Engage): A new input/button allows users to identify the tense, person, and infinitive of a given conjugated verb form. This relies on dynamically generating and comparing all known conjugations. Method: JS dynamic generation and comparison.
+        - Justification: This approach directly converts the passive information of the source report into an interactive, hands-on learning experience focused on the user's specific weak points (conjugation and verb identification).
+        - No Chart.js/Plotly needed as the content is grammatical, not statistical. -->
+    <!-- CONFIRMATION: NO SVG graphics used. NO Mermaid JS used. -->
+    <style>
+        body { font-family: 'Inter', sans-serif; }
+        .tab-active { 
+            border-color: #0d9488; 
+            background-color: #ccfbf1;
+            color: #134e4a;
+            font-weight: 600;
+        }
+        .table-cell {
+            padding: 0.75rem;
+            border: 1px solid #e5e7eb;
+            text-align: center;
+        }
+        .table-header {
+            background-color: #f3f4f6;
+            font-weight: 600;
+        }
+        .feedback-correct {
+            color: #059669;
+            font-weight: bold;
+        }
+        .feedback-incorrect {
+            color: #dc2626;
+            font-weight: bold;
+        }
+        .feedback-icon {
+            margin-left: 0.5rem;
+            font-size: 1.2em;
+        }
+        .mode-button {
+            @apply px-4 py-2 rounded-md text-sm font-medium transition;
+        }
+        .mode-active {
+            @apply bg-teal-100 text-teal-800;
+        }
+    </style>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body class="bg-stone-50 text-stone-800">
+
+    <div class="container mx-auto p-4 md:p-8 max-w-5xl">
+        <header class="text-center mb-8">
+            <h1 class="text-4xl font-bold text-teal-800">🇪🇸 Aplicación de Verbos en Español</h1>
+            <p class="text-stone-600 mt-2">Una herramienta interactiva para dominar las conjugaciones verbales.</p>
+        </header>
+
+        <nav class="flex flex-wrap justify-center border-b-2 border-stone-200 mb-8 gap-2">
+            <button class="tab-btn px-4 py-3 border-b-4 border-transparent text-stone-600 hover:bg-stone-100 transition" data-tab="presente">Presente</button>
+            <button class="tab-btn px-4 py-3 border-b-4 border-transparent text-stone-600 hover:bg-stone-100 transition" data-tab="indefinido">P. Indefinido</button>
+            <button class="tab-btn px-4 py-3 border-b-4 border-transparent text-stone-600 hover:bg-stone-100 transition" data-tab="imperfecto">P. Imperfecto</button>
+            <button class="tab-btn px-4 py-3 border-b-4 border-transparent text-stone-600 hover:bg-stone-100 transition" data-tab="perfecto">P. Perfecto</button>
+            <button class="tab-btn px-4 py-3 border-b-4 border-transparent text-stone-600 hover:bg-stone-100 transition" data-tab="futuro">Futuro Simple</button>
+            <button class="tab-btn px-4 py-3 border-b-4 border-transparent text-stone-600 hover:bg-stone-100 transition" data-tab="condicional">Condicional</button>
+            <button class="tab-btn px-4 py-3 border-b-4 border-transparent text-stone-600 hover:bg-stone-100 transition" data-tab="comparacion">Comparación</button>
+            <button class="tab-btn px-4 py-3 border-b-4 border-transparent text-stone-600 hover:bg-stone-100 transition" data-tab="identificar-verbo">Identificar Verbo</button>
+        </nav>
+
+        <main id="content-area">
+            <!-- Presente de Indicativo -->
+            <div id="presente" class="tab-content space-y-8">
+                <div class="bg-white p-6 rounded-lg shadow-sm">
+                    <h2 class="text-2xl font-bold text-teal-700 mb-4">Presente de Indicativo</h2>
+                    <p class="mb-4 text-stone-600">El presente se utiliza para expresar acciones que ocurren en el momento, hábitos, verdades generales o incluso un futuro cercano. Es el tiempo verbal más fundamental.</p>
+                    <ul class="list-disc list-inside space-y-2 text-stone-700">
+                        <li><b>Acciones actuales:</b> <i>Yo <b>hablo</b> español.</i></li>
+                        <li><b>Hábitos y rutinas:</b> <i>Ella <b>come</b> fruta cada día.</i></li>
+                        <li><b>Verdades generales:</b> <i>La Tierra <b>es</b> redonda.</i></li>
+                        <li><b>Futuro cercano:</b> <i>Mañana <b>voy</b> al cine.</i></li>
+                    </ul>
+                </div>
+
+                <div class="flex justify-center gap-4 mb-6">
+                    <button class="mode-button mode-active" data-mode="view" data-tense="presente">Ver Conjugación</button>
+                    <button class="mode-button" data-mode="practice" data-tense="presente">Practicar Conjugación</button>
+                </div>
+
+                <div id="presente-view-mode" class="mode-section">
+                    <div class="bg-white p-6 rounded-lg shadow-sm">
+                        <h3 class="text-xl font-semibold text-teal-700 mb-4">Ver Conjugación en Presente</h3>
+                        <div class="flex flex-col sm:flex-row gap-2 items-center">
+                            <input type="text" id="verb-input-presente" placeholder="Escribe un verbo (e.g., cantar, ser)" class="w-full px-4 py-2 border border-stone-300 rounded-md focus:ring-2 focus:ring-teal-500 focus:border-teal-500 transition">
+                            <button id="conjugate-btn-presente" class="w-full sm:w-auto bg-teal-600 text-white px-6 py-2 rounded-md hover:bg-teal-700 transition font-semibold">Conjugar</button>
+                        </div>
+                        <div id="conjugation-result-presente" class="mt-6 overflow-x-auto"></div>
+                    </div>
+                </div>
+
+                <div id="presente-practice-mode" class="mode-section hidden">
+                    <div class="bg-white p-6 rounded-lg shadow-sm">
+                        <h3 class="text-xl font-semibold text-teal-700 mb-4">Practicar Conjugación en Presente</h3>
+                        <div class="flex flex-col sm:flex-row gap-2 items-center mb-4">
+                            <input type="text" id="practice-verb-input-presente" placeholder="Escribe un verbo (e.g., hablar, comer)" class="w-full px-4 py-2 border border-stone-300 rounded-md focus:ring-2 focus:ring-teal-500 focus:border-teal-500 transition">
+                            <button id="start-practice-btn-presente" class="w-full sm:w-auto bg-teal-600 text-white px-6 py-2 rounded-md hover:bg-teal-700 transition font-semibold">Empezar Práctica</button>
+                            <button id="random-verb-btn-presente" class="w-full sm:w-auto bg-stone-400 text-white px-6 py-2 rounded-md hover:bg-stone-500 transition font-semibold">Sugerir Verbo Aleatorio</button>
+                        </div>
+                        <div id="practice-table-presente" class="mt-6 overflow-x-auto"></div>
+                        <div id="practice-feedback-presente" class="mt-4 text-center font-bold"></div>
+                        <div class="flex justify-center gap-4 mt-4">
+                            <button id="check-practice-btn-presente" class="bg-blue-600 text-white px-6 py-2 rounded-md hover:bg-blue-700 transition font-semibold hidden">Comprobar Respuestas</button>
+                            <button id="show-practice-btn-presente" class="bg-stone-500 text-white px-6 py-2 rounded-md hover:bg-stone-600 transition font-semibold hidden">Mostrar Respuestas</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Pretérito Indefinido -->
+            <div id="indefinido" class="tab-content space-y-8 hidden">
+                 <div class="bg-white p-6 rounded-lg shadow-sm">
+                    <h2 class="text-2xl font-bold text-teal-700 mb-4">Pretérito Indefinido</h2>
+                    <p class="mb-4 text-stone-600">El pretérito indefinido describe acciones completadas en el pasado. Se enfoca en el principio y el fin de un evento, como una fotografía de un momento específico que ya terminó.</p>
+                     <ul class="list-disc list-inside space-y-2 text-stone-700">
+                        <li><b>Acciones completadas:</b> <i>Ayer <b>comí</b> paella.</i></li>
+                        <li><b>Secuencia de eventos:</b> <i>Me <b>levanté</b>, <b>desayuné</b> y <b>salí</b>.</i></li>
+                        <li><b>Eventos específicos:</b> <i>La guerra <b>empezó</b> en 1936.</i></li>
+                    </ul>
+                </div>
+                
+                <div class="flex justify-center gap-4 mb-6">
+                    <button class="mode-button mode-active" data-mode="view" data-tense="indefinido">Ver Conjugación</button>
+                    <button class="mode-button" data-mode="practice" data-tense="indefinido">Practicar Conjugación</button>
+                </div>
+
+                <div id="indefinido-view-mode" class="mode-section">
+                    <div class="bg-white p-6 rounded-lg shadow-sm">
+                        <h3 class="text-xl font-semibold text-teal-700 mb-4">Ver Conjugación en P. Indefinido</h3>
+                        <div class="flex flex-col sm:flex-row gap-2 items-center">
+                            <input type="text" id="verb-input-indefinido" placeholder="Escribe un verbo (e.g., hablar, ir)" class="w-full px-4 py-2 border border-stone-300 rounded-md focus:ring-2 focus:ring-teal-500 focus:border-teal-500 transition">
+                            <button id="conjugate-btn-indefinido" class="w-full sm:w-auto bg-teal-600 text-white px-6 py-2 rounded-md hover:bg-teal-700 transition font-semibold">Conjugar</button>
+                        </div>
+                        <div id="conjugation-result-indefinido" class="mt-6 overflow-x-auto"></div>
+                    </div>
+                </div>
+
+                <div id="indefinido-practice-mode" class="mode-section hidden">
+                    <div class="bg-white p-6 rounded-lg shadow-sm">
+                        <h3 class="text-xl font-semibold text-teal-700 mb-4">Practicar Conjugación en P. Indefinido</h3>
+                        <div class="flex flex-col sm:flex-row gap-2 items-center mb-4">
+                            <input type="text" id="practice-verb-input-indefinido" placeholder="Escribe un verbo (e.g., comer, ir)" class="w-full px-4 py-2 border border-stone-300 rounded-md focus:ring-2 focus:ring-teal-500 focus:border-teal-500 transition">
+                            <button id="start-practice-btn-indefinido" class="w-full sm:w-auto bg-teal-600 text-white px-6 py-2 rounded-md hover:bg-teal-700 transition font-semibold">Empezar Práctica</button>
+                            <button id="random-verb-btn-indefinido" class="w-full sm:w-auto bg-stone-400 text-white px-6 py-2 rounded-md hover:bg-stone-500 transition font-semibold">Sugerir Verbo Aleatorio</button>
+                        </div>
+                        <div id="practice-table-indefinido" class="mt-6 overflow-x-auto"></div>
+                        <div id="practice-feedback-indefinido" class="mt-4 text-center font-bold"></div>
+                        <div class="flex justify-center gap-4 mt-4">
+                            <button id="check-practice-btn-indefinido" class="bg-blue-600 text-white px-6 py-2 rounded-md hover:bg-blue-700 transition font-semibold hidden">Comprobar Respuestas</button>
+                            <button id="show-practice-btn-indefinido" class="bg-stone-500 text-white px-6 py-2 rounded-md hover:bg-stone-600 transition font-semibold hidden">Mostrar Respuestas</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Pretérito Imperfecto -->
+            <div id="imperfecto" class="tab-content space-y-8 hidden">
+                 <div class="bg-white p-6 rounded-lg shadow-sm">
+                    <h2 class="text-2xl font-bold text-teal-700 mb-4">Pretérito Imperfecto</h2>
+                    <p class="mb-4 text-stone-600">El pretérito imperfecto se usa para describir acciones habituales, en progreso, o condiciones en el pasado sin un final específico. Es como un vídeo que muestra el fondo de la escena.</p>
+                     <ul class="list-disc list-inside space-y-2 text-stone-700">
+                        <li><b>Acciones en progreso:</b> <i>Mientras <b>comía</b>, sonó el teléfono.</i></li>
+                        <li><b>Acciones habituales:</b> <i>Cuando era niño, <b>jugaba</b> mucho.</i></li>
+                        <li><b>Descripciones (personas, lugares, tiempo):</b> <i>La casa <b>era</b> grande.</i></li>
+                        <li><b>Hora y edad en el pasado:</b> <i><b>Eran</b> las tres. / <b>Tenía</b> diez años.</i></li>
+                    </ul>
+                </div>
+
+                <div class="flex justify-center gap-4 mb-6">
+                    <button class="mode-button mode-active" data-mode="view" data-tense="imperfecto">Ver Conjugación</button>
+                    <button class="mode-button" data-mode="practice" data-tense="imperfecto">Practicar Conjugación</button>
+                </div>
+
+                <div id="imperfecto-view-mode" class="mode-section">
+                    <div class="bg-white p-6 rounded-lg shadow-sm">
+                        <h3 class="text-xl font-semibold text-teal-700 mb-4">Ver Conjugación en P. Imperfecto</h3>
+                        <div class="flex flex-col sm:flex-row gap-2 items-center">
+                            <input type="text" id="verb-input-imperfecto" placeholder="Escribe un verbo (e.g., jugar, ser)" class="w-full px-4 py-2 border border-stone-300 rounded-md focus:ring-2 focus:ring-teal-500 focus:border-teal-500 transition">
+                            <button id="conjugate-btn-imperfecto" class="w-full sm:w-auto bg-teal-600 text-white px-6 py-2 rounded-md hover:bg-teal-700 transition font-semibold">Conjugar</button>
+                        </div>
+                        <div id="conjugation-result-imperfecto" class="mt-6 overflow-x-auto"></div>
+                    </div>
+                </div>
+
+                <div id="imperfecto-practice-mode" class="mode-section hidden">
+                    <div class="bg-white p-6 rounded-lg shadow-sm">
+                        <h3 class="text-xl font-semibold text-teal-700 mb-4">Practicar Conjugación en P. Imperfecto</h3>
+                        <div class="flex flex-col sm:flex-row gap-2 items-center mb-4">
+                            <input type="text" id="practice-verb-input-imperfecto" placeholder="Escribe un verbo (e.g., comer, ser)" class="w-full px-4 py-2 border border-stone-300 rounded-md focus:ring-2 focus:ring-teal-500 focus:border-teal-500 transition">
+                            <button id="start-practice-btn-imperfecto" class="w-full sm:w-auto bg-teal-600 text-white px-6 py-2 rounded-md hover:bg-teal-700 transition font-semibold">Empezar Práctica</button>
+                            <button id="random-verb-btn-imperfecto" class="w-full sm:w-auto bg-stone-400 text-white px-6 py-2 rounded-md hover:bg-stone-500 transition font-semibold">Sugerir Verbo Aleatorio</button>
+                        </div>
+                        <div id="practice-table-imperfecto" class="mt-6 overflow-x-auto"></div>
+                        <div id="practice-feedback-imperfecto" class="mt-4 text-center font-bold"></div>
+                        <div class="flex justify-center gap-4 mt-4">
+                            <button id="check-practice-btn-imperfecto" class="bg-blue-600 text-white px-6 py-2 rounded-md hover:bg-blue-700 transition font-semibold hidden">Comprobar Respuestas</button>
+                            <button id="show-practice-btn-imperfecto" class="bg-stone-500 text-white px-6 py-2 rounded-md hover:bg-stone-600 transition font-semibold hidden">Mostrar Respuestas</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Pretérito Perfecto -->
+            <div id="perfecto" class="tab-content space-y-8 hidden">
+                <div class="bg-white p-6 rounded-lg shadow-sm">
+                    <h2 class="text-2xl font-bold text-teal-700 mb-4">Pretérito Perfecto Compuesto</h2>
+                    <p class="mb-4 text-stone-600">El pretérito perfecto conecta el pasado con el presente. Se usa para acciones que ocurrieron en un pasado reciente (un período de tiempo que aún no ha terminado) o para experiencias de vida.</p>
+                     <ul class="list-disc list-inside space-y-2 text-stone-700">
+                        <li><b>Pasado reciente (común en España):</b> <i>Hoy <b>he comido</b> paella.</i></li>
+                        <li><b>Experiencias de vida:</b> <i>Nunca <b>he visitado</b> Asia.</i></li>
+                        <li><b>Acciones con relevancia actual:</b> <i>No <b>he terminado</b> el trabajo.</i></li>
+                    </ul>
+                </div>
+
+                <div class="flex justify-center gap-4 mb-6">
+                    <button class="mode-button mode-active" data-mode="view" data-tense="perfecto">Ver Conjugación</button>
+                    <button class="mode-button" data-mode="practice" data-tense="perfecto">Practicar Conjugación</button>
+                </div>
+
+                <div id="perfecto-view-mode" class="mode-section">
+                    <div class="bg-white p-6 rounded-lg shadow-sm">
+                        <h3 class="text-xl font-semibold text-teal-700 mb-4">Ver Conjugación en P. Perfecto</h3>
+                        <div class="flex flex-col sm:flex-row gap-2 items-center">
+                            <input type="text" id="verb-input-perfecto" placeholder="Escribe un verbo (e.g., hacer, ver)" class="w-full px-4 py-2 border border-stone-300 rounded-md focus:ring-2 focus:ring-teal-500 focus:border-teal-500 transition">
+                            <button id="conjugate-btn-perfecto" class="w-full sm:w-auto bg-teal-600 text-white px-6 py-2 rounded-md hover:bg-teal-700 transition font-semibold">Conjugar</button>
+                        </div>
+                        <div id="conjugation-result-perfecto" class="mt-6 overflow-x-auto"></div>
+                    </div>
+                </div>
+
+                <div id="perfecto-practice-mode" class="mode-section hidden">
+                    <div class="bg-white p-6 rounded-lg shadow-sm">
+                        <h3 class="text-xl font-semibold text-teal-700 mb-4">Practicar Conjugación en P. Perfecto</h3>
+                        <div class="flex flex-col sm:flex-row gap-2 items-center mb-4">
+                            <input type="text" id="practice-verb-input-perfecto" placeholder="Escribe un verbo (e.g., hacer, ver)" class="w-full px-4 py-2 border border-stone-300 rounded-md focus:ring-2 focus:ring-teal-500 focus:border-teal-500 transition">
+                            <button id="start-practice-btn-perfecto" class="w-full sm:w-auto bg-teal-600 text-white px-6 py-2 rounded-md hover:bg-teal-700 transition font-semibold">Empezar Práctica</button>
+                            <button id="random-verb-btn-perfecto" class="w-full sm:w-auto bg-stone-400 text-white px-6 py-2 rounded-md hover:bg-stone-500 transition font-semibold">Sugerir Verbo Aleatorio</button>
+                        </div>
+                        <div id="practice-table-perfecto" class="mt-6 overflow-x-auto"></div>
+                        <div id="practice-feedback-perfecto" class="mt-4 text-center font-bold"></div>
+                        <div class="flex justify-center gap-4 mt-4">
+                            <button id="check-practice-btn-perfecto" class="bg-blue-600 text-white px-6 py-2 rounded-md hover:bg-blue-700 transition font-semibold hidden">Comprobar Respuestas</button>
+                            <button id="show-practice-btn-perfecto" class="bg-stone-500 text-white px-6 py-2 rounded-md hover:bg-stone-600 transition font-semibold hidden">Mostrar Respuestas</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Futuro Simple -->
+            <div id="futuro" class="tab-content space-y-8 hidden">
+                <div class="bg-white p-6 rounded-lg shadow-sm">
+                    <h2 class="text-2xl font-bold text-teal-700 mb-4">Futuro Simple</h2>
+                    <p class="mb-4 text-stone-600">El futuro simple se utiliza para expresar acciones que ocurrirán en el futuro, promesas o suposiciones sobre el presente.</p>
+                    <ul class="list-disc list-inside space-y-2 text-stone-700">
+                        <li><b>Acciones futuras:</b> <i>Mañana <b>iré</b> al trabajo.</i></li>
+                        <li><b>Promesas:</b> <i>Te <b>ayudaré</b> con la tarea.</i></li>
+                        <li><b>Suposiciones sobre el presente:</b> <i>¿Dónde estará Juan? <b>Estará</b> en casa.</i></li>
+                    </ul>
+                </div>
+
+                <div class="flex justify-center gap-4 mb-6">
+                    <button class="mode-button mode-active" data-mode="view" data-tense="futuro">Ver Conjugación</button>
+                    <button class="mode-button" data-mode="practice" data-tense="futuro">Practicar Conjugación</button>
+                </div>
+
+                <div id="futuro-view-mode" class="mode-section">
+                    <div class="bg-white p-6 rounded-lg shadow-sm">
+                        <h3 class="text-xl font-semibold text-teal-700 mb-4">Ver Conjugación en Futuro Simple</h3>
+                        <div class="flex flex-col sm:flex-row gap-2 items-center">
+                            <input type="text" id="verb-input-futuro" placeholder="Escribe un verbo (e.g., hablar, hacer)" class="w-full px-4 py-2 border border-stone-300 rounded-md focus:ring-2 focus:ring-teal-500 focus:border-teal-500 transition">
+                            <button id="conjugate-btn-futuro" class="w-full sm:w-auto bg-teal-600 text-white px-6 py-2 rounded-md hover:bg-teal-700 transition font-semibold">Conjugar</button>
+                        </div>
+                        <div id="conjugation-result-futuro" class="mt-6 overflow-x-auto"></div>
+                    </div>
+                </div>
+
+                <div id="futuro-practice-mode" class="mode-section hidden">
+                    <div class="bg-white p-6 rounded-lg shadow-sm">
+                        <h3 class="text-xl font-semibold text-teal-700 mb-4">Practicar Conjugación en Futuro Simple</h3>
+                        <div class="flex flex-col sm:flex-row gap-2 items-center mb-4">
+                            <input type="text" id="practice-verb-input-futuro" placeholder="Escribe un verbo (e.g., comer, ir)" class="w-full px-4 py-2 border border-stone-300 rounded-md focus:ring-2 focus:ring-teal-500 focus:border-teal-500 transition">
+                            <button id="start-practice-btn-futuro" class="w-full sm:w-auto bg-teal-600 text-white px-6 py-2 rounded-md hover:bg-teal-700 transition font-semibold">Empezar Práctica</button>
+                            <button id="random-verb-btn-futuro" class="w-full sm:w-auto bg-stone-400 text-white px-6 py-2 rounded-md hover:bg-stone-500 transition font-semibold">Sugerir Verbo Aleatorio</button>
+                        </div>
+                        <div id="practice-table-futuro" class="mt-6 overflow-x-auto"></div>
+                        <div id="practice-feedback-futuro" class="mt-4 text-center font-bold"></div>
+                        <div class="flex justify-center gap-4 mt-4">
+                            <button id="check-practice-btn-futuro" class="bg-blue-600 text-white px-6 py-2 rounded-md hover:bg-blue-700 transition font-semibold hidden">Comprobar Respuestas</button>
+                            <button id="show-practice-btn-futuro" class="bg-stone-500 text-white px-6 py-2 rounded-md hover:bg-stone-600 transition font-semibold hidden">Mostrar Respuestas</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Condicional Simple -->
+            <div id="condicional" class="tab-content space-y-8 hidden">
+                <div class="bg-white p-6 rounded-lg shadow-sm">
+                    <h2 class="text-2xl font-bold text-teal-700 mb-4">Condicional Simple</h2>
+                    <p class="mb-4 text-stone-600">El condicional simple se utiliza para expresar acciones hipotéticas, deseos, peticiones educadas o consejos.</p>
+                    <ul class="list-disc list-inside space-y-2 text-stone-700">
+                        <li><b>Acciones hipotéticas:</b> <i>Si tuviera tiempo, <b>iría</b> al gimnasio.</i></li>
+                        <li><b>Deseos:</b> <i>Me <b>gustaría</b> viajar más.</i></li>
+                        <li><b>Peticiones educadas:</b> <i>¿Me <b>podrías</b> ayudar?</i></li>
+                        <li><b>Consejos:</b> <i>Deberías <b>estudiar</b> más.</i></li>
+                    </ul>
+                </div>
+
+                <div class="flex justify-center gap-4 mb-6">
+                    <button class="mode-button mode-active" data-mode="view" data-tense="condicional">Ver Conjugación</button>
+                    <button class="mode-button" data-mode="practice" data-tense="condicional">Practicar Conjugación</button>
+                </div>
+
+                <div id="condicional-view-mode" class="mode-section">
+                    <div class="bg-white p-6 rounded-lg shadow-sm">
+                        <h3 class="text-xl font-semibold text-teal-700 mb-4">Ver Conjugación en Condicional Simple</h3>
+                        <div class="flex flex-col sm:flex-row gap-2 items-center">
+                            <input type="text" id="verb-input-condicional" placeholder="Escribe un verbo (e.g., hablar, hacer)" class="w-full px-4 py-2 border border-stone-300 rounded-md focus:ring-2 focus:ring-teal-500 focus:border-teal-500 transition">
+                            <button id="conjugate-btn-condicional" class="w-full sm:w-auto bg-teal-600 text-white px-6 py-2 rounded-md hover:bg-teal-700 transition font-semibold">Conjugar</button>
+                        </div>
+                        <div id="conjugation-result-condicional" class="mt-6 overflow-x-auto"></div>
+                    </div>
+                </div>
+
+                <div id="condicional-practice-mode" class="mode-section hidden">
+                    <div class="bg-white p-6 rounded-lg shadow-sm">
+                        <h3 class="text-xl font-semibold text-teal-700 mb-4">Practicar Conjugación en Condicional Simple</h3>
+                        <div class="flex flex-col sm:flex-row gap-2 items-center mb-4">
+                            <input type="text" id="practice-verb-input-condicional" placeholder="Escribe un verbo (e.g., comer, ir)" class="w-full px-4 py-2 border border-stone-300 rounded-md focus:ring-2 focus:ring-teal-500 focus:border-teal-500 transition">
+                            <button id="start-practice-btn-condicional" class="w-full sm:w-auto bg-teal-600 text-white px-6 py-2 rounded-md hover:bg-teal-700 transition font-semibold">Empezar Práctica</button>
+                            <button id="random-verb-btn-condicional" class="w-full sm:w-auto bg-stone-400 text-white px-6 py-2 rounded-md hover:bg-stone-500 transition font-semibold">Sugerir Verbo Aleatorio</button>
+                        </div>
+                        <div id="practice-table-condicional" class="mt-6 overflow-x-auto"></div>
+                        <div id="practice-feedback-condicional" class="mt-4 text-center font-bold"></div>
+                        <div class="flex justify-center gap-4 mt-4">
+                            <button id="check-practice-btn-condicional" class="bg-blue-600 text-white px-6 py-2 rounded-md hover:bg-blue-700 transition font-semibold hidden">Comprobar Respuestas</button>
+                            <button id="show-practice-btn-condicional" class="bg-stone-500 text-white px-6 py-2 rounded-md hover:bg-stone-600 transition font-semibold hidden">Mostrar Respuestas</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Comparación -->
+            <div id="comparacion" class="tab-content space-y-8 hidden">
+                <div class="bg-white p-6 rounded-lg shadow-sm">
+                    <h2 class="text-2xl font-bold text-teal-700 mb-4">Comparación de Tiempos del Pasado</h2>
+                    <p class="mb-4 text-stone-600">Entender la diferencia entre los tiempos del pasado es clave. El indefinido es para acciones completas (una foto), el imperfecto es para el fondo o acciones habituales (un vídeo), y el perfecto conecta el pasado con el presente.</p>
+                    <div class="overflow-x-auto">
+                        <table class="w-full border-collapse">
+                            <thead>
+                                <tr>
+                                    <th class="table-cell table-header">Tiempo</th>
+                                    <th class="table-cell table-header">Enfoque</th>
+                                    <th class="table-cell table-header">Ejemplo</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td class="table-cell font-semibold">P. Indefinido</td>
+                                    <td class="table-cell">Acción completada (snapshot)</td>
+                                    <td class="table-cell"><i>Ayer <b>fui</b> al cine.</i></td>
+                                </tr>
+                                <tr>
+                                    <td class="table-cell font-semibold">P. Imperfecto</td>
+                                    <td class="table-cell">Acción habitual/descripción (background)</td>
+                                    <td class="table-cell"><i>Cuando era niño, <b>iba</b> al cine.</i></td>
+                                </tr>
+                                <tr>
+                                    <td class="table-cell font-semibold">P. Perfecto</td>
+                                    <td class="table-cell">Pasado reciente / Relevancia presente</td>
+                                    <td class="table-cell"><i>Esta semana <b>he ido</b> al cine.</i></td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                     <p class="mt-6 text-stone-600"><b>Escenario:</b> Imagina que estás contando una historia. Usarías el <b>imperfecto</b> para describir la escena ("<b>Hacía</b> sol y los pájaros <b>cantaban</b>.") y el <b>indefinido</b> para la acción principal que ocurrió ("De repente, <b>vi</b> a mi amigo.").</p>
+                </div>
+            </div>
+
+            <!-- Identificar Verbo Tab -->
+            <div id="identificar-verbo" class="tab-content space-y-8 hidden">
+                <div class="bg-white p-6 rounded-lg shadow-sm">
+                    <h2 class="text-2xl font-bold text-teal-700 mb-4">Buscar el Infinitivo</h2>
+                    <p class="mb-4 text-stone-600">Introduce una forma verbal conjugada en español y te mostraré su infinitivo, si está en mi base de datos.</p>
+                    <div class="flex flex-col sm:flex-row gap-2 items-center">
+                        <input type="text" id="word-input-infinitivo" placeholder="Escribe una forma verbal (e.g., hablo, comí, fui)" class="w-full px-4 py-2 border border-stone-300 rounded-md focus:ring-2 focus:ring-teal-500 focus:border-teal-500 transition">
+                        <button id="find-infinitive-btn" class="w-full sm:w-auto bg-teal-600 text-white px-6 py-2 rounded-md hover:bg-teal-700 transition font-semibold">Buscar Infinitivo</button>
+                    </div>
+                    <div id="infinitive-result" class="mt-6 text-lg font-semibold text-stone-700"></div>
+                </div>
+
+                <div class="bg-white p-6 rounded-lg shadow-sm mt-8">
+                    <h2 class="text-2xl font-bold text-teal-700 mb-4">Identificar Conjugación</h2>
+                    <p class="mb-4 text-stone-600">Introduce una forma verbal conjugada para identificar su tiempo, persona y el infinitivo al que pertenece.</p>
+                    <div class="flex flex-col sm:flex-row gap-2 items-center">
+                        <input type="text" id="identify-verb-input" placeholder="Escribe una forma verbal (e.g., cantabas, diré)" class="w-full px-4 py-2 border border-stone-300 rounded-md focus:ring-2 focus:ring-teal-500 focus:border-teal-500 transition">
+                        <button id="identify-verb-btn" class="w-full sm:w-auto bg-teal-600 text-white px-6 py-2 rounded-md hover:bg-teal-700 transition font-semibold">Identificar</button>
+                    </div>
+                    <div id="identification-result" class="mt-6 text-lg font-semibold text-stone-700"></div>
+                </div>
+            </div>
+
+        </main>
+    </div>
+
+    <script>
+        (function() { // IIFE starts here
+            const tabs = document.querySelectorAll('.tab-btn');
+            const contents = document.querySelectorAll('.tab-content');
+
+            const verbData = {
+                presente: {
+                    reg: {
+                        ar: ['o', 'as', 'a', 'amos', 'áis', 'an'],
+                        er: ['o', 'es', 'e', 'emos', 'éis', 'en'],
+                        ir: ['o', 'es', 'e', 'imos', 'ís', 'en']
+                    },
+                    irreg: {
+                        ser: ['soy', 'eres', 'es', 'somos', 'sois', 'son'],
+                        estar: ['estoy', 'estás', 'está', 'estamos', 'estáis', 'están'],
+                        ir: ['voy', 'vas', 'va', 'vamos', 'vais', 'van'],
+                        tener: ['tengo', 'tienes', 'tiene', 'tenemos', 'tenéis', 'tienen'],
+                        hacer: ['hago', 'haces', 'hace', 'hacemos', 'hacéis', 'hacen'],
+                        poder: ['puedo', 'puedes', 'puede', 'podemos', 'podéis', 'pueden'],
+                        querer: ['quiero', 'quieres', 'quiere', 'queremos', 'queréis', 'quieren'],
+                        decir: ['digo', 'dices', 'dice', 'decimos', 'decís', 'dicen']
+                    }
+                },
+                indefinido: {
+                    reg: {
+                        ar: ['é', 'aste', 'ó', 'amos', 'asteis', 'aron'],
+                        er: ['í', 'iste', 'ió', 'imos', 'isteis', 'ieron'],
+                        ir: ['í', 'iste', 'ió', 'imos', 'isteis', 'ieron']
+                    },
+                    irreg: {
+                        ser: ['fui', 'fuiste', 'fue', 'fuimos', 'fuisteis', 'fueron'],
+                        ir: ['fui', 'fuiste', 'fue', 'fuimos', 'fuisteis', 'fueron'],
+                        estar: ['estuve', 'estuviste', 'estuvo', 'estuvimos', 'estuvisteis', 'estuvieron'],
+                        tener: ['tuve', 'tuviste', 'tuvo', 'tuvimos', 'tuvisteis', 'tuvieron'],
+                        hacer: ['hice', 'hiciste', 'hizo', 'hicimos', 'hicisteis', 'hicieron'],
+                        poder: ['pude', 'pudiste', 'pudo', 'pudimos', 'pudisteis', 'pudieron'],
+                        decir: ['dije', 'dijiste', 'dijo', 'dijimos', 'dijisteis', 'dijeron']
+                    }
+                },
+                imperfecto: {
+                    reg: {
+                        ar: ['aba', 'abas', 'aba', 'ábamos', 'abais', 'aban'],
+                        er: ['ía', 'ías', 'ía', 'íamos', 'íais', 'ían'],
+                        ir: ['ía', 'ías', 'ía', 'íamos', 'íais', 'ían']
+                    },
+                    irreg: {
+                        ser: ['era', 'eras', 'era', 'éramos', 'erais', 'eran'],
+                        ir: ['iba', 'ibas', 'iba', 'íbamos', 'ibais', 'iban'],
+                        ver: ['veía', 'veías', 'veía', 'veíamos', 'veíais', 'veían']
+                    }
+                },
+                futuro: {
+                    reg: ['é', 'ás', 'á', 'emos', 'éis', 'án'], // Endings are added to the infinitive
+                    irreg: {
+                        decir: ['diré', 'dirás', 'dirá', 'diremos', 'diréis', 'dirán'],
+                        hacer: ['haré', 'harás', 'hará', 'haremos', 'haréis', 'harán'],
+                        poder: ['podré', 'podrás', 'podrá', 'podremos', 'podréis', 'podrán'],
+                        poner: ['pondré', 'pondrás', 'pondrá', 'pondremos', 'pondréis', 'pondrán'],
+                        haber: ['habré', 'habrás', 'habrá', 'habremos', 'habréis', 'habrán'],
+                        saber: ['sabré', 'sabrás', 'sabrá', 'sabremos', 'sabréis', 'sabrán'],
+                        salir: ['saldré', 'saldrás', 'saldrá', 'saldremos', 'saldréis', 'saldrán'],
+                        tener: ['tendré', 'tendrás', 'tendrá', 'tendremos', 'tendréis', 'tendrán'],
+                        venir: ['vendré', 'vendrás', 'vendrá', 'vendremos', 'vendréis', 'vendrán'],
+                        querer: ['querré', 'querrás', 'querrá', 'querremos', 'querréis', 'querrán']
+                    }
+                },
+                condicional: {
+                    reg: ['ía', 'ías', 'ía', 'íamos', 'íais', 'ían'], // Endings are added to the infinitive
+                    irreg: {
+                        decir: ['diría', 'dirías', 'diría', 'diríamos', 'diríais', 'dirían'],
+                        hacer: ['haría', 'harías', 'haría', 'haríamos', 'haríais', 'harían'],
+                        poder: ['podría', 'podrías', 'podría', 'podríamos', 'podríais', 'podrían'],
+                        poner: ['pondría', 'pondrías', 'pondría', 'pondríamos', 'pondríais', 'pondrían'],
+                        haber: ['habría', 'habrías', 'habría', 'habríamos', 'habríais', 'habrían'],
+                        saber: ['sabría', 'sabrías', 'sabría', 'sabríamos', 'sabríais', 'sabrían'],
+                        salir: ['saldría', 'saldrías', 'saldría', 'saldríamos', 'saldríais', 'saldrían'],
+                        tener: ['tendría', 'tendrías', 'tendría', 'tendríamos', 'tendríais', 'tendrían'],
+                        venir: ['vendría', 'vendrías', 'vendría', 'vendríamos', 'vendríais', 'vendrían'],
+                        querer: ['querría', 'querrías', 'querría', 'querríamos', 'querríais', 'querrían']
+                    }
+                },
+                perfecto: {
+                    haber: ['he', 'has', 'ha', 'hemos', 'habéis', 'han'],
+                    participles: {
+                        reg: { ar: 'ado', er: 'ido', ir: 'ido' },
+                        irreg: {
+                            hacer: 'hecho', decir: 'dicho', ver: 'visto',
+                            abrir: 'abierto', escribir: 'escrito', poner: 'puesto',
+                            volver: 'vuelto', morir: 'muerto', romper: 'roto'
+                        }
+                    }
+                }
+            };
+            const pronouns = ['Yo', 'Tú', 'Él/Ella/Ud.', 'Nosotros/as', 'Vosotros/as', 'Ellos/as/Uds.'];
+
+            const verbTranslations = {
+                'hablar': 'to speak', 'comer': 'to eat', 'vivir': 'to live',
+                'cantar': 'to sing', 'estudiar': 'to study', 'aprender': 'to learn',
+                'beber': 'to drink', 'escribir': 'to write', 'abrir': 'to open',
+                'ser': 'to be', 'estar': 'to be', 'ir': 'to go',
+                'tener': 'to have', 'hacer': 'to do/make', 'poder': 'to be able to',
+                'querer': 'to want', 'decir': 'to say/tell', 'ver': 'to see',
+                'jugar': 'to play', 'salir': 'to leave/go out', 'poner': 'to put',
+                'romper': 'to break', 'morir': 'to die', 'volver': 'to return',
+                'levantar': 'to lift/raise', 'levantarse': 'to get up',
+                'saber': 'to know', 'conocer': 'to know', 'dar': 'to give', 'venir': 'to come', 'leer': 'to read',
+                'dormir': 'to sleep', 'pedir': 'to ask for', 'sentir': 'to feel', 'encontrar': 'to find', 'empezar': 'to start', 'pensar': 'to think',
+                'traer': 'to bring', 'oír': 'to hear', 'caer': 'to fall'
+            };
+
+            const infinitiveLookup = {
+                'hablo': 'hablar', 'hablas': 'hablar', 'habla': 'hablar', 'hablamos': 'hablar', 'habláis': 'hablar', 'hablan': 'hablar',
+                'como': 'comer', 'comes': 'comer', 'come': 'comer', 'comemos': 'comer', 'coméis': 'comer', 'comen': 'comer',
+                'vivo': 'vivir', 'vives': 'vivir', 'vive': 'vivir', 'vivimos': 'vivir', 'vivís': 'vivir', 'viven': 'vivir',
+                'canto': 'cantar', 'cantas': 'cantar', 'canta': 'cantar', 'cantamos': 'cantar', 'cantáis': 'cantar', 'cantan': 'cantar',
+                'aprendo': 'aprender', 'aprendes': 'aprender', 'aprende': 'aprender', 'aprendemos': 'aprender', 'aprendéis': 'aprender', 'aprenden': 'aprender',
+                'escribo': 'escribir', 'escribes': 'escribir', 'escribe': 'escribir', 'escribimos': 'escribir', 'escribís': 'escribir', 'escriben': 'escribir',
+                'soy': 'ser', 'eres': 'ser', 'es': 'ser', 'somos': 'ser', 'sois': 'ser', 'son': 'ser',
+                'estoy': 'estar', 'estás': 'estar', 'está': 'estar', 'estamos': 'estar', 'estáis': 'estar', 'están': 'estar',
+                'voy': 'ir', 'vas': 'ir', 'va': 'ir', 'vamos': 'ir', 'vais': 'ir', 'van': 'ir',
+                'tengo': 'tener', 'tienes': 'tener', 'tiene': 'tener', 'tenemos': 'tener', 'tenéis': 'tener', 'tienen': 'tener',
+                'hago': 'hacer', 'haces': 'hacer', 'hace': 'hacer', 'hacemos': 'hacer', 'hacéis': 'hacen',
+                'puedo': 'poder', 'puedes': 'poder', 'puede': 'poder', 'podemos': 'poder', 'podéis': 'poder', 'pueden': 'poder',
+                'quiero': 'querer', 'quieres': 'querer', 'quiere': 'querer', 'queremos': 'querer', 'queréis': 'querer', 'quieren': 'querer',
+                'digo': 'decir', 'dices': 'decir', 'dice': 'decir', 'decimos': 'decir', 'decís': 'decir', 'dicen': 'decir',
+                'salgo': 'salir', 'sales': 'salir', 'sale': 'salir', 'salimos': 'salir', 'salís': 'salir', 'salen': 'salir',
+                'pongo': 'poner', 'pones': 'poner', 'pone': 'poner', 'ponemos': 'poner', 'ponéis': 'poner', 'ponen': 'poner',
+                'hablé': 'hablar', 'hablaste': 'hablar', 'habló': 'hablar', 'hablamos': 'hablar', 'hablasteis': 'hablar', 'hablaron': 'hablar',
+                'comí': 'comer', 'comiste': 'comer', 'comió': 'comer', 'comimos': 'comer', 'comisteis': 'comer', 'comieron': 'comer',
+                'viví': 'vivir', 'viviste': 'vivir', 'vivió': 'vivir', 'vivimos': 'vivir', 'vivisteis': 'vivir', 'vivieron': 'vivir',
+                'canté': 'cantar', 'cantaste': 'cantar', 'cantó': 'cantar', 'cantamos': 'cantar', 'cantasteis': 'cantar', 'cantaron': 'cantar',
+                'aprendí': 'aprender', 'aprendiste': 'aprender', 'aprendió': 'aprender', 'aprendimos': 'aprender', 'aprendisteis': 'aprender', 'aprendieron': 'aprender',
+                'escribí': 'escribir', 'escribiste': 'escribir', 'escribió': 'escribir', 'escribimos': 'escribir', 'escribisteis': 'escribir', 'escribieron': 'escribir',
+                'levanté': 'levantar', 'levantaste': 'levantar', 'levantó': 'levantar', 'levantamos': 'levantar', 'levantasteis': 'levantar', 'levantaron': 'levantar',
+                'fui': 'ir/ser', 'fuiste': 'ir/ser', 'fue': 'ir/ser', 'fuimos': 'ir/ser', 'fuisteis': 'ir/ser', 'fueron': 'ir/ser',
+                'estuve': 'estar', 'estuviste': 'estar', 'estuvo': 'estar', 'estuvimos': 'estar', 'estuvisteis': 'estar', 'estuvieron': 'estar',
+                'tuve': 'tener', 'tuviste': 'tener', 'tuvo': 'tener', 'tuvimos': 'tener', 'tuvisteis': 'tener', 'tuvieron': 'tener',
+                'hice': 'hacer', 'hiciste': 'hacer', 'hizo': 'hacer', 'hicimos': 'hicisteis', 'hicieron': 'hacer',
+                'pude': 'poder', 'pudiste': 'poder', 'pudo': 'poder', 'pudimos': 'poder', 'pudisteis': 'poder', 'pudieron': 'poder',
+                'dije': 'decir', 'dijiste': 'decir', 'dijo': 'decir', 'dijimos': 'decir', 'dijisteis': 'decir', 'dijeron': 'decir',
+                'salí': 'salir', 'saliste': 'salir', 'salió': 'salir', 'salimos': 'salir', 'salisteis': 'salir', 'salieron': 'salir',
+                'puse': 'poner', 'pusiste': 'poner', 'puso': 'poner', 'pusimos': 'poner', 'pusisteis': 'poner', 'pusieron': 'poner',
+                'vi': 'ver', 'viste': 'ver', 'vio': 'ver', 'vimos': 'ver', 'visteis': 'ver', 'vieron': 'ver',
+                'hablaba': 'hablar', 'hablabas': 'hablar', 'hablaba': 'hablar', 'hablábamos': 'hablar', 'hablabais': 'hablar', 'hablaban': 'hablar',
+                'comía': 'comer', 'comías': 'comer', 'comía': 'comer', 'comíamos': 'comer', 'comíais': 'comer', 'comían': 'comer',
+                'vivía': 'vivir', 'vivías': 'vivir', 'vivía': 'vivir', 'vivíamos': 'vivir', 'vivíais': 'vivir', 'vivían': 'vivir',
+                'cantaba': 'cantar', 'cantabas': 'cantar', 'cantaba': 'cantar', 'cantábamos': 'cantar', 'cantabais': 'cantar', 'cantaban': 'cantar',
+                'aprendía': 'aprender', 'aprendías': 'aprender', 'aprendía': 'aprender', 'aprendíamos': 'aprender', 'aprendíais': 'aprender', 'aprendían': 'aprender',
+                'escribía': 'escribir', 'escribías': 'escribir', 'escribía': 'escribir', 'escribíamos': 'escribir', 'escribíais': 'escribir', 'escribían': 'escribir',
+                'levantaba': 'levantar', 'levantabas': 'levantar', 'levantábamos': 'levantar', 'levantabais': 'levantar', 'levantaban': 'levantar',
+                'era': 'ser', 'eras': 'ser', 'era': 'ser', 'éramos': 'ser', 'erais': 'ser', 'eran': 'ser',
+                'iba': 'ir', 'ibas': 'ir', 'iba': 'ir', 'íbamos': 'ir', 'ibais': 'ir', 'iban': 'ir',
+                'veía': 'ver', 'veías': 'ver', 'veía': 'ver', 'veíamos': 'ver', 'veíais': 'ver', 'veían': 'veían',
+                'hablado': 'hablar', 'comido': 'comer', 'vivido': 'vivir',
+                'hecho': 'hacer', 'dicho': 'decir', 'visto': 'ver',
+                'abierto': 'abrir', 'escrito': 'escribir', 'puesto': 'poner',
+                'vuelto': 'volver', 'muerto': 'morir', 'roto': 'romper',
+                'traído': 'traer', 'oído': 'oír', 'leído': 'leer', 'caído': 'caer',
+                'levantado': 'levantar',
+                'comi': 'comer', 'levante': 'levantar', 'levanto': 'levantar',
+                'me levanto': 'levantarse', 'te levantas': 'levantarse', 'se levanta': 'levantarse',
+                'nos levantamos': 'levantarse', 'os levantáis': 'levantarse', 'se levantan': 'levantarse',
+                'me levante': 'levantarse', 'te levantaste': 'levantarse', 'se levanto': 'levantarse',
+                'me levanté': 'levantar',
+                'te levantaste': 'levantar',
+                'se levantó': 'levantar',
+                'nos levantamos': 'levantar',
+                'os levantasteis': 'levantar',
+                'se levantaron': 'levantar',
+                'me levantaba': 'levantarse', 'te levantabas': 'levantarse', 'se levantaba': 'levantarse',
+                'nos levantábamos': 'levantarse', 'os levantabais': 'levantarse', 'se levantaban': 'levantarse',
+                'me he levantado': 'levantarse', 'te has levantado': 'levantarse', 'se ha levantado': 'levantarse',
+                'nos hemos levantado': 'levantarse', 'os habéis levantado': 'levantarse', 'se han levantado': 'levantarse',
+                // Futuro Simple
+                'hablaré': 'hablar', 'hablarás': 'hablar', 'hablará': 'hablar', 'hablaremos': 'hablar', 'hablaréis': 'hablar', 'hablarán': 'hablar',
+                'comeré': 'comer', 'comerás': 'comer', 'comerá': 'comer', 'comeremos': 'comer', 'comeréis': 'comer', 'comerán': 'comer',
+                'viviré': 'vivir', 'vivirás': 'vivir', 'vivirá': 'vivir', 'viviremos': 'vivir', 'viviréis': 'vivir', 'vivirán': 'vivir',
+                'diré': 'decir', 'dirás': 'decir', 'dirá': 'decir', 'diremos': 'decir', 'diréis': 'decir', 'dirán': 'decir',
+                'haré': 'hacer', 'harás': 'hacer', 'hará': 'hacer', 'haremos': 'hacer', 'haréis': 'hacer', 'harán': 'hacer',
+                'podré': 'poder', 'podrás': 'poder', 'podrá': 'poder', 'podremos': 'poder', 'podréis': 'poder', 'podrán': 'poder',
+                // Condicional Simple
+                'hablaría': 'hablar', 'hablarías': 'hablar', 'hablaría': 'hablar', 'hablaríamos': 'hablar', 'hablaríais': 'hablar', 'hablarían': 'hablar',
+                'comería': 'comer', 'comerías': 'comer', 'comería': 'comer', 'comeríamos': 'comer', 'comeríais': 'comer', 'comerían': 'comer',
+                'viviría': 'vivir', 'vivirías': 'vivir', 'viviría': 'vivir', 'viviríamos': 'vivir', 'viviríais': 'vivir', 'vivirían': 'vivir',
+                'diría': 'decir', 'dirías': 'decir', 'diría': 'decir', 'diríamos': 'decir', 'diríais': 'decir', 'dirían': 'decir',
+                'haría': 'hacer', 'harías': 'hacer', 'haría': 'hacer', 'haríamos': 'hacer', 'haríais': 'hacer', 'harían': 'hacer',
+                'podría': 'poder', 'podrías': 'poder', 'podría': 'poder', 'podríamos': 'poder', 'podríais': 'poder', 'podrían': 'poder'
+            };
+
+            // List of common verbs for random suggestion
+            const randomVerbsList = [
+                'hablar', 'comer', 'vivir', 'ser', 'estar', 'ir', 'tener', 'hacer', 'poder', 'querer',
+                'decir', 'ver', 'jugar', 'salir', 'poner', 'saber', 'conocer', 'dar', 'venir', 'leer',
+                'escribir', 'abrir', 'dormir', 'pedir', 'sentir', 'encontrar', 'volver', 'empezar', 'pensar',
+                'levantar', 'levantarse'
+            ];
+
+
+            function conjugate(verb, tense) {
+                verb = verb.toLowerCase().trim();
+                if (!verb) return null;
+
+                const tenseData = verbData[tense];
+                if (!tenseData) return null;
+
+                if (tenseData.irreg[verb]) {
+                    return tenseData.irreg[verb];
+                }
+
+                // Handle future and conditional regular verbs (endings added to infinitive)
+                if (tense === 'futuro' || tense === 'condicional') {
+                    const endings = tenseData.reg;
+                    if (!endings) return null; // Should not happen if data is correct
+                    return endings.map(e => verb + e);
+                }
+
+                const ending = verb.slice(-2);
+                const stem = verb.slice(0, -2);
+                const endings = tenseData.reg[ending];
+                if (!endings) return null;
+
+                return endings.map(e => stem + e);
+            }
+            
+            function conjugatePerfecto(verb) {
+                verb = verb.toLowerCase().trim();
+                if (!verb) return null;
+                
+                const tenseData = verbData.perfecto;
+                const haberForms = tenseData.haber;
+                
+                let participle;
+                if (tenseData.participles.irreg[verb]) {
+                    participle = tenseData.participles.irreg[verb];
+                } else {
+                    const ending = verb.slice(-2);
+                    const stem = verb.slice(0, -2);
+                    const participleEnding = tenseData.participles.reg[ending];
+                    if (!participleEnding) return null;
+                    participle = stem + participleEnding;
+                }
+                
+                return haberForms.map(h => `${h} ${participle}`);
+            }
+
+            function displayConjugation(verb, tense) {
+                const resultDiv = document.getElementById(`conjugation-result-${tense}`);
+                if (!resultDiv) return;
+
+                let conjugations;
+                if(tense === 'perfecto') {
+                    conjugations = conjugatePerfecto(verb);
+                } else {
+                    conjugations = conjugate(verb, tense);
+                }
+                
+                if (!conjugations) {
+                    resultDiv.innerHTML = `<p class="text-red-600">Verbo no encontrado o inválido. Intenta con un infinitivo (e.g., hablar, comer, vivir).</p>`;
+                    return;
+                }
+
+                const englishTranslation = verbTranslations[verb] || 'Translation N/A';
+
+                let tableHTML = `<table class="w-full mt-4 border-collapse"><thead><tr><th class="table-cell table-header">Pronombre</th><th class="table-cell table-header">Conjugación</th><th class="table-cell table-header">Traducción (English)</th></tr></thead><tbody>`;
+                pronouns.forEach((pronoun, index) => {
+                    tableHTML += `<tr><td class="table-cell">${pronoun}</td><td class="table-cell font-mono">${conjugations[index]}</td><td class="table-cell">${englishTranslation}</td></tr>`;
+                });
+                tableHTML += `</tbody></table>`;
+                resultDiv.innerHTML = tableHTML;
+            }
+
+            function setupConjugator(tense) {
+                const input = document.getElementById(`verb-input-${tense}`);
+                const button = document.getElementById(`conjugate-btn-${tense}`);
+
+                if (input && button) {
+                    button.addEventListener('click', () => {
+                        displayConjugation(input.value, tense);
+                    });
+                    input.addEventListener('keyup', (e) => {
+                        if (e.key === 'Enter') {
+                           displayConjugation(input.value, tense);
+                        }
+                    });
+                }
+            }
+
+            function findInfinitive() {
+                const input = document.getElementById('word-input-infinitivo');
+                const resultDiv = document.getElementById('infinitive-result');
+                const word = input.value.toLowerCase().trim();
+
+                let normalizedWord = word;
+                if (word.startsWith('me ') || word.startsWith('te ') || word.startsWith('se ') || word.startsWith('nos ') || word.startsWith('os ')) {
+                    normalizedWord = word.substring(word.indexOf(' ') + 1);
+                }
+                normalizedWord = normalizedWord.normalize("NFD").replace(/[\u0300-\u036f]/g, "");
+
+
+                if (!word) {
+                    resultDiv.innerHTML = `<p class="text-red-600">Por favor, introduce una palabra.</p>`;
+                    return;
+                }
+
+                const infinitive = infinitiveLookup[word] || infinitiveLookup[normalizedWord];
+                if (infinitive) {
+                    resultDiv.innerHTML = `<p>El infinitivo de "<b>${word}</b>" es: <span class="font-bold text-teal-700">${infinitive}</span></p>`;
+                } else {
+                    resultDiv.innerHTML = `<p class="text-red-600">No se encontró el infinitivo para "<b>${word}</b>". Intenta con una forma verbal común.</p>`;
+                }
+            }
+
+            function identifyConjugationDetails(conjugatedWord) {
+                conjugatedWord = conjugatedWord.toLowerCase().trim();
+                const identificationResultDiv = document.getElementById('identification-result');
+                identificationResultDiv.innerHTML = ''; // Clear previous results
+
+                if (!conjugatedWord) {
+                    identificationResultDiv.innerHTML = `<p class="text-red-600">Por favor, introduce una forma verbal para identificar.</p>`;
+                    return;
+                }
+
+                // Normalize input for comparison (remove accents)
+                const normalizedConjugatedWord = conjugatedWord.normalize("NFD").replace(/[\u0300-\u036f]/g, "");
+
+                // Attempt to identify reflexive pronoun and base form
+                let baseForm = conjugatedWord;
+                let isReflexive = false;
+                let reflexivePronoun = '';
+                const reflexivePrefixes = ['me ', 'te ', 'se ', 'nos ', 'os '];
+
+                for (const prefix of reflexivePrefixes) {
+                    if (conjugatedWord.startsWith(prefix)) {
+                        reflexivePronoun = prefix.trim();
+                        baseForm = conjugatedWord.substring(prefix.length);
+                        isReflexive = true;
+                        break;
+                    }
+                }
+
+                // Check for perfect tenses first (haber + participle)
+                const haberForms = verbData.perfecto.haber;
+                for (let i = 0; i < haberForms.length; i++) {
+                    const haberForm = haberForms[i];
+                    if (conjugatedWord.startsWith(haberForm + ' ')) {
+                        const participlePart = conjugatedWord.substring(haberForm.length + 1);
+                        const infinitive = infinitiveLookup[participlePart] || infinitiveLookup[participlePart.normalize("NFD").replace(/[\u0300-\u036f]/g, "")];
+                        if (infinitive) {
+                            const person = pronouns[i];
+                            const tenseName = 'Pretérito Perfecto Compuesto';
+                            identificationResultDiv.innerHTML = `<p><b>${conjugatedWord}</b>: <span class="text-teal-700">${tenseName}</span>, <span class="text-teal-700">${person}</span> del verbo <span class="font-bold text-teal-700">${infinitive.toUpperCase()}</span>.</p>`;
+                            return;
+                        }
+                    }
+                }
+
+                // Iterate through all tenses and verbs to find a match
+                for (const tenseKey in verbData) {
+                    if (tenseKey === 'perfecto') continue; // Already handled compound tense
+
+                    const tenseInfo = verbData[tenseKey];
+                    const tenseDisplayName = {
+                        'presente': 'Presente de Indicativo',
+                        'indefinido': 'Pretérito Indefinido',
+                        'imperfecto': 'Pretérito Imperfecto',
+                        'futuro': 'Futuro Simple',
+                        'condicional': 'Condicional Simple'
+                    }[tenseKey];
+
+                    // Check irregular verbs for this tense
+                    for (const infinitiveVerb in tenseInfo.irreg) {
+                        const conjugations = tenseInfo.irreg[infinitiveVerb];
+                        for (let i = 0; i < conjugations.length; i++) {
+                            const conjugatedForm = conjugations[i];
+                            // Compare both with and without accents
+                            if (conjugatedForm.toLowerCase() === baseForm || conjugatedForm.toLowerCase().normalize("NFD").replace(/[\u0300-\u036f]/g, "") === normalizedConjugatedWord) {
+                                let displayInfinitive = infinitiveVerb.toUpperCase();
+                                if (isReflexive && !displayInfinitive.endsWith('SE')) {
+                                    displayInfinitive += 'SE'; // Add SE for reflexive infinitives
+                                }
+                                identificationResultDiv.innerHTML = `<p><b>${conjugatedWord}</b>: <span class="text-teal-700">${tenseDisplayName}</span>, <span class="text-teal-700">${pronouns[i]}</span> del verbo <span class="font-bold text-teal-700">${displayInfinitive}</span>.</p>`;
+                                return;
+                            }
+                        }
+                    }
+
+                    // Check regular verbs for this tense
+                    // This part is trickier for reverse lookup without a pre-computed map,
+                    // so we'll try to generate and match.
+                    for (const infinitiveVerb of Object.keys(verbTranslations)) {
+                        // Skip irregulars already checked
+                        if (tenseInfo.irreg[infinitiveVerb]) continue;
+
+                        const endingType = infinitiveVerb.slice(-2); // ar, er, ir
+                        if (!tenseInfo.reg[endingType]) continue; // Tense doesn't have this ending type
+
+                        const generatedConjugations = conjugate(infinitiveVerb, tenseKey);
+                        if (generatedConjugations) {
+                            for (let i = 0; i < generatedConjugations.length; i++) {
+                                const genForm = generatedConjugations[i];
+                                if (genForm.toLowerCase() === baseForm || genForm.toLowerCase().normalize("NFD").replace(/[\u0300-\u036f]/g, "") === normalizedConjugatedWord) {
+                                    let displayInfinitive = infinitiveVerb.toUpperCase();
+                                    if (isReflexive && !displayInfinitive.endsWith('SE')) {
+                                        displayInfinitive += 'SE';
+                                    }
+                                    identificationResultDiv.innerHTML = `<p><b>${conjugatedWord}</b>: <span class="text-teal-700">${tenseDisplayName}</span>, <span class="text-teal-700">${pronouns[i]}</span> del verbo <span class="font-bold text-teal-700">${displayInfinitive}</span>.</p>`;
+                                    return;
+                                }
+                            }
+                        }
+                    }
+                }
+
+                // If no match found
+                identificationResultDiv.innerHTML = `<p class="text-red-600">No se pudo identificar la conjugación de "<b>${conjugatedWord}</b>". Intenta con una forma verbal común.</p>`;
+            }
+            
+            document.addEventListener('DOMContentLoaded', () => {
+                tabs.forEach(tab => {
+                    tab.addEventListener('click', () => {
+                        tabs.forEach(t => t.classList.remove('tab-active'));
+                        contents.forEach(c => c.classList.add('hidden'));
+
+                        tab.classList.add('tab-active');
+                        document.getElementById(tab.dataset.tab).classList.remove('hidden');
+                    });
+                });
+
+                tabs[0].classList.add('tab-active');
+                contents[0].classList.remove('hidden');
+                setupConjugator('presente');
+                setupConjugator('indefinido');
+                setupConjugator('imperfecto');
+                setupConjugator('perfecto');
+                setupConjugator('futuro');
+                setupConjugator('condicional');
+
+                const findInfinitiveButton = document.getElementById('find-infinitive-btn');
+                const infinitiveInput = document.getElementById('word-input-infinitivo');
+                if (findInfinitiveButton && infinitiveInput) {
+                    findInfinitiveButton.addEventListener('click', findInfinitive);
+                    infinitiveInput.addEventListener('keyup', (e) => {
+                        if (e.key === 'Enter') {
+                            findInfinitive();
+                        }
+                    });
+                }
+
+                // Setup for Identify Conjugation
+                const identifyVerbInput = document.getElementById('identify-verb-input');
+                const identifyVerbBtn = document.getElementById('identify-verb-btn');
+                if (identifyVerbInput && identifyVerbBtn) {
+                    identifyVerbBtn.addEventListener('click', () => identifyConjugationDetails(identifyVerbInput.value));
+                    identifyVerbInput.addEventListener('keyup', (e) => {
+                        if (e.key === 'Enter') {
+                            identifyConjugationDetails(identifyVerbInput.value);
+                        }
+                    });
+                }
+
+                const currentPracticeVerbs = {};
+
+                function setupPracticeMode(tense) {
+                    const startBtn = document.getElementById(`start-practice-btn-${tense}`);
+                    const practiceVerbInput = document.getElementById(`practice-verb-input-${tense}`);
+                    const practiceTableDiv = document.getElementById(`practice-table-${tense}`);
+                    const checkBtn = document.getElementById(`check-practice-btn-${tense}`);
+                    const showBtn = document.getElementById(`show-practice-btn-${tense}`);
+                    const feedbackDiv = document.getElementById(`practice-feedback-${tense}`);
+                    const randomVerbBtn = document.getElementById(`random-verb-btn-${tense}`);
+
+                    if (!startBtn) return;
+
+                    startBtn.addEventListener('click', () => {
+                        const verb = practiceVerbInput.value.toLowerCase().trim();
+                        if (!verb) {
+                            feedbackDiv.textContent = 'Por favor, introduce un verbo para practicar.';
+                            feedbackDiv.className = 'mt-4 text-center font-bold text-red-600';
+                            practiceTableDiv.innerHTML = '';
+                            checkBtn.classList.add('hidden');
+                            showBtn.classList.add('hidden');
+                            return;
+                        }
+
+                        let correctConjugations;
+                        if (tense === 'perfecto') {
+                            correctConjugations = conjugatePerfecto(verb);
+                        } else {
+                            correctConjugations = conjugate(verb, tense);
+                        }
+
+                        if (!correctConjugations) {
+                            feedbackDiv.textContent = 'Verbo no válido para practicar en este tiempo.';
+                            feedbackDiv.className = 'mt-4 text-center font-bold text-red-600';
+                            practiceTableDiv.innerHTML = '';
+                            checkBtn.classList.add('hidden');
+                            showBtn.classList.add('hidden');
+                            return;
+                        }
+
+                        currentPracticeVerbs[tense] = { verb: verb, conjugations: correctConjugations };
+                        feedbackDiv.textContent = '';
+                        feedbackDiv.className = 'mt-4 text-center font-bold';
+
+                        let tableHTML = `<table class="w-full mt-4 border-collapse"><thead><tr><th class="table-cell table-header">Pronombre</th><th class="table-cell table-header">Tu Conjugación</th><th class="table-cell table-header">Feedback</th></tr></thead><tbody>`;
+                        pronouns.forEach((pronoun, index) => {
+                            tableHTML += `<tr>
+                                <td class="table-cell">${pronoun}</td>
+                                <td class="table-cell"><input type="text" class="practice-input w-full px-2 py-1 border border-stone-300 rounded-md text-sm" data-index="${index}"></td>
+                                <td class="table-cell"><span class="feedback-icon" id="feedback-${tense}-${index}"></span></td>
+                            </tr>`;
+                        });
+                        tableHTML += `</tbody></table>`;
+                        practiceTableDiv.innerHTML = tableHTML;
+
+                        checkBtn.classList.remove('hidden');
+                        showBtn.classList.remove('hidden');
+                    });
+
+                    checkBtn.addEventListener('click', () => {
+                        checkPracticeAnswers(tense);
+                    });
+
+                    showBtn.addEventListener('click', () => {
+                        showPracticeAnswers(tense);
+                    });
+
+                    if (randomVerbBtn) {
+                        randomVerbBtn.addEventListener('click', () => {
+                            const randomIndex = Math.floor(Math.random() * randomVerbsList.length);
+                            practiceVerbInput.value = randomVerbsList[randomIndex];
+                            startBtn.click();
+                        });
+                    }
+                }
+
+                function checkPracticeAnswers(tense) {
+                    const practiceInputs = document.querySelectorAll(`#practice-table-${tense} .practice-input`);
+                    const feedbackDiv = document.getElementById(`practice-feedback-${tense}`);
+                    const correctConjugations = currentPracticeVerbs[tense].conjugations;
+                    let allCorrect = true;
+                    let correctCount = 0;
+
+                    practiceInputs.forEach(input => {
+                        const index = parseInt(input.dataset.index);
+                        const userAnswer = input.value.toLowerCase().trim();
+                        const correctAnswer = correctConjugations[index].toLowerCase().trim();
+                        const feedbackIcon = document.getElementById(`feedback-${tense}-${index}`);
+
+                        if (userAnswer === correctAnswer) {
+                            feedbackIcon.textContent = '✅';
+                            feedbackIcon.className = 'feedback-icon feedback-correct';
+                            input.classList.remove('border-red-500');
+                            input.classList.add('border-green-500');
+                            correctCount++;
+                        } else {
+                            feedbackIcon.textContent = '❌';
+                            feedbackIcon.className = 'feedback-icon feedback-incorrect';
+                            input.classList.remove('border-green-500');
+                            input.classList.add('border-red-500');
+                            allCorrect = false;
+                        }
+                    });
+
+                    if (allCorrect) {
+                        feedbackDiv.textContent = `¡Felicidades! Todas las conjugaciones son correctas.`;
+                        feedbackDiv.className = 'mt-4 text-center font-bold text-green-600';
+                    } else {
+                        feedbackDiv.textContent = `Tienes ${correctCount} de ${pronouns.length} correctas. Sigue practicando.`;
+                        feedbackDiv.className = 'mt-4 text-center font-bold text-red-600';
+                    }
+                }
+
+                function showPracticeAnswers(tense) {
+                    const practiceTableDiv = document.getElementById(`practice-table-${tense}`);
+                    const feedbackDiv = document.getElementById(`practice-feedback-${tense}`);
+                    const correctConjugations = currentPracticeVerbs[tense].conjugations;
+                    const verb = currentPracticeVerbs[tense].verb;
+
+                    const currentUserAnswers = Array.from(practiceTableDiv.querySelectorAll('.practice-input')).map(input => input.value);
+
+                    let tableHTML = `<table class="w-full mt-4 border-collapse"><thead><tr>
+                        <th class="table-cell table-header">Pronombre</th>
+                        <th class="table-cell table-header">Tu Conjugación</th>
+                        <th class="table-cell table-header">Respuesta Correcta</th>
+                        <th class="table-cell table-header">Feedback</th>
+                    </tr></thead><tbody>`;
+
+                    pronouns.forEach((pronoun, index) => {
+                        const userAnswer = currentUserAnswers[index];
+                        const correctAnswer = correctConjugations[index];
+                        const isCorrect = userAnswer.toLowerCase().trim() === correctAnswer.toLowerCase().trim();
+                        const feedbackIcon = isCorrect ? '✅' : '❌';
+                        const feedbackClass = isCorrect ? 'feedback-correct' : 'feedback-incorrect';
+
+                        tableHTML += `<tr>
+                            <td class="table-cell">${pronoun}</td>
+                            <td class="table-cell">
+                                <input type="text" class="practice-input w-full px-2 py-1 border rounded-md text-sm ${isCorrect ? 'border-green-500' : 'border-red-500'}" value="${userAnswer}" data-index="${index}" disabled>
+                            </td>
+                            <td class="table-cell font-mono">${correctAnswer}</td>
+                            <td class="table-cell"><span class="feedback-icon ${feedbackClass}">${feedbackIcon}</span></td>
+                        </tr>`;
+                    });
+                    tableHTML += `</tbody></table>`;
+                    practiceTableDiv.innerHTML = tableHTML;
+
+                    feedbackDiv.textContent = 'Respuestas mostradas para comparación.';
+                    feedbackDiv.className = 'mt-4 text-center font-bold text-stone-600';
+                }
+
+                document.querySelectorAll('.mode-button').forEach(button => {
+                    button.addEventListener('click', () => {
+                        const tense = button.dataset.tense;
+                        const mode = button.dataset.mode;
+
+                        document.querySelectorAll(`.mode-button[data-tense="${tense}"]`).forEach(btn => {
+                            btn.classList.remove('mode-active');
+                        });
+                        button.classList.add('mode-active');
+
+                        document.getElementById(`${tense}-view-mode`).classList.add('hidden');
+                        document.getElementById(`${tense}-practice-mode`).classList.add('hidden');
+
+                        document.getElementById(`${tense}-${mode}-mode`).classList.remove('hidden');
+
+                        if (mode === 'view') {
+                            document.getElementById(`practice-table-${tense}`).innerHTML = '';
+                            document.getElementById(`practice-feedback-${tense}`).textContent = '';
+                            document.getElementById(`check-practice-btn-${tense}`).classList.add('hidden');
+                            document.getElementById(`show-practice-btn-${tense}`).classList.add('hidden');
+                        }
+                    });
+                });
+
+                setupPracticeMode('presente');
+                setupPracticeMode('indefinido');
+                setupPracticeMode('imperfecto');
+                setupPracticeMode('perfecto');
+                setupPracticeMode('futuro');
+                setupPracticeMode('condicional');
+            });
+        })(); // IIFE ends here
+    </script>
+</body>
+</html>
