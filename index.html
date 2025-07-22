@@ -1,4 +1,5 @@
-﻿<!DOCTYPE html>
+
+<!DOCTYPE html>
 <html lang="es">
 <head>
     <meta charset="UTF-8">
@@ -74,6 +75,8 @@
             <button class="tab-btn px-4 py-3 border-b-4 border-transparent text-stone-600 hover:bg-stone-100 transition" data-tab="perfecto">P. Perfecto</button>
             <button class="tab-btn px-4 py-3 border-b-4 border-transparent text-stone-600 hover:bg-stone-100 transition" data-tab="futuro">Futuro Simple</button>
             <button class="tab-btn px-4 py-3 border-b-4 border-transparent text-stone-600 hover:bg-stone-100 transition" data-tab="condicional">Condicional</button>
+            <button class="tab-btn px-4 py-3 border-b-4 border-transparent text-stone-600 hover:bg-stone-100 transition" data-tab="presente-subjuntivo">P. Subjuntivo</button>
+            <button class="tab-btn px-4 py-3 border-b-4 border-transparent text-stone-600 hover:bg-stone-100 transition" data-tab="imperfecto-subjuntivo">Imp. Subjuntivo</button>
             <button class="tab-btn px-4 py-3 border-b-4 border-transparent text-stone-600 hover:bg-stone-100 transition" data-tab="comparacion">Comparación</button>
             <button class="tab-btn px-4 py-3 border-b-4 border-transparent text-stone-600 hover:bg-stone-100 transition" data-tab="identificar-verbo">Identificar Verbo</button>
         </nav>
@@ -115,6 +118,22 @@
                             <input type="text" id="practice-verb-input-presente" placeholder="Escribe un verbo (e.g., hablar, comer)" class="w-full px-4 py-2 border border-stone-300 rounded-md focus:ring-2 focus:ring-teal-500 focus:border-teal-500 transition">
                             <button id="start-practice-btn-presente" class="w-full sm:w-auto bg-teal-600 text-white px-6 py-2 rounded-md hover:bg-teal-700 transition font-semibold">Empezar Práctica</button>
                             <button id="random-verb-btn-presente" class="w-full sm:w-auto bg-stone-400 text-white px-6 py-2 rounded-md hover:bg-stone-500 transition font-semibold">Sugerir Verbo Aleatorio</button>
+                        </div>
+                        <div class="flex flex-col sm:flex-row gap-2 items-center mb-4">
+                            <label for="practice-category-presente" class="text-sm font-medium text-stone-700">Categoría:</label>
+                            <select id="practice-category-presente" class="w-full sm:w-auto px-3 py-2 border border-stone-300 rounded-md focus:ring-2 focus:ring-teal-500 focus:border-teal-500 transition">
+                                <option value="all">Todos los verbos</option>
+                                <option value="regular_ar">Regulares -AR</option>
+                                <option value="regular_er">Regulares -ER</option>
+                                <option value="regular_ir">Regulares -IR</option>
+                                <option value="irregular_common">Irregulares Comunes</option>
+                                <option value="reflexive">Reflexivos</option>
+                                <option value="stem_changing_e_ie">Cambio E>IE</option>
+                                <option value="stem_changing_o_ue">Cambio O>UE</option>
+                                <option value="stem_changing_e_i">Cambio E>I</option>
+                                <option value="go_verbs_present">Verbos con -go</option>
+                                <option value="z_c_verbs_present">Verbos con -zco</option>
+                            </select>
                         </div>
                         <div id="practice-table-presente" class="mt-6 overflow-x-auto"></div>
                         <div id="practice-feedback-presente" class="mt-4 text-center font-bold"></div>
@@ -161,6 +180,22 @@
                             <input type="text" id="practice-verb-input-indefinido" placeholder="Escribe un verbo (e.g., comer, ir)" class="w-full px-4 py-2 border border-stone-300 rounded-md focus:ring-2 focus:ring-teal-500 focus:border-teal-500 transition">
                             <button id="start-practice-btn-indefinido" class="w-full sm:w-auto bg-teal-600 text-white px-6 py-2 rounded-md hover:bg-teal-700 transition font-semibold">Empezar Práctica</button>
                             <button id="random-verb-btn-indefinido" class="w-full sm:w-auto bg-stone-400 text-white px-6 py-2 rounded-md hover:bg-stone-500 transition font-semibold">Sugerir Verbo Aleatorio</button>
+                        </div>
+                        <div class="flex flex-col sm:flex-row gap-2 items-center mb-4">
+                            <label for="practice-category-indefinido" class="text-sm font-medium text-stone-700">Categoría:</label>
+                            <select id="practice-category-indefinido" class="w-full sm:w-auto px-3 py-2 border border-stone-300 rounded-md focus:ring-2 focus:ring-teal-500 focus:border-teal-500 transition">
+                                <option value="all">Todos los verbos</option>
+                                <option value="regular_ar">Regulares -AR</option>
+                                <option value="regular_er">Regulares -ER</option>
+                                <option value="regular_ir">Regulares -IR</option>
+                                <option value="irregular_common">Irregulares Comunes</option>
+                                <option value="reflexive">Reflexivos</option>
+                                <option value="stem_changing_e_ie">Cambio E>IE</option>
+                                <option value="stem_changing_o_ue">Cambio O>UE</option>
+                                <option value="stem_changing_e_i">Cambio E>I</option>
+                                <option value="go_verbs_present">Verbos con -go</option>
+                                <option value="z_c_verbs_present">Verbos con -zco</option>
+                            </select>
                         </div>
                         <div id="practice-table-indefinido" class="mt-6 overflow-x-auto"></div>
                         <div id="practice-feedback-indefinido" class="mt-4 text-center font-bold"></div>
@@ -209,6 +244,22 @@
                             <button id="start-practice-btn-imperfecto" class="w-full sm:w-auto bg-teal-600 text-white px-6 py-2 rounded-md hover:bg-teal-700 transition font-semibold">Empezar Práctica</button>
                             <button id="random-verb-btn-imperfecto" class="w-full sm:w-auto bg-stone-400 text-white px-6 py-2 rounded-md hover:bg-stone-500 transition font-semibold">Sugerir Verbo Aleatorio</button>
                         </div>
+                        <div class="flex flex-col sm:flex-row gap-2 items-center mb-4">
+                            <label for="practice-category-imperfecto" class="text-sm font-medium text-stone-700">Categoría:</label>
+                            <select id="practice-category-imperfecto" class="w-full sm:w-auto px-3 py-2 border border-stone-300 rounded-md focus:ring-2 focus:ring-teal-500 focus:border-teal-500 transition">
+                                <option value="all">Todos los verbos</option>
+                                <option value="regular_ar">Regulares -AR</option>
+                                <option value="regular_er">Regulares -ER</option>
+                                <option value="regular_ir">Regulares -IR</option>
+                                <option value="irregular_common">Irregulares Comunes</option>
+                                <option value="reflexive">Reflexivos</option>
+                                <option value="stem_changing_e_ie">Cambio E>IE</option>
+                                <option value="stem_changing_o_ue">Cambio O>UE</option>
+                                <option value="stem_changing_e_i">Cambio E>I</option>
+                                <option value="go_verbs_present">Verbos con -go</option>
+                                <option value="z_c_verbs_present">Verbos con -zco</option>
+                            </select>
+                        </div>
                         <div id="practice-table-imperfecto" class="mt-6 overflow-x-auto"></div>
                         <div id="practice-feedback-imperfecto" class="mt-4 text-center font-bold"></div>
                         <div class="flex justify-center gap-4 mt-4">
@@ -227,7 +278,7 @@
                      <ul class="list-disc list-inside space-y-2 text-stone-700">
                         <li><b>Pasado reciente (común en España):</b> <i>Hoy <b>he comido</b> paella.</i></li>
                         <li><b>Experiencias de vida:</b> <i>Nunca <b>he visitado</b> Asia.</i></li>
-                        <li><b>Acciones con relevancia actual:</b> <i>No <b>he terminado</b> el trabajo.</i></li>
+                        <li><b>Acciones con relevancia actual:</b> <i><i>No <b>he terminado</b> el trabajo.</i></i></li>
                     </ul>
                 </div>
 
@@ -254,6 +305,22 @@
                             <input type="text" id="practice-verb-input-perfecto" placeholder="Escribe un verbo (e.g., hacer, ver)" class="w-full px-4 py-2 border border-stone-300 rounded-md focus:ring-2 focus:ring-teal-500 focus:border-teal-500 transition">
                             <button id="start-practice-btn-perfecto" class="w-full sm:w-auto bg-teal-600 text-white px-6 py-2 rounded-md hover:bg-teal-700 transition font-semibold">Empezar Práctica</button>
                             <button id="random-verb-btn-perfecto" class="w-full sm:w-auto bg-stone-400 text-white px-6 py-2 rounded-md hover:bg-stone-500 transition font-semibold">Sugerir Verbo Aleatorio</button>
+                        </div>
+                        <div class="flex flex-col sm:flex-row gap-2 items-center mb-4">
+                            <label for="practice-category-perfecto" class="text-sm font-medium text-stone-700">Categoría:</label>
+                            <select id="practice-category-perfecto" class="w-full sm:w-auto px-3 py-2 border border-stone-300 rounded-md focus:ring-2 focus:ring-teal-500 focus:border-teal-500 transition">
+                                <option value="all">Todos los verbos</option>
+                                <option value="regular_ar">Regulares -AR</option>
+                                <option value="regular_er">Regulares -ER</option>
+                                <option value="regular_ir">Regulares -IR</option>
+                                <option value="irregular_common">Irregulares Comunes</option>
+                                <option value="reflexive">Reflexivos</option>
+                                <option value="stem_changing_e_ie">Cambio E>IE</option>
+                                <option value="stem_changing_o_ue">Cambio O>UE</option>
+                                <option value="stem_changing_e_i">Cambio E>I</option>
+                                <option value="go_verbs_present">Verbos con -go</option>
+                                <option value="z_c_verbs_present">Verbos con -zco</option>
+                            </select>
                         </div>
                         <div id="practice-table-perfecto" class="mt-6 overflow-x-auto"></div>
                         <div id="practice-feedback-perfecto" class="mt-4 text-center font-bold"></div>
@@ -300,6 +367,23 @@
                             <input type="text" id="practice-verb-input-futuro" placeholder="Escribe un verbo (e.g., comer, ir)" class="w-full px-4 py-2 border border-stone-300 rounded-md focus:ring-2 focus:ring-teal-500 focus:border-teal-500 transition">
                             <button id="start-practice-btn-futuro" class="w-full sm:w-auto bg-teal-600 text-white px-6 py-2 rounded-md hover:bg-teal-700 transition font-semibold">Empezar Práctica</button>
                             <button id="random-verb-btn-futuro" class="w-full sm:w-auto bg-stone-400 text-white px-6 py-2 rounded-md hover:bg-stone-500 transition font-semibold">Sugerir Verbo Aleatorio</button>
+                        </div>
+                        <div class="flex flex-col sm:flex-row gap-2 items-center mb-4">
+                            <label for="practice-category-futuro" class="text-sm font-medium text-stone-700">Categoría:</label>
+                            <select id="practice-category-futuro" class="w-full sm:w-auto px-3 py-2 border border-stone-300 rounded-md focus:ring-2 focus:ring-teal-500 focus:border-teal-500 transition">
+                                <option value="all">Todos los verbos</option>
+                                <option value="regular_ar">Regulares -AR</option>
+                                <option value="regular_er">Regulares -ER</option>
+                                <option value="regular_ir">Regulares -IR</option>
+                                <option value="irregular_common">Irregulares Comunes</option>
+                                <option value="reflexive">Reflexivos</option>
+                                <option value="stem_changing_e_ie">Cambio E>IE</option>
+                                <option value="stem_changing_o_ue">Cambio O>UE</option>
+                                <option value="stem_changing_e_i">Cambio E>I</option>
+                                <option value="go_verbs_present">Verbos con -go</option>
+                                <option value="z_c_verbs_present">Verbos con -zco</option>
+                                <option value="irregular_future_cond">Irregulares Futuro/Condicional</option>
+                            </select>
                         </div>
                         <div id="practice-table-futuro" class="mt-6 overflow-x-auto"></div>
                         <div id="practice-feedback-futuro" class="mt-4 text-center font-bold"></div>
@@ -348,11 +432,155 @@
                             <button id="start-practice-btn-condicional" class="w-full sm:w-auto bg-teal-600 text-white px-6 py-2 rounded-md hover:bg-teal-700 transition font-semibold">Empezar Práctica</button>
                             <button id="random-verb-btn-condicional" class="w-full sm:w-auto bg-stone-400 text-white px-6 py-2 rounded-md hover:bg-stone-500 transition font-semibold">Sugerir Verbo Aleatorio</button>
                         </div>
+                        <div class="flex flex-col sm:flex-row gap-2 items-center mb-4">
+                            <label for="practice-category-condicional" class="text-sm font-medium text-stone-700">Categoría:</label>
+                            <select id="practice-category-condicional" class="w-full sm:w-auto px-3 py-2 border border-stone-300 rounded-md focus:ring-2 focus:ring-teal-500 focus:border-teal-500 transition">
+                                <option value="all">Todos los verbos</option>
+                                <option value="regular_ar">Regulares -AR</option>
+                                <option value="regular_er">Regulares -ER</option>
+                                <option value="regular_ir">Regulares -IR</option>
+                                <option value="irregular_common">Irregulares Comunes</option>
+                                <option value="reflexive">Reflexivos</option>
+                                <option value="stem_changing_e_ie">Cambio E>IE</option>
+                                <option value="stem_changing_o_ue">Cambio O>UE</option>
+                                <option value="stem_changing_e_i">Cambio E>I</option>
+                                <option value="go_verbs_present">Verbos con -go</option>
+                                <option value="z_c_verbs_present">Verbos con -zco</option>
+                                <option value="irregular_future_cond">Irregulares Futuro/Condicional</option>
+                            </select>
+                        </div>
                         <div id="practice-table-condicional" class="mt-6 overflow-x-auto"></div>
                         <div id="practice-feedback-condicional" class="mt-4 text-center font-bold"></div>
                         <div class="flex justify-center gap-4 mt-4">
                             <button id="check-practice-btn-condicional" class="bg-blue-600 text-white px-6 py-2 rounded-md hover:bg-blue-700 transition font-semibold hidden">Comprobar Respuestas</button>
                             <button id="show-practice-btn-condicional" class="bg-stone-500 text-white px-6 py-2 rounded-md hover:bg-stone-600 transition font-semibold hidden">Mostrar Respuestas</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Presente de Subjuntivo -->
+            <div id="presente-subjuntivo" class="tab-content space-y-8 hidden">
+                <div class="bg-white p-6 rounded-lg shadow-sm">
+                    <h2 class="text-2xl font-bold text-teal-700 mb-4">Presente de Subjuntivo</h2>
+                    <p class="mb-4 text-stone-600">El presente de subjuntivo se usa para expresar deseos, emociones, dudas, opiniones negativas, consejos, o situaciones hipotéticas. A menudo aparece en oraciones subordinadas introducidas por "que".</p>
+                    <ul class="list-disc list-inside space-y-2 text-stone-700">
+                        <li><b>Deseos/Esperanzas:</b> <i>Espero que <b>vengas</b>.</i> (I hope you come.)</li>
+                        <li><b>Emociones:</b> <i>Me alegra que <b>estés</b> bien.</i> (I'm glad you are well.)</li>
+                        <li><b>Dudas/Incertidumbre:</b> <i>Dudo que <b>sepa</b> la respuesta.</i> (I doubt he knows the answer.)</li>
+                        <li><b>Consejos/Peticiones:</b> <i>Te aconsejo que <b>estudies</b>.</i> (I advise you to study.)</li>
+                    </ul>
+                </div>
+
+                <div class="flex justify-center gap-4 mb-6">
+                    <button class="mode-button mode-active" data-mode="view" data-tense="presente-subjuntivo">Ver Conjugación</button>
+                    <button class="mode-button" data-mode="practice" data-tense="presente-subjuntivo">Practicar Conjugación</button>
+                </div>
+
+                <div id="presente-subjuntivo-view-mode" class="mode-section">
+                    <div class="bg-white p-6 rounded-lg shadow-sm">
+                        <h3 class="text-xl font-semibold text-teal-700 mb-4">Ver Conjugación en Presente de Subjuntivo</h3>
+                        <div class="flex flex-col sm:flex-row gap-2 items-center">
+                            <input type="text" id="verb-input-presente-subjuntivo" placeholder="Escribe un verbo (e.g., hablar, ser)" class="w-full px-4 py-2 border border-stone-300 rounded-md focus:ring-2 focus:ring-teal-500 focus:border-teal-500 transition">
+                            <button id="conjugate-btn-presente-subjuntivo" class="w-full sm:w-auto bg-teal-600 text-white px-6 py-2 rounded-md hover:bg-teal-700 transition font-semibold">Conjugar</button>
+                        </div>
+                        <div id="conjugation-result-presente-subjuntivo" class="mt-6 overflow-x-auto"></div>
+                    </div>
+                </div>
+
+                <div id="presente-subjuntivo-practice-mode" class="mode-section hidden">
+                    <div class="bg-white p-6 rounded-lg shadow-sm">
+                        <h3 class="text-xl font-semibold text-teal-700 mb-4">Practicar Conjugación en Presente de Subjuntivo</h3>
+                        <div class="flex flex-col sm:flex-row gap-2 items-center mb-4">
+                            <input type="text" id="practice-verb-input-presente-subjuntivo" placeholder="Escribe un verbo (e.g., comer, ir)" class="w-full px-4 py-2 border border-stone-300 rounded-md focus:ring-2 focus:ring-teal-500 focus:border-teal-500 transition">
+                            <button id="start-practice-btn-presente-subjuntivo" class="w-full sm:w-auto bg-teal-600 text-white px-6 py-2 rounded-md hover:bg-teal-700 transition font-semibold">Empezar Práctica</button>
+                            <button id="random-verb-btn-presente-subjuntivo" class="w-full sm:w-auto bg-stone-400 text-white px-6 py-2 rounded-md hover:bg-stone-500 transition font-semibold">Sugerir Verbo Aleatorio</button>
+                        </div>
+                        <div class="flex flex-col sm:flex-row gap-2 items-center mb-4">
+                            <label for="practice-category-presente-subjuntivo" class="text-sm font-medium text-stone-700">Categoría:</label>
+                            <select id="practice-category-presente-subjuntivo" class="w-full sm:w-auto px-3 py-2 border border-stone-300 rounded-md focus:ring-2 focus:ring-teal-500 focus:border-teal-500 transition">
+                                <option value="all">Todos los verbos</option>
+                                <option value="regular_ar">Regulares -AR</option>
+                                <option value="regular_er">Regulares -ER</option>
+                                <option value="regular_ir">Regulares -IR</option>
+                                <option value="irregular_common">Irregulares Comunes</option>
+                                <option value="reflexive">Reflexivos</option>
+                                <option value="stem_changing_e_ie">Cambio E>IE</option>
+                                <option value="stem_changing_o_ue">Cambio O>UE</option>
+                                <option value="stem_changing_e_i">Cambio E>I</option>
+                                <option value="go_verbs_present">Verbos con -go</option>
+                                <option value="z_c_verbs_present">Verbos con -zco</option>
+                                <option value="subjunctive_common_irreg">Irregulares Subjuntivo</option>
+                            </select>
+                        </div>
+                        <div id="practice-table-presente-subjuntivo" class="mt-6 overflow-x-auto"></div>
+                        <div id="practice-feedback-presente-subjuntivo" class="mt-4 text-center font-bold"></div>
+                        <div class="flex justify-center gap-4 mt-4">
+                            <button id="check-practice-btn-presente-subjuntivo" class="bg-blue-600 text-white px-6 py-2 rounded-md hover:bg-blue-700 transition font-semibold hidden">Comprobar Respuestas</button>
+                            <button id="show-practice-btn-presente-subjuntivo" class="bg-stone-500 text-white px-6 py-2 rounded-md hover:bg-stone-600 transition font-semibold hidden">Mostrar Respuestas</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Imperfecto de Subjuntivo -->
+            <div id="imperfecto-subjuntivo" class="tab-content space-y-8 hidden">
+                <div class="bg-white p-6 rounded-lg shadow-sm">
+                    <h2 class="text-2xl font-bold text-teal-700 mb-4">Imperfecto de Subjuntivo</h2>
+                    <p class="mb-4 text-stone-600">El imperfecto de subjuntivo se utiliza para expresar deseos, emociones, dudas o situaciones hipotéticas en el pasado, o como parte de oraciones condicionales. Tiene dos sets de terminaciones posibles, siendo la forma en -ra la más común.</p>
+                    <ul class="list-disc list-inside space-y-2 text-stone-700">
+                        <li><b>Deseos en el pasado:</b> <i>Quería que <b>vinieras</b>.</i> (I wanted you to come.)</li>
+                        <li><b>Condicionales (si...):</b> <i>Si <b>tuviera</b> dinero, viajaría.</i> (If I had money, I would travel.)</li>
+                        <li><b>Emociones en el pasado:</b> <i>Me alegró que <b>estuvieras</b> allí.</i> (It made me happy that you were there.)</li>
+                    </ul>
+                </div>
+
+                <div class="flex justify-center gap-4 mb-6">
+                    <button class="mode-button mode-active" data-mode="view" data-tense="imperfecto-subjuntivo">Ver Conjugación</button>
+                    <button class="mode-button" data-mode="practice" data-tense="imperfecto-subjuntivo">Practicar Conjugación</button>
+                </div>
+
+                <div id="imperfecto-subjuntivo-view-mode" class="mode-section">
+                    <div class="bg-white p-6 rounded-lg shadow-sm">
+                        <h3 class="text-xl font-semibold text-teal-700 mb-4">Ver Conjugación en Imperfecto de Subjuntivo</h3>
+                        <div class="flex flex-col sm:flex-row gap-2 items-center">
+                            <input type="text" id="verb-input-imperfecto-subjuntivo" placeholder="Escribe un verbo (e.g., hablar, ser)" class="w-full px-4 py-2 border border-stone-300 rounded-md focus:ring-2 focus:ring-teal-500 focus:border-teal-500 transition">
+                            <button id="conjugate-btn-imperfecto-subjuntivo" class="w-full sm:w-auto bg-teal-600 text-white px-6 py-2 rounded-md hover:bg-teal-700 transition font-semibold">Conjugar</button>
+                        </div>
+                        <div id="conjugation-result-imperfecto-subjuntivo" class="mt-6 overflow-x-auto"></div>
+                    </div>
+                </div>
+
+                <div id="imperfecto-subjuntivo-practice-mode" class="mode-section hidden">
+                    <div class="bg-white p-6 rounded-lg shadow-sm">
+                        <h3 class="text-xl font-semibold text-teal-700 mb-4">Practicar Conjugación en Imperfecto de Subjuntivo</h3>
+                        <div class="flex flex-col sm:flex-row gap-2 items-center mb-4">
+                            <input type="text" id="practice-verb-input-imperfecto-subjuntivo" placeholder="Escribe un verbo (e.g., comer, ir)" class="w-full px-4 py-2 border border-stone-300 rounded-md focus:ring-2 focus:ring-teal-500 focus:border-teal-500 transition">
+                            <button id="start-practice-btn-imperfecto-subjuntivo" class="w-full sm:w-auto bg-teal-600 text-white px-6 py-2 rounded-md hover:bg-teal-700 transition font-semibold">Empezar Práctica</button>
+                            <button id="random-verb-btn-imperfecto-subjuntivo" class="w-full sm:w-auto bg-stone-400 text-white px-6 py-2 rounded-md hover:bg-stone-500 transition font-semibold">Sugerir Verbo Aleatorio</button>
+                        </div>
+                        <div class="flex flex-col sm:flex-row gap-2 items-center mb-4">
+                            <label for="practice-category-imperfecto-subjuntivo" class="text-sm font-medium text-stone-700">Categoría:</label>
+                            <select id="practice-category-imperfecto-subjuntivo" class="w-full sm:w-auto px-3 py-2 border border-stone-300 rounded-md focus:ring-2 focus:ring-teal-500 focus:border-teal-500 transition">
+                                <option value="all">Todos los verbos</option>
+                                <option value="regular_ar">Regulares -AR</option>
+                                <option value="regular_er">Regulares -ER</option>
+                                <option value="regular_ir">Regulares -IR</option>
+                                <option value="irregular_common">Irregulares Comunes</option>
+                                <option value="reflexive">Reflexivos</option>
+                                <option value="stem_changing_e_ie">Cambio E>IE</option>
+                                <option value="stem_changing_o_ue">Cambio O>UE</option>
+                                <option value="stem_changing_e_i">Cambio E>I</option>
+                                <option value="go_verbs_present">Verbos con -go</option>
+                                <option value="z_c_verbs_present">Verbos con -zco</option>
+                                <option value="subjunctive_common_irreg">Irregulares Subjuntivo</option>
+                            </select>
+                        </div>
+                        <div id="practice-table-imperfecto-subjuntivo" class="mt-6 overflow-x-auto"></div>
+                        <div id="practice-feedback-imperfecto-subjuntivo" class="mt-4 text-center font-bold"></div>
+                        <div class="flex justify-center gap-4 mt-4">
+                            <button id="check-practice-btn-imperfecto-subjuntivo" class="bg-blue-600 text-white px-6 py-2 rounded-md hover:bg-blue-700 transition font-semibold hidden">Comprobar Respuestas</button>
+                            <button id="show-practice-btn-imperfecto-subjuntivo" class="bg-stone-500 text-white px-6 py-2 rounded-md hover:bg-stone-600 transition font-semibold hidden">Mostrar Respuestas</button>
                         </div>
                     </div>
                 </div>
@@ -512,6 +740,58 @@
                             volver: 'vuelto', morir: 'muerto', romper: 'roto'
                         }
                     }
+                },
+                presente_subjuntivo: {
+                    reg: {
+                        // For -AR verbs, use -ER/-IR endings of Presente de Indicativo
+                        ar: ['e', 'es', 'e', 'emos', 'éis', 'en'],
+                        // For -ER/-IR verbs, use -AR endings of Presente de Indicativo
+                        er: ['a', 'as', 'a', 'amos', 'áis', 'an'],
+                        ir: ['a', 'as', 'a', 'amos', 'áis', 'an']
+                    },
+                    irreg: {
+                        ser: ['sea', 'seas', 'sea', 'seamos', 'seáis', 'sean'],
+                        estar: ['esté', 'estés', 'esté', 'estemos', 'estéis', 'estén'],
+                        ir: ['vaya', 'vayas', 'vaya', 'vayamos', 'vayáis', 'vayan'],
+                        haber: ['haya', 'hayas', 'haya', 'hayamos', 'hayáis', 'hayan'],
+                        saber: ['sepa', 'sepas', 'sepa', 'sepamos', 'sepáis', 'sepan'],
+                        dar: ['dé', 'des', 'dé', 'demos', 'deis', 'den'],
+                        conocer: ['conozca', 'conozcas', 'conozca', 'conozcamos', 'conozcáis', 'conozcan'], // -zco verbs
+                        hacer: ['haga', 'hagas', 'haga', 'hagamos', 'hagáis', 'hagan'], // -go verbs
+                        decir: ['diga', 'digas', 'diga', 'digamos', 'digáis', 'digan'],
+                        tener: ['tenga', 'tengas', 'tenga', 'tengamos', 'tengáis', 'tengan'],
+                        venir: ['venga', 'vengas', 'venga', 'vengamos', 'vengáis', 'vengan'],
+                        oír: ['oiga', 'oigas', 'oiga', 'oigamos', 'oigáis', 'oigan'],
+                        poder: ['pueda', 'puedas', 'pueda', 'podamos', 'podáis', 'puedan'], // Stem-changing o>ue
+                        querer: ['quiera', 'quieras', 'quiera', 'queramos', 'queráis', 'quieran'], // Stem-changing e>ie
+                        pedir: ['pida', 'pidas', 'pida', 'pidamos', 'pidáis', 'pidan'], // Stem-changing e>i
+                        dormir: ['duerma', 'duermas', 'duerma', 'durmamos', 'durmáis', 'duerman'] // Stem-changing o>ue with u in nosotros/vosotros
+                    }
+                },
+                imperfecto_subjuntivo: {
+                    reg: {
+                        // Formed from 3rd person plural of Preterite (-ron ending)
+                        ar: ['ara', 'aras', 'ara', 'áramos', 'arais', 'aran'],
+                        er: ['iera', 'ieras', 'iera', 'iéramos', 'ierais', 'ieran'],
+                        ir: ['iera', 'ieras', 'iera', 'iéramos', 'ierais', 'ieran']
+                    },
+                    irreg: {
+                        // Irregular stems are based on Preterite irregular stems
+                        ser: ['fuera', 'fueras', 'fuera', 'fuéramos', 'fuerais', 'fueran'],
+                        ir: ['fuera', 'fueras', 'fuera', 'fuéramos', 'fuerais', 'fueran'],
+                        estar: ['estuviera', 'estuvieras', 'estuviera', 'estuviéramos', 'estuvierais', 'estuvieran'],
+                        tener: ['tuviera', 'tuvieras', 'tuviera', 'tuviéramos', 'tuvierais', 'tuvieran'],
+                        hacer: ['hiciera', 'hicieras', 'hiciera', 'hiciéramos', 'hicierais', 'hicieran'],
+                        poder: ['pudiera', 'pudieras', 'pudiera', 'pudiéramos', 'pudierais', 'pudieran'],
+                        decir: ['dijera', 'dijeras', 'dijera', 'dijéramos', 'dijerais', 'dijeran'],
+                        venir: ['viniera', 'vinieras', 'viniera', 'viniéramos', 'vinierais', 'vinieran'],
+                        saber: ['supiera', 'supieras', 'supiera', 'supiéramos', 'supierais', 'supieran'],
+                        poner: ['pusiera', 'pusieras', 'pusiera', 'pusiéramos', 'pusierais', 'pusieran'],
+                        querer: ['quisiera', 'quisieras', 'quisiera', 'quisiéramos', 'quisierais', 'quisieran'],
+                        traer: ['trajiera', 'trajieras', 'trajiera', 'trajéramos', 'trajierais', 'trajieran'],
+                        dormir: ['durmiera', 'durmieras', 'durmiera', 'durmiéramos', 'durmierais', 'durmieran'], // e.g. durmieron -> durmiera
+                        pedir: ['pidiera', 'pidieras', 'pidiera', 'pidiéramos', 'pidierais', 'pidieran'] // e.g. pidieron -> pidiera
+                    }
                 }
             };
             const pronouns = ['Yo', 'Tú', 'Él/Ella/Ud.', 'Nosotros/as', 'Vosotros/as', 'Ellos/as/Uds.'];
@@ -607,7 +887,42 @@
                 'viviría': 'vivir', 'vivirías': 'vivir', 'viviría': 'vivir', 'viviríamos': 'vivir', 'viviríais': 'vivir', 'vivirían': 'vivir',
                 'diría': 'decir', 'dirías': 'decir', 'diría': 'decir', 'diríamos': 'decir', 'diríais': 'decir', 'dirían': 'decir',
                 'haría': 'hacer', 'harías': 'hacer', 'haría': 'hacer', 'haríamos': 'hacer', 'haríais': 'hacer', 'harían': 'hacer',
-                'podría': 'poder', 'podrías': 'poder', 'podría': 'poder', 'podríamos': 'poder', 'podríais': 'poder', 'podrían': 'poder'
+                'podría': 'poder', 'podrías': 'poder', 'podría': 'poder', 'podríamos': 'poder', 'podríais': 'poder', 'podrían': 'poder',
+                // Presente de Subjuntivo
+                'hable': 'hablar', 'hables': 'hablar', 'hablemos': 'hablar', 'habléis': 'hablar', 'hablen': 'hablar',
+                'coma': 'comer', 'comas': 'comer', 'comamos': 'comer', 'comáis': 'comer', 'coman': 'comer',
+                'viva': 'vivir', 'vivas': 'vivir', 'vivamos': 'vivir', 'viváis': 'vivir', 'vivan': 'vivir',
+                'sea': 'ser', 'seas': 'ser', 'seamos': 'ser', 'seáis': 'ser', 'sean': 'ser',
+                'esté': 'estar', 'estés': 'estar', 'estemos': 'estar', 'estéis': 'estar', 'estén': 'estar',
+                'vaya': 'ir', 'vayas': 'ir', 'vaya': 'ir', 'vayamos': 'ir', 'vayáis': 'ir', 'vayan': 'ir',
+                'tenga': 'tener', 'tengas': 'tener', 'tengamos': 'tener', 'tengáis': 'tener', 'tengan': 'tener',
+                'haga': 'hacer', 'hagas': 'hacer', 'hagamos': 'hacer', 'hagáis': 'hacer', 'hagan': 'hacer',
+                'pueda': 'poder', 'puedas': 'poder', 'pueda': 'poder', 'podamos': 'poder', 'podáis': 'poder', 'puedan': 'poder',
+                'quiera': 'querer', 'quieras': 'querer', 'quiera': 'querer', 'queramos': 'querer', 'queráis': 'querer', 'quieran': 'querer',
+                'diga': 'decir', 'digas': 'decir', 'digamos': 'decir', 'digáis': 'decir', 'digan': 'decir',
+                'sepa': 'saber', 'sepas': 'saber', 'sepamos': 'saber', 'sepáis': 'saber', 'sepan': 'saber',
+                'dé': 'dar', 'des': 'dar', 'demos': 'dar', 'deis': 'dar', 'den': 'dar',
+                'conozca': 'conocer', 'conozcas': 'conocer', 'conozcamos': 'conocer', 'conozcáis': 'conocer', 'conozcan': 'conocer',
+                'oiga': 'oír', 'oigas': 'oír', 'oigamos': 'oír', 'oigáis': 'oír', 'oigan': 'oír',
+                'duerma': 'dormir', 'duermas': 'dormir', 'duerma': 'dormir', 'durmamos': 'dormir', 'durmáis': 'dormir', 'duerman': 'dormir',
+                'pida': 'pedir', 'pidas': 'pedir', 'pida': 'pedir', 'pidamos': 'pedir', 'pidáis': 'pedir', 'pidan': 'pedir',
+                // Imperfecto de Subjuntivo (-ra form)
+                'hablara': 'hablar', 'hablaras': 'hablar', 'hablara': 'hablar', 'habláramos': 'hablar', 'hablarais': 'hablar', 'hablaran': 'hablar',
+                'comiera': 'comer', 'comieras': 'comer', 'comiera': 'comer', 'comiéramos': 'comer', 'comierais': 'comer', 'comieran': 'comer',
+                'viviera': 'vivir', 'vivieras': 'vivir', 'viviera': 'vivir', 'viviéramos': 'vivir', 'vivierais': 'vivir', 'vivieran': 'vivir',
+                'fuera': 'ser/ir', 'fueras': 'ser/ir', 'fuera': 'ser/ir', 'fuéramos': 'ser/ir', 'fuerais': 'ser/ir', 'fueran': 'ser/ir',
+                'estuviera': 'estar', 'estuvieras': 'estar', 'estuviera': 'estar', 'estuviéramos': 'estar', 'estuvierais': 'estar', 'estuvieran': 'estar',
+                'tuviera': 'tener', 'tuvieras': 'tener', 'tuviera': 'tener', 'tuviéramos': 'tener', 'tuvierais': 'tener', 'tuvieran': 'tener',
+                'hiciera': 'hacer', 'hicieras': 'hacer', 'hiciera': 'hacer', 'hiciéramos': 'hacer', 'hicierais': 'hacer', 'hicieran': 'hacer',
+                'pudiera': 'poder', 'pudieras': 'poder', 'pudiera': 'poder', 'pudiéramos': 'poder', 'pudierais': 'poder', 'pudieran': 'poder',
+                'dijera': 'decir', 'dijeras': 'decir', 'dijera': 'decir', 'dijéramos': 'decir', 'dijerais': 'decir', 'dijeran': 'decir',
+                'viniera': 'venir', 'vinieras': 'venir', 'viniera': 'venir', 'viniéramos': 'venir', 'vinierais': 'venir', 'vinieran': 'venir',
+                'supiera': 'saber', 'supieras': 'saber', 'supiera': 'saber', 'supiéramos': 'saber', 'supierais': 'saber', 'supieran': 'saber',
+                'pusiera': 'poner', 'pusieras': 'poner', 'pusiera': 'poner', 'pusiéramos': 'poner', 'pusierais': 'poner', 'pusieran': 'poner',
+                'quisiera': 'querer', 'quisieras': 'querer', 'quisiera': 'querer', 'quisiéramos': 'querer', 'quisierais': 'querer', 'quisieran': 'querer',
+                'trajera': 'traer', 'trajeras': 'traer', 'trajera': 'traer', 'trajéramos': 'traer', 'trajierais': 'traer', 'trajieran': 'traer',
+                'durmiera': 'dormir', 'durmieras': 'dormir', 'durmiera': 'dormir', 'durmiéramos': 'dormir', 'durmierais': 'dormir', 'durmieran': 'dormir',
+                'pidiera': 'pedir', 'pidieras': 'pedir', 'pidiera': 'pedir', 'pidiéramos': 'pedir', 'pidierais': 'pedir', 'pidieran': 'pedir'
             };
 
             // List of common verbs for random suggestion
@@ -615,8 +930,25 @@
                 'hablar', 'comer', 'vivir', 'ser', 'estar', 'ir', 'tener', 'hacer', 'poder', 'querer',
                 'decir', 'ver', 'jugar', 'salir', 'poner', 'saber', 'conocer', 'dar', 'venir', 'leer',
                 'escribir', 'abrir', 'dormir', 'pedir', 'sentir', 'encontrar', 'volver', 'empezar', 'pensar',
-                'levantar', 'levantarse'
+                'levantar', 'levantarse',
+                'esperar', 'alegrarse', 'dudar', 'aconsejar'
             ];
+
+            // Categorized verbs for random suggestion
+            const categorizedVerbs = {
+                regular_ar: ['hablar', 'cantar', 'estudiar', 'bailar', 'comprar', 'escuchar'],
+                regular_er: ['comer', 'beber', 'aprender', 'correr', 'vender', 'leer'],
+                regular_ir: ['vivir', 'escribir', 'abrir', 'subir', 'recibir', 'decidir'],
+                irregular_common: ['ser', 'estar', 'ir', 'tener', 'hacer', 'poder', 'querer', 'decir', 'ver', 'saber', 'dar', 'venir', 'poner', 'salir'],
+                reflexive: ['levantarse', 'ducharse', 'vestirse', 'acostarse', 'sentarse', 'llamarse'],
+                stem_changing_e_ie: ['querer', 'empezar', 'pensar', 'cerrar', 'entender', 'perder', 'sentir'],
+                stem_changing_o_ue: ['poder', 'dormir', 'encontrar', 'volver', 'costar', 'morir'],
+                stem_changing_e_i: ['pedir', 'servir', 'repetir', 'seguir', 'vestir'],
+                go_verbs_present: ['tener', 'venir', 'salir', 'poner', 'decir', 'oír', 'traer', 'caer'], // verbs with 'go' in yo form
+                z_c_verbs_present: ['conocer', 'producir', 'traducir', 'conducir'], // verbs with 'zco' in yo form
+                irregular_future_cond: ['decir', 'hacer', 'poder', 'poner', 'haber', 'saber', 'salir', 'tener', 'venir', 'querer'],
+                subjunctive_common_irreg: ['ser', 'estar', 'ir', 'haber', 'saber', 'dar', 'conocer', 'hacer', 'decir', 'tener', 'venir', 'oír', 'poder', 'querer', 'pedir', 'dormir']
+            };
 
 
             function conjugate(verb, tense) {
@@ -633,8 +965,41 @@
                 // Handle future and conditional regular verbs (endings added to infinitive)
                 if (tense === 'futuro' || tense === 'condicional') {
                     const endings = tenseData.reg;
-                    if (!endings) return null; // Should not happen if data is correct
+                    if (!endings) return null;
                     return endings.map(e => verb + e);
+                }
+
+                // Handle subjunctive regular verbs (stem changes based on indicative 'yo' form)
+                if (tense === 'presente_subjuntivo' || tense === 'imperfecto_subjuntivo') {
+                    let stem;
+                    // For Presente de Subjuntivo, base stem on 'yo' form of Presente de Indicativo
+                    if (tense === 'presente_subjuntivo') {
+                        const yoFormIndicative = conjugate(verb, 'presente')[0];
+                        if (!yoFormIndicative) return null; // Cannot get yo form for stem derivation
+                        stem = yoFormIndicative.slice(0, -1); // Remove 'o'
+                    } else { // imperfecto_subjuntivo
+                        // For Imperfecto de Subjuntivo, base stem on 3rd person plural of Preterite
+                        const ellosFormPreterite = conjugate(verb, 'indefinido')[5]; // 3rd person plural preterite
+                        if (!ellosFormPreterite) return null; // Cannot get ellos form for stem derivation
+                        stem = ellosFormPreterite.slice(0, ellosFormPreterite.length - 4); // Remove 'eron' or 'aron'
+                    }
+
+                    const endings = tenseData.reg[verb.slice(-2)]; // Get endings based on original infinitive ending
+                    if (!endings) return null;
+
+                    // Specific stem changes for subjunctive that are not derived from indicative 'yo' form
+                    // These are often irregulars that have specific patterns, or verbs with vowel changes in specific persons.
+                    // For a comprehensive solution, this would require a more complex lookup or a dedicated library.
+                    // For now, these are hardcoded based on common irregular patterns.
+                    if (verb === 'dormir' && tense === 'presente_subjuntivo') {
+                        return ['duerma', 'duermas', 'duerma', 'durmamos', 'durmáis', 'duerman'];
+                    }
+                    if (verb === 'pedir' && tense === 'presente_subjuntivo') {
+                        return ['pida', 'pidas', 'pida', 'pidamos', 'pidáis', 'pidan'];
+                    }
+                    // For imperfecto_subjuntivo, stem is derived from preterite, so it handles many irregularities.
+                    
+                    return endings.map(e => stem + e);
                 }
 
                 const ending = verb.slice(-2);
@@ -743,18 +1108,14 @@
                     return;
                 }
 
-                // Normalize input for comparison (remove accents)
                 const normalizedConjugatedWord = conjugatedWord.normalize("NFD").replace(/[\u0300-\u036f]/g, "");
 
-                // Attempt to identify reflexive pronoun and base form
                 let baseForm = conjugatedWord;
                 let isReflexive = false;
-                let reflexivePronoun = '';
                 const reflexivePrefixes = ['me ', 'te ', 'se ', 'nos ', 'os '];
 
                 for (const prefix of reflexivePrefixes) {
                     if (conjugatedWord.startsWith(prefix)) {
-                        reflexivePronoun = prefix.trim();
                         baseForm = conjugatedWord.substring(prefix.length);
                         isReflexive = true;
                         break;
@@ -777,56 +1138,51 @@
                     }
                 }
 
-                // Iterate through all tenses and verbs to find a match
+                const tenseDisplayNames = {
+                    'presente': 'Presente de Indicativo',
+                    'indefinido': 'Pretérito Indefinido',
+                    'imperfecto': 'Pretérito Imperfecto',
+                    'futuro': 'Futuro Simple',
+                    'condicional': 'Condicional Simple',
+                    'presente_subjuntivo': 'Presente de Subjuntivo',
+                    'imperfecto_subjuntivo': 'Imperfecto de Subjuntivo'
+                };
+
                 for (const tenseKey in verbData) {
-                    if (tenseKey === 'perfecto') continue; // Already handled compound tense
+                    if (tenseKey === 'perfecto') continue;
 
                     const tenseInfo = verbData[tenseKey];
-                    const tenseDisplayName = {
-                        'presente': 'Presente de Indicativo',
-                        'indefinido': 'Pretérito Indefinido',
-                        'imperfecto': 'Pretérito Imperfecto',
-                        'futuro': 'Futuro Simple',
-                        'condicional': 'Condicional Simple'
-                    }[tenseKey];
-
-                    // Check irregular verbs for this tense
+                    
+                    // Try irregular verbs first
                     for (const infinitiveVerb in tenseInfo.irreg) {
                         const conjugations = tenseInfo.irreg[infinitiveVerb];
                         for (let i = 0; i < conjugations.length; i++) {
                             const conjugatedForm = conjugations[i];
-                            // Compare both with and without accents
                             if (conjugatedForm.toLowerCase() === baseForm || conjugatedForm.toLowerCase().normalize("NFD").replace(/[\u0300-\u036f]/g, "") === normalizedConjugatedWord) {
                                 let displayInfinitive = infinitiveVerb.toUpperCase();
                                 if (isReflexive && !displayInfinitive.endsWith('SE')) {
-                                    displayInfinitive += 'SE'; // Add SE for reflexive infinitives
+                                    displayInfinitive += 'SE';
                                 }
-                                identificationResultDiv.innerHTML = `<p><b>${conjugatedWord}</b>: <span class="text-teal-700">${tenseDisplayName}</span>, <span class="text-teal-700">${pronouns[i]}</span> del verbo <span class="font-bold text-teal-700">${displayInfinitive}</span>.</p>`;
+                                identificationResultDiv.innerHTML = `<p><b>${conjugatedWord}</b>: <span class="text-teal-700">${tenseDisplayNames[tenseKey]}</span>, <span class="text-teal-700">${pronouns[i]}</span> del verbo <span class="font-bold text-teal-700">${displayInfinitive}</span>.</p>`;
                                 return;
                             }
                         }
                     }
 
-                    // Check regular verbs for this tense
-                    // This part is trickier for reverse lookup without a pre-computed map,
-                    // so we'll try to generate and match.
+                    // Try regular verbs
                     for (const infinitiveVerb of Object.keys(verbTranslations)) {
-                        // Skip irregulars already checked
-                        if (tenseInfo.irreg[infinitiveVerb]) continue;
-
-                        const endingType = infinitiveVerb.slice(-2); // ar, er, ir
-                        if (!tenseInfo.reg[endingType]) continue; // Tense doesn't have this ending type
+                        if (tenseInfo.irreg[infinitiveVerb]) continue; // Skip irregulars already checked
 
                         const generatedConjugations = conjugate(infinitiveVerb, tenseKey);
                         if (generatedConjugations) {
                             for (let i = 0; i < generatedConjugations.length; i++) {
                                 const genForm = generatedConjugations[i];
-                                if (genForm.toLowerCase() === baseForm || genForm.toLowerCase().normalize("NFD").replace(/[\u0300-\u036f]/g, "") === normalizedConjugatedWord) {
+                                if (genForm && (genForm.toLowerCase() === baseForm || genForm.toLowerCase().normalize("NFD").replace(/[\u0300-\u036f]/g, "") === normalizedConjugatedWord)) {
                                     let displayInfinitive = infinitiveVerb.toUpperCase();
                                     if (isReflexive && !displayInfinitive.endsWith('SE')) {
                                         displayInfinitive += 'SE';
                                     }
-                                    identificationResultDiv.innerHTML = `<p><b>${conjugatedWord}</b>: <span class="text-teal-700">${tenseDisplayName}</span>, <span class="text-teal-700">${pronouns[i]}</span> del verbo <span class="font-bold text-teal-700">${displayInfinitive}</span>.</p>`;
+                                    identificationResultDiv.innerHTML = `<p><b>${conjugatedWord}</b>: <span class="text-teal-700">${tenseDisplayNames[tenseKey]}</span>, <span class="text-teal-700">${pronouns[i]}</span> del verbo <span class="font-bold text-teal-700">${displayInfinitive}</span>.</p>`;
                                     return;
                                 }
                             }
@@ -834,7 +1190,6 @@
                     }
                 }
 
-                // If no match found
                 identificationResultDiv.innerHTML = `<p class="text-red-600">No se pudo identificar la conjugación de "<b>${conjugatedWord}</b>". Intenta con una forma verbal común.</p>`;
             }
             
@@ -857,6 +1212,8 @@
                 setupConjugator('perfecto');
                 setupConjugator('futuro');
                 setupConjugator('condicional');
+                setupConjugator('presente_subjuntivo');
+                setupConjugator('imperfecto_subjuntivo');
 
                 const findInfinitiveButton = document.getElementById('find-infinitive-btn');
                 const infinitiveInput = document.getElementById('word-input-infinitivo');
@@ -869,7 +1226,6 @@
                     });
                 }
 
-                // Setup for Identify Conjugation
                 const identifyVerbInput = document.getElementById('identify-verb-input');
                 const identifyVerbBtn = document.getElementById('identify-verb-btn');
                 if (identifyVerbInput && identifyVerbBtn) {
@@ -891,6 +1247,7 @@
                     const showBtn = document.getElementById(`show-practice-btn-${tense}`);
                     const feedbackDiv = document.getElementById(`practice-feedback-${tense}`);
                     const randomVerbBtn = document.getElementById(`random-verb-btn-${tense}`);
+                    const categorySelect = document.getElementById(`practice-category-${tense}`); // Get category select
 
                     if (!startBtn) return;
 
@@ -948,11 +1305,25 @@
                         showPracticeAnswers(tense);
                     });
 
-                    if (randomVerbBtn) {
+                    if (randomVerbBtn && categorySelect) { // Ensure categorySelect exists
                         randomVerbBtn.addEventListener('click', () => {
-                            const randomIndex = Math.floor(Math.random() * randomVerbsList.length);
-                            practiceVerbInput.value = randomVerbsList[randomIndex];
-                            startBtn.click();
+                            const selectedCategory = categorySelect.value;
+                            let verbsToChooseFrom = [];
+
+                            if (selectedCategory === 'all') {
+                                verbsToChooseFrom = randomVerbsList;
+                            } else {
+                                verbsToChooseFrom = categorizedVerbs[selectedCategory] || [];
+                            }
+
+                            if (verbsToChooseFrom.length > 0) {
+                                const randomIndex = Math.floor(Math.random() * verbsToChooseFrom.length);
+                                practiceVerbInput.value = verbsToChooseFrom[randomIndex];
+                                startBtn.click();
+                            } else {
+                                feedbackDiv.textContent = 'No hay verbos en esta categoría para practicar.';
+                                feedbackDiv.className = 'mt-4 text-center font-bold text-red-600';
+                            }
                         });
                     }
                 }
@@ -1062,6 +1433,8 @@
                 setupPracticeMode('perfecto');
                 setupPracticeMode('futuro');
                 setupPracticeMode('condicional');
+                setupPracticeMode('presente_subjuntivo');
+                setupPracticeMode('imperfecto_subjuntivo');
             });
         })(); // IIFE ends here
     </script>
