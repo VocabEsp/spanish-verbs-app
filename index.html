@@ -74,12 +74,6 @@
             <button class="tab-btn px-4 py-3 border-b-4 border-transparent text-stone-600 hover:bg-stone-100 transition" data-tab="perfecto">P. Perfecto</button>
             <button class="tab-btn px-4 py-3 border-b-4 border-transparent text-stone-600 hover:bg-stone-100 transition" data-tab="futuro">Futuro Simple</button>
             <button class="tab-btn px-4 py-3 border-b-4 border-transparent text-stone-600 hover:bg-stone-100 transition" data-tab="condicional">Condicional</button>
-            <button class="tab-btn px-4 py-3 border-b-4 border-transparent text-stone-600 hover:bg-stone-100 transition" data-tab="presente-subjuntivo">P. Subjuntivo</button>
-            <button class="tab-btn px-4 py-3 border-b-4 border-transparent text-stone-600 hover:bg-stone-100 transition" data-tab="imperfecto-subjuntivo">Imp. Subjuntivo</button>
-            <button class="tab-btn px-4 py-3 border-b-4 border-transparent text-stone-600 hover:bg-stone-100 transition" data-tab="pluscuamperfecto">Pluscuam.</button>
-            <button class="tab-btn px-4 py-3 border-b-4 border-transparent text-stone-600 hover:bg-stone-100 transition" data-tab="futuro-perfecto">F. Perfecto</button>
-            <button class="tab-btn px-4 py-3 border-b-4 border-transparent text-stone-600 hover:bg-stone-100 transition" data-tab="condicional-perfecto">C. Perfecto</button>
-            <button class="tab-btn px-4 py-3 border-b-4 border-transparent text-stone-600 hover:bg-stone-100 transition" data-tab="imperativo">Imperativo</button>
             <button class="tab-btn px-4 py-3 border-b-4 border-transparent text-stone-600 hover:bg-stone-100 transition" data-tab="comparacion">Comparación</button>
             <button class="tab-btn px-4 py-3 border-b-4 border-transparent text-stone-600 hover:bg-stone-100 transition" data-tab="identificar-verbo">Identificar Verbo</button>
         </nav>
@@ -89,17 +83,12 @@
             <div id="presente" class="tab-content space-y-8">
                 <div class="bg-white p-6 rounded-lg shadow-sm">
                     <h2 class="text-2xl font-bold text-teal-700 mb-4">Presente de Indicativo</h2>
-                    <p class="mb-4 text-stone-600">El presente de indicativo es uno de los tiempos más fundamentales. Se utiliza para describir acciones que ocurren en el momento actual, hábitos o rutinas, verdades universales y hechos generales, o incluso para referirse a acciones futuras muy cercanas o planificadas.</p>
+                    <p class="mb-4 text-stone-600">El presente se utiliza para expresar acciones que ocurren en el momento, hábitos, verdades generales o incluso un futuro cercano. Es el tiempo verbal más fundamental.</p>
                     <ul class="list-disc list-inside space-y-2 text-stone-700">
-                        <li><b>Acciones actuales:</b> <i>Yo <b>hablo</b> español.</i> (I speak/am speaking Spanish.)</li>
-                        <li><b>Hábitos y rutinas:</b> <i>Ella <b>come</b> fruta cada día.</i> (She eats fruit every day.)</li>
-                        <li><b>Verdades generales:</b> <i>La Tierra <b>es</b> redonda.</i> (The Earth is round.)</li>
-                        <li><b>Futuro cercano:</b> <i>Mañana <b>voy</b> al cine.</i> (Tomorrow I go/am going to the cinema.)</li>
-                    </ul>
-                    <p class="mt-4 text-stone-600"><b>Notas Gramaticales Clave:</b></p>
-                    <ul class="list-disc list-inside space-y-2 text-stone-700">
-                        <li><b>Verbos Regulares:</b> Siguen patrones predecibles al eliminar la terminación (-ar, -er, -ir) y añadir las desinencias correspondientes.</li>
-                        <li><b>Verbos Irregulares Comunes:</b> Muchos verbos de uso frecuente son irregulares (e.g., *ser, estar, ir, tener, hacer, poder, querer, decir*). Algunos tienen cambios vocálicos (e.g., e>ie en *querer*, o>ue en *poder*) o irregularidades en la primera persona del singular (e.g., *hacer > hago*, *salir > salgo*).</li>
+                        <li><b>Acciones actuales:</b> <i>Yo <b>hablo</b> español.</i></li>
+                        <li><b>Hábitos y rutinas:</b> <i>Ella <b>come</b> fruta cada día.</i></li>
+                        <li><b>Verdades generales:</b> <i>La Tierra <b>es</b> redonda.</i></li>
+                        <li><b>Futuro cercano:</b> <i>Mañana <b>voy</b> al cine.</i></li>
                     </ul>
                 </div>
 
@@ -127,22 +116,6 @@
                             <button id="start-practice-btn-presente" class="w-full sm:w-auto bg-teal-600 text-white px-6 py-2 rounded-md hover:bg-teal-700 transition font-semibold">Empezar Práctica</button>
                             <button id="random-verb-btn-presente" class="w-full sm:w-auto bg-stone-400 text-white px-6 py-2 rounded-md hover:bg-stone-500 transition font-semibold">Sugerir Verbo Aleatorio</button>
                         </div>
-                        <div class="flex flex-col sm:flex-row gap-2 items-center mb-4">
-                            <label for="practice-category-presente" class="text-sm font-medium text-stone-700">Categoría:</label>
-                            <select id="practice-category-presente" class="w-full sm:w-auto px-3 py-2 border border-stone-300 rounded-md focus:ring-2 focus:ring-teal-500 focus:border-teal-500 transition">
-                                <option value="all">Todos los verbos</option>
-                                <option value="regular_ar">Regulares -AR</option>
-                                <option value="regular_er">Regulares -ER</option>
-                                <option value="regular_ir">Regulares -IR</option>
-                                <option value="irregular_common">Irregulares Comunes</option>
-                                <option value="reflexive">Reflexivos</option>
-                                <option value="stem_changing_e_ie">Cambio E>IE</option>
-                                <option value="stem_changing_o_ue">Cambio O>UE</option>
-                                <option value="stem_changing_e_i">Cambio E>I</option>
-                                <option value="go_verbs_present">Verbos con -go</option>
-                                <option value="z_c_verbs_present">Verbos con -zco</option>
-                            </select>
-                        </div>
                         <div id="practice-table-presente" class="mt-6 overflow-x-auto"></div>
                         <div id="practice-feedback-presente" class="mt-4 text-center font-bold"></div>
                         <div class="flex justify-center gap-4 mt-4">
@@ -157,17 +130,11 @@
             <div id="indefinido" class="tab-content space-y-8 hidden">
                  <div class="bg-white p-6 rounded-lg shadow-sm">
                     <h2 class="text-2xl font-bold text-teal-700 mb-4">Pretérito Indefinido</h2>
-                    <p class="mb-4 text-stone-600">El pretérito indefinido (o pretérito perfecto simple) se utiliza para describir acciones completadas en el pasado. Se enfoca en el principio y el fin de un evento específico, como una fotografía de un momento que ya terminó y no tiene conexión directa con el presente.</p>
+                    <p class="mb-4 text-stone-600">El pretérito indefinido describe acciones completadas en el pasado. Se enfoca en el principio y el fin de un evento, como una fotografía de un momento específico que ya terminó.</p>
                      <ul class="list-disc list-inside space-y-2 text-stone-700">
-                        <li><b>Acciones completadas:</b> <i>Ayer <b>comí</b> paella.</i> (Yesterday I ate paella.)</li>
-                        <li><b>Secuencia de eventos:</b> <i>Me <b>levanté</b>, <b>desayuné</b> y <b>salí</b>.</i> (I got up, had breakfast, and left.)</li>
-                        <li><b>Eventos específicos:</b> <i>La guerra <b>empezó</b> en 1936.</i> (The war started in 1936.)</li>
-                    </ul>
-                    <p class="mt-4 text-stone-600"><b>Notas Gramaticales Clave:</b></p>
-                    <ul class="list-disc list-inside space-y-2 text-stone-700">
-                        <li><b>Verbos Regulares:</b> Las terminaciones son distintas para verbos -AR y para -ER/-IR.</li>
-                        <li><b>Verbos Irregulares Comunes:</b> Muchos verbos importantes son irregulares y tienen raíces y terminaciones únicas (e.g., *ser/ir > fui*, *hacer > hice*, *tener > tuve*, *estar > estuve*). Estos deben memorizarse.</li>
-                        <li><b>Cambios Ortográficos:</b> Algunos verbos regulares tienen cambios ortográficos en la primera persona del singular para mantener el sonido (e.g., *buscar > busqué*, *empezar > empecé*).</li>
+                        <li><b>Acciones completadas:</b> <i>Ayer <b>comí</b> paella.</i></li>
+                        <li><b>Secuencia de eventos:</b> <i>Me <b>levanté</b>, <b>desayuné</b> y <b>salí</b>.</i></li>
+                        <li><b>Eventos específicos:</b> <i>La guerra <b>empezó</b> en 1936.</i></li>
                     </ul>
                 </div>
                 
@@ -195,22 +162,6 @@
                             <button id="start-practice-btn-indefinido" class="w-full sm:w-auto bg-teal-600 text-white px-6 py-2 rounded-md hover:bg-teal-700 transition font-semibold">Empezar Práctica</button>
                             <button id="random-verb-btn-indefinido" class="w-full sm:w-auto bg-stone-400 text-white px-6 py-2 rounded-md hover:bg-stone-500 transition font-semibold">Sugerir Verbo Aleatorio</button>
                         </div>
-                        <div class="flex flex-col sm:flex-row gap-2 items-center mb-4">
-                            <label for="practice-category-indefinido" class="text-sm font-medium text-stone-700">Categoría:</label>
-                            <select id="practice-category-indefinido" class="w-full sm:w-auto px-3 py-2 border border-stone-300 rounded-md focus:ring-2 focus:ring-teal-500 focus:border-teal-500 transition">
-                                <option value="all">Todos los verbos</option>
-                                <option value="regular_ar">Regulares -AR</option>
-                                <option value="regular_er">Regulares -ER</option>
-                                <option value="regular_ir">Regulares -IR</option>
-                                <option value="irregular_common">Irregulares Comunes</option>
-                                <option value="reflexive">Reflexivos</option>
-                                <option value="stem_changing_e_ie">Cambio E>IE</option>
-                                <option value="stem_changing_o_ue">Cambio O>UE</option>
-                                <option value="stem_changing_e_i">Cambio E>I</option>
-                                <option value="go_verbs_present">Verbos con -go</option>
-                                <option value="z_c_verbs_present">Verbos con -zco</option>
-                            </select>
-                        </div>
                         <div id="practice-table-indefinido" class="mt-6 overflow-x-auto"></div>
                         <div id="practice-feedback-indefinido" class="mt-4 text-center font-bold"></div>
                         <div class="flex justify-center gap-4 mt-4">
@@ -225,17 +176,12 @@
             <div id="imperfecto" class="tab-content space-y-8 hidden">
                  <div class="bg-white p-6 rounded-lg shadow-sm">
                     <h2 class="text-2xl font-bold text-teal-700 mb-4">Pretérito Imperfecto</h2>
-                    <p class="mb-4 text-stone-600">El pretérito imperfecto se usa para describir acciones habituales o repetidas en el pasado, acciones que estaban en progreso, o para establecer el escenario o dar descripciones de personas, lugares o situaciones en el pasado. Se enfoca en la continuidad o la descripción, no en la finalización.</p>
+                    <p class="mb-4 text-stone-600">El pretérito imperfecto se usa para describir acciones habituales, en progreso, o condiciones en el pasado sin un final específico. Es como un vídeo que muestra el fondo de la escena.</p>
                      <ul class="list-disc list-inside space-y-2 text-stone-700">
-                        <li><b>Acciones en progreso:</b> <i>Mientras <b>comía</b>, sonó el teléfono.</i> (While I was eating, the phone rang.)</li>
-                        <li><b>Acciones habituales:</b> <i>Cuando era niño, <b>jugaba</b> mucho.</i> (When I was a child, I used to play a lot.)</li>
-                        <li><b>Descripciones (personas, lugares, tiempo):</b> <i>La casa <b>era</b> grande.</i> (The house was big.) / <i><b>Eran</b> las tres.</i> (It was three o'clock.)</li>
-                        <li><b>Edad en el pasado:</b> <i><b>Tenía</b> diez años.</i> (He was ten years old.)</li>
-                    </ul>
-                    <p class="mt-4 text-stone-600"><b>Notas Gramaticales Clave:</b></p>
-                    <ul class="list-disc list-inside space-y-2 text-stone-700">
-                        <li><b>Verbos Regulares:</b> Siguen patrones muy consistentes para -AR y -ER/-IR.</li>
-                        <li><b>Verbos Irregulares:</b> ¡Solo hay tres verbos irregulares en el imperfecto! (*ser, ir, ver*). Esto lo hace uno de los tiempos más fáciles de conjugar una vez que conoces estos tres.</li>
+                        <li><b>Acciones en progreso:</b> <i>Mientras <b>comía</b>, sonó el teléfono.</i></li>
+                        <li><b>Acciones habituales:</b> <i>Cuando era niño, <b>jugaba</b> mucho.</i></li>
+                        <li><b>Descripciones (personas, lugares, tiempo):</b> <i>La casa <b>era</b> grande.</i></li>
+                        <li><b>Hora y edad en el pasado:</b> <i><b>Eran</b> las tres. / <b>Tenía</b> diez años.</i></li>
                     </ul>
                 </div>
 
@@ -263,22 +209,6 @@
                             <button id="start-practice-btn-imperfecto" class="w-full sm:w-auto bg-teal-600 text-white px-6 py-2 rounded-md hover:bg-teal-700 transition font-semibold">Empezar Práctica</button>
                             <button id="random-verb-btn-imperfecto" class="w-full sm:w-auto bg-stone-400 text-white px-6 py-2 rounded-md hover:bg-stone-500 transition font-semibold">Sugerir Verbo Aleatorio</button>
                         </div>
-                        <div class="flex flex-col sm:flex-row gap-2 items-center mb-4">
-                            <label for="practice-category-imperfecto" class="text-sm font-medium text-stone-700">Categoría:</label>
-                            <select id="practice-category-imperfecto" class="w-full sm:w-auto px-3 py-2 border border-stone-300 rounded-md focus:ring-2 focus:ring-teal-500 focus:border-teal-500 transition">
-                                <option value="all">Todos los verbos</option>
-                                <option value="regular_ar">Regulares -AR</option>
-                                <option value="regular_er">Regulares -ER</option>
-                                <option value="regular_ir">Regulares -IR</option>
-                                <option value="irregular_common">Irregulares Comunes</option>
-                                <option value="reflexive">Reflexivos</option>
-                                <option value="stem_changing_e_ie">Cambio E>IE</option>
-                                <option value="stem_changing_o_ue">Cambio O>UE</option>
-                                <option value="stem_changing_e_i">Cambio E>I</option>
-                                <option value="go_verbs_present">Verbos con -go</option>
-                                <option value="z_c_verbs_present">Verbos con -zco</option>
-                            </select>
-                        </div>
                         <div id="practice-table-imperfecto" class="mt-6 overflow-x-auto"></div>
                         <div id="practice-feedback-imperfecto" class="mt-4 text-center font-bold"></div>
                         <div class="flex justify-center gap-4 mt-4">
@@ -293,17 +223,11 @@
             <div id="perfecto" class="tab-content space-y-8 hidden">
                 <div class="bg-white p-6 rounded-lg shadow-sm">
                     <h2 class="text-2xl font-bold text-teal-700 mb-4">Pretérito Perfecto Compuesto</h2>
-                    <p class="mb-4 text-stone-600">El pretérito perfecto compuesto se utiliza para expresar acciones que han ocurrido en un pasado reciente (un período de tiempo que aún no ha terminado, como "hoy" o "esta semana") o para describir experiencias de vida sin especificar un momento concreto. Implica una conexión o relevancia con el presente.</p>
+                    <p class="mb-4 text-stone-600">El pretérito perfecto conecta el pasado con el presente. Se usa para acciones que ocurrieron en un pasado reciente (un período de tiempo que aún no ha terminado) o para experiencias de vida.</p>
                      <ul class="list-disc list-inside space-y-2 text-stone-700">
-                        <li><b>Pasado reciente (común en España):</b> <i>Hoy <b>he comido</b> paella.</i> (Today I have eaten paella.)</li>
-                        <li><b>Experiencias de vida:</b> <i>Nunca <b>he visitado</b> Asia.</i> (I have never visited Asia.)</li>
-                        <li><b>Acciones con relevancia actual:</b> <i><i>No <b>he terminado</b> el trabajo.</i></i> (I haven't finished the work.)</li>
-                    </ul>
-                    <p class="mt-4 text-stone-600"><b>Notas Gramaticales Clave:</b></p>
-                    <ul class="list-disc list-inside space-y-2 text-stone-700">
-                        <li>Es un tiempo compuesto: se forma con el presente del verbo auxiliar *haber* + el participio pasado del verbo principal.</li>
-                        <li><b>Participios Regulares:</b> Los verbos -AR forman su participio con *-ado* (e.g., *hablado*). Los verbos -ER/-IR forman su participio con *-ido* (e.g., *comido, vivido*).</li>
-                        <li><b>Participios Irregulares:</b> Muchos verbos tienen participios irregulares (e.g., *hacer > hecho, ver > visto, decir > dicho*).</li>
+                        <li><b>Pasado reciente (común en España):</b> <i>Hoy <b>he comido</b> paella.</i></li>
+                        <li><b>Experiencias de vida:</b> <i>Nunca <b>he visitado</b> Asia.</i></li>
+                        <li><b>Acciones con relevancia actual:</b> <i>No <b>he terminado</b> el trabajo.</i></li>
                     </ul>
                 </div>
 
@@ -331,22 +255,6 @@
                             <button id="start-practice-btn-perfecto" class="w-full sm:w-auto bg-teal-600 text-white px-6 py-2 rounded-md hover:bg-teal-700 transition font-semibold">Empezar Práctica</button>
                             <button id="random-verb-btn-perfecto" class="w-full sm:w-auto bg-stone-400 text-white px-6 py-2 rounded-md hover:bg-stone-500 transition font-semibold">Sugerir Verbo Aleatorio</button>
                         </div>
-                        <div class="flex flex-col sm:flex-row gap-2 items-center mb-4">
-                            <label for="practice-category-perfecto" class="text-sm font-medium text-stone-700">Categoría:</label>
-                            <select id="practice-category-perfecto" class="w-full sm:w-auto px-3 py-2 border border-stone-300 rounded-md focus:ring-2 focus:ring-teal-500 focus:border-teal-500 transition">
-                                <option value="all">Todos los verbos</option>
-                                <option value="regular_ar">Regulares -AR</option>
-                                <option value="regular_er">Regulares -ER</option>
-                                <option value="regular_ir">Regulares -IR</option>
-                                <option value="irregular_common">Irregulares Comunes</option>
-                                <option value="reflexive">Reflexivos</option>
-                                <option value="stem_changing_e_ie">Cambio E>IE</option>
-                                <option value="stem_changing_o_ue">Cambio O>UE</option>
-                                <option value="stem_changing_e_i">Cambio E>I</option>
-                                <option value="go_verbs_present">Verbos con -go</option>
-                                <option value="z_c_verbs_present">Verbos con -zco</option>
-                            </select>
-                        </div>
                         <div id="practice-table-perfecto" class="mt-6 overflow-x-auto"></div>
                         <div id="practice-feedback-perfecto" class="mt-4 text-center font-bold"></div>
                         <div class="flex justify-center gap-4 mt-4">
@@ -361,16 +269,11 @@
             <div id="futuro" class="tab-content space-y-8 hidden">
                 <div class="bg-white p-6 rounded-lg shadow-sm">
                     <h2 class="text-2xl font-bold text-teal-700 mb-4">Futuro Simple</h2>
-                    <p class="mb-4 text-stone-600">El futuro simple se utiliza para expresar acciones que ocurrirán en el futuro, promesas, intenciones o suposiciones sobre el presente. Se forma añadiendo las terminaciones al infinitivo del verbo.</p>
+                    <p class="mb-4 text-stone-600">El futuro simple se utiliza para expresar acciones que ocurrirán en el futuro, promesas o suposiciones sobre el presente.</p>
                     <ul class="list-disc list-inside space-y-2 text-stone-700">
-                        <li><b>Acciones futuras:</b> <i>Mañana <b>iré</b> al trabajo.</i> (Tomorrow I will go to work.)</li>
-                        <li><b>Promesas:</b> <i>Te <b>ayudaré</b> con la tarea.</i> (I will help you with the homework.)</li>
-                        <li><b>Suposiciones sobre el presente:</b> <i>¿Dónde estará Juan? <b>Estará</b> en casa.</i> (Where could Juan be? He's probably at home.)</li>
-                    </ul>
-                    <p class="mt-4 text-stone-600"><b>Notas Gramaticales Clave:</b></p>
-                    <ul class="list-disc list-inside space-y-2 text-stone-700">
-                        <li><b>Formación Regular:</b> Se añade la misma terminación a todos los infinitivos (-ar, -er, -ir).</li>
-                        <li><b>Verbos Irregulares:</b> Algunos verbos tienen raíces irregulares en el futuro, pero las terminaciones son las mismas que las regulares (e.g., *hacer > har-*, *decir > dir-*, *poder > podr-*).</li>
+                        <li><b>Acciones futuras:</b> <i>Mañana <b>iré</b> al trabajo.</i></li>
+                        <li><b>Promesas:</b> <i>Te <b>ayudaré</b> con la tarea.</i></li>
+                        <li><b>Suposiciones sobre el presente:</b> <i>¿Dónde estará Juan? <b>Estará</b> en casa.</i></li>
                     </ul>
                 </div>
 
@@ -398,23 +301,6 @@
                             <button id="start-practice-btn-futuro" class="w-full sm:w-auto bg-teal-600 text-white px-6 py-2 rounded-md hover:bg-teal-700 transition font-semibold">Empezar Práctica</button>
                             <button id="random-verb-btn-futuro" class="w-full sm:w-auto bg-stone-400 text-white px-6 py-2 rounded-md hover:bg-stone-500 transition font-semibold">Sugerir Verbo Aleatorio</button>
                         </div>
-                        <div class="flex flex-col sm:flex-row gap-2 items-center mb-4">
-                            <label for="practice-category-futuro" class="text-sm font-medium text-stone-700">Categoría:</label>
-                            <select id="practice-category-futuro" class="w-full sm:w-auto px-3 py-2 border border-stone-300 rounded-md focus:ring-2 focus:ring-teal-500 focus:border-teal-500 transition">
-                                <option value="all">Todos los verbos</option>
-                                <option value="regular_ar">Regulares -AR</option>
-                                <option value="regular_er">Regulares -ER</option>
-                                <option value="regular_ir">Regulares -IR</option>
-                                <option value="irregular_common">Irregulares Comunes</option>
-                                <option value="reflexive">Reflexivos</option>
-                                <option value="stem_changing_e_ie">Cambio E>IE</option>
-                                <option value="stem_changing_o_ue">Cambio O>UE</option>
-                                <option value="stem_changing_e_i">Cambio E>I</option>
-                                <option value="go_verbs_present">Verbos con -go</option>
-                                <option value="z_c_verbs_present">Verbos con -zco</option>
-                                <option value="irregular_future_cond">Irregulares Futuro/Condicional</option>
-                            </select>
-                        </div>
                         <div id="practice-table-futuro" class="mt-6 overflow-x-auto"></div>
                         <div id="practice-feedback-futuro" class="mt-4 text-center font-bold"></div>
                         <div class="flex justify-center gap-4 mt-4">
@@ -429,17 +315,12 @@
             <div id="condicional" class="tab-content space-y-8 hidden">
                 <div class="bg-white p-6 rounded-lg shadow-sm">
                     <h2 class="text-2xl font-bold text-teal-700 mb-4">Condicional Simple</h2>
-                    <p class="mb-4 text-stone-600">El condicional simple se utiliza para expresar acciones hipotéticas (lo que pasaría si...), deseos, peticiones educadas o para dar consejos. Al igual que el futuro, se forma añadiendo las terminaciones al infinitivo del verbo.</p>
+                    <p class="mb-4 text-stone-600">El condicional simple se utiliza para expresar acciones hipotéticas, deseos, peticiones educadas o consejos.</p>
                     <ul class="list-disc list-inside space-y-2 text-stone-700">
-                        <li><b>Acciones hipotéticas:</b> <i>Si tuviera tiempo, <b>iría</b> al gimnasio.</i> (If I had time, I would go to the gym.)</li>
-                        <li><b>Deseos:</b> <i>Me <b>gustaría</b> viajar más.</i> (I would like to travel more.)</li>
-                        <li><b>Peticiones educadas:</b> <i>¿Me <b>podrías</b> ayudar?</i> (Could you help me?)</li>
-                        <li><b>Consejos:</b> <i>Deberías <b>estudiar</b> más.</i> (You should study more.)</li>
-                    </ul>
-                    <p class="mt-4 text-stone-600"><b>Notas Gramaticales Clave:</b></p>
-                    <ul class="list-disc list-inside space-y-2 text-stone-700">
-                        <li><b>Formación Regular:</b> Se añade la misma terminación a todos los infinitivos (-ar, -er, -ir).</li>
-                        <li><b>Verbos Irregulares:</b> Los mismos verbos que son irregulares en el futuro también lo son en el condicional, y sus raíces son idénticas (e.g., *hacer > har-*, *decir > dir-*, *poder > podr-*).</li>
+                        <li><b>Acciones hipotéticas:</b> <i>Si tuviera tiempo, <b>iría</b> al gimnasio.</i></li>
+                        <li><b>Deseos:</b> <i>Me <b>gustaría</b> viajar más.</i></li>
+                        <li><b>Peticiones educadas:</b> <i>¿Me <b>podrías</b> ayudar?</i></li>
+                        <li><b>Consejos:</b> <i>Deberías <b>estudiar</b> más.</i></li>
                     </ul>
                 </div>
 
@@ -467,23 +348,6 @@
                             <button id="start-practice-btn-condicional" class="w-full sm:w-auto bg-teal-600 text-white px-6 py-2 rounded-md hover:bg-teal-700 transition font-semibold">Empezar Práctica</button>
                             <button id="random-verb-btn-condicional" class="w-full sm:w-auto bg-stone-400 text-white px-6 py-2 rounded-md hover:bg-stone-500 transition font-semibold">Sugerir Verbo Aleatorio</button>
                         </div>
-                        <div class="flex flex-col sm:flex-row gap-2 items-center mb-4">
-                            <label for="practice-category-condicional" class="text-sm font-medium text-stone-700">Categoría:</label>
-                            <select id="practice-category-condicional" class="w-full sm:w-auto px-3 py-2 border border-stone-300 rounded-md focus:ring-2 focus:ring-teal-500 focus:border-teal-500 transition">
-                                <option value="all">Todos los verbos</option>
-                                <option value="regular_ar">Regulares -AR</option>
-                                <option value="regular_er">Regulares -ER</option>
-                                <option value="regular_ir">Regulares -IR</option>
-                                <option value="irregular_common">Irregulares Comunes</option>
-                                <option value="reflexive">Reflexivos</option>
-                                <option value="stem_changing_e_ie">Cambio E>IE</option>
-                                <option value="stem_changing_o_ue">Cambio O>UE</option>
-                                <option value="stem_changing_e_i">Cambio E>I</option>
-                                <option value="go_verbs_present">Verbos con -go</option>
-                                <option value="z_c_verbs_present">Verbos con -zco</option>
-                                <option value="irregular_future_cond">Irregulares Futuro/Condicional</option>
-                            </select>
-                        </div>
                         <div id="practice-table-condicional" class="mt-6 overflow-x-auto"></div>
                         <div id="practice-feedback-condicional" class="mt-4 text-center font-bold"></div>
                         <div class="flex justify-center gap-4 mt-4">
@@ -494,150 +358,11 @@
                 </div>
             </div>
 
-            <!-- Presente de Subjuntivo -->
-            <div id="presente-subjuntivo" class="tab-content space-y-8 hidden">
-                <div class="bg-white p-6 rounded-lg shadow-sm">
-                    <h2 class="text-2xl font-bold text-teal-700 mb-4">Presente de Subjuntivo</h2>
-                    <p class="mb-4 text-stone-600">El presente de subjuntivo se usa para expresar deseos, emociones, dudas, opiniones negativas, consejos, o situaciones hipotéticas. A menudo aparece en oraciones subordinadas introducidas por "que".</p>
-                    <ul class="list-disc list-inside space-y-2 text-stone-700">
-                        <li><b>Deseos/Esperanzas:</b> <i>Espero que <b>vengas</b>.</i> (I hope you come.)</li>
-                        <li><b>Emociones:</b> <i>Me alegra que <b>estés</b> bien.</i> (I'm glad you are well.)</li>
-                        <li><b>Dudas/Incertidumbre:</b> <i>Dudo que <b>sepa</b> la respuesta.</i> (I doubt he knows the answer.)</li>
-                        <li><b>Consejos/Peticiones:</b> <i>Te aconsejo que <b>estudies</b>.</i> (I advise you to study.)</li>
-                    </ul>
-                    <p class="mt-4 text-stone-600"><b>Notas Gramaticales Clave:</b></p>
-                    <ul class="list-disc list-inside space-y-2 text-stone-700">
-                        <li><b>Formación Regular:</b> Para verbos -AR, se usan las terminaciones de -ER/-IR del presente de indicativo (e.g., *hablar > hable*). Para verbos -ER/-IR, se usan las terminaciones de -AR del presente de indicativo (e.g., *comer > coma, vivir > viva*).</li>
-                        <li><b>Raíz Irregular:</b> La raíz del subjuntivo presente se deriva de la forma "yo" del presente de indicativo (e.g., *tener > tengo > tenga*).</li>
-                        <li><b>Irregulares Comunes:</b> Algunos verbos son completamente irregulares (*ser > sea, ir > vaya, haber > haya, saber > sepa, dar > dé*).</li>
-                    </ul>
-                </div>
-
-                <div class="flex justify-center gap-4 mb-6">
-                    <button class="mode-button mode-active" data-mode="view" data-tense="presente-subjuntivo">Ver Conjugación</button>
-                    <button class="mode-button" data-mode="practice" data-tense="presente-subjuntivo">Practicar Conjugación</button>
-                </div>
-
-                <div id="presente-subjuntivo-view-mode" class="mode-section">
-                    <div class="bg-white p-6 rounded-lg shadow-sm">
-                        <h3 class="text-xl font-semibold text-teal-700 mb-4">Ver Conjugación en Presente de Subjuntivo</h3>
-                        <div class="flex flex-col sm:flex-row gap-2 items-center">
-                            <input type="text" id="verb-input-presente-subjuntivo" placeholder="Escribe un verbo (e.g., hablar, ser)" class="w-full px-4 py-2 border border-stone-300 rounded-md focus:ring-2 focus:ring-teal-500 focus:border-teal-500 transition">
-                            <button id="conjugate-btn-presente-subjuntivo" class="w-full sm:w-auto bg-teal-600 text-white px-6 py-2 rounded-md hover:bg-teal-700 transition font-semibold">Conjugar</button>
-                        </div>
-                        <div id="conjugation-result-presente-subjuntivo" class="mt-6 overflow-x-auto"></div>
-                    </div>
-                </div>
-
-                <div id="presente-subjuntivo-practice-mode" class="mode-section hidden">
-                    <div class="bg-white p-6 rounded-lg shadow-sm">
-                        <h3 class="text-xl font-semibold text-teal-700 mb-4">Practicar Conjugación en Presente de Subjuntivo</h3>
-                        <div class="flex flex-col sm:flex-row gap-2 items-center mb-4">
-                            <input type="text" id="practice-verb-input-presente-subjuntivo" placeholder="Escribe un verbo (e.g., comer, ir)" class="w-full px-4 py-2 border border-stone-300 rounded-md focus:ring-2 focus:ring-teal-500 focus:border-teal-500 transition">
-                            <button id="start-practice-btn-presente-subjuntivo" class="w-full sm:w-auto bg-teal-600 text-white px-6 py-2 rounded-md hover:bg-teal-700 transition font-semibold">Empezar Práctica</button>
-                            <button id="random-verb-btn-presente-subjuntivo" class="w-full sm:w-auto bg-stone-400 text-white px-6 py-2 rounded-md hover:bg-stone-500 transition font-semibold">Sugerir Verbo Aleatorio</button>
-                        </div>
-                        <div class="flex flex-col sm:flex-row gap-2 items-center mb-4">
-                            <label for="practice-category-presente-subjuntivo" class="text-sm font-medium text-stone-700">Categoría:</label>
-                            <select id="practice-category-presente-subjuntivo" class="w-full sm:w-auto px-3 py-2 border border-stone-300 rounded-md focus:ring-2 focus:ring-teal-500 focus:border-teal-500 transition">
-                                <option value="all">Todos los verbos</option>
-                                <option value="regular_ar">Regulares -AR</option>
-                                <option value="regular_er">Regulares -ER</option>
-                                <option value="regular_ir">Regulares -IR</option>
-                                <option value="irregular_common">Irregulares Comunes</option>
-                                <option value="reflexive">Reflexivos</option>
-                                <option value="stem_changing_e_ie">Cambio E>IE</option>
-                                <option value="stem_changing_o_ue">Cambio O>UE</option>
-                                <option value="stem_changing_e_i">Cambio E>I</option>
-                                <option value="go_verbs_present">Verbos con -go</option>
-                                <option value="z_c_verbs_present">Verbos con -zco</option>
-                                <option value="subjunctive_common_irreg">Irregulares Subjuntivo</option>
-                            </select>
-                        </div>
-                        <div id="practice-table-presente-subjuntivo" class="mt-6 overflow-x-auto"></div>
-                        <div id="practice-feedback-presente-subjuntivo" class="mt-4 text-center font-bold"></div>
-                        <div class="flex justify-center gap-4 mt-4">
-                            <button id="check-practice-btn-presente-subjuntivo" class="bg-blue-600 text-white px-6 py-2 rounded-md hover:bg-blue-700 transition font-semibold hidden">Comprobar Respuestas</button>
-                            <button id="show-practice-btn-presente-subjuntivo" class="bg-stone-500 text-white px-6 py-2 rounded-md hover:bg-stone-600 transition font-semibold hidden">Mostrar Respuestas</button>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-            <!-- Imperfecto de Subjuntivo -->
-            <div id="imperfecto-subjuntivo" class="tab-content space-y-8 hidden">
-                <div class="bg-white p-6 rounded-lg shadow-sm">
-                    <h2 class="text-2xl font-bold text-teal-700 mb-4">Imperfecto de Subjuntivo</h2>
-                    <p class="mb-4 text-stone-600">El imperfecto de subjuntivo se utiliza para expresar deseos, emociones, dudas o situaciones hipotéticas en el pasado, o como parte de oraciones condicionales. Tiene dos sets de terminaciones posibles, siendo la forma en -ra la más común.</p>
-                    <ul class="list-disc list-inside space-y-2 text-stone-700">
-                        <li><b>Deseos en el pasado:</b> <i>Quería que <b>vinieras</b>.</i> (I wanted you to come.)</li>
-                        <li><b>Condicionales (si...):</b> <i>Si <b>tuviera</b> dinero, viajaría.</i> (If I had money, I would travel.)</li>
-                        <li><b>Emociones en el pasado:</b> <i>Me alegró que <b>estuvieras</b> allí.</i> (It made me happy that you were there.)</li>
-                    </ul>
-                    <p class="mt-4 text-stone-600"><b>Notas Gramaticales Clave:</b></p>
-                    <ul class="list-disc list-inside space-y-2 text-stone-700">
-                        <li><b>Formación:</b> Se forma a partir de la tercera persona del plural del pretérito indefinido (e.g., *hablaron*, *comieron*, *vivieron*). Se elimina la terminación *-ron* y se añaden las terminaciones del imperfecto de subjuntivo.</li>
-                        <li><b>Dos Formas:</b> Existen dos conjuntos de terminaciones (-ra y -se), pero la forma en *-ra* es la más común en el uso diario.</li>
-                        <li><b>Irregulares:</b> Los verbos irregulares en el pretérito indefinido también lo serán en el imperfecto de subjuntivo, ya que su raíz se deriva de allí (e.g., *hacer > hicieron > hiciera*).</li>
-                    </ul>
-                </div>
-
-                <div class="flex justify-center gap-4 mb-6">
-                    <button class="mode-button mode-active" data-mode="view" data-tense="imperfecto-subjuntivo">Ver Conjugación</button>
-                    <button class="mode-button" data-mode="practice" data-tense="imperfecto-subjuntivo">Practicar Conjugación</button>
-                </div>
-
-                <div id="imperfecto-subjuntivo-view-mode" class="mode-section">
-                    <div class="bg-white p-6 rounded-lg shadow-sm">
-                        <h3 class="text-xl font-semibold text-teal-700 mb-4">Ver Conjugación en Imperfecto de Subjuntivo</h3>
-                        <div class="flex flex-col sm:flex-row gap-2 items-center">
-                            <input type="text" id="verb-input-imperfecto-subjuntivo" placeholder="Escribe un verbo (e.g., hablar, ser)" class="w-full px-4 py-2 border border-stone-300 rounded-md focus:ring-2 focus:ring-teal-500 focus:border-teal-500 transition">
-                            <button id="conjugate-btn-imperfecto-subjuntivo" class="w-full sm:w-auto bg-teal-600 text-white px-6 py-2 rounded-md hover:bg-teal-700 transition font-semibold">Conjugar</button>
-                        </div>
-                        <div id="conjugation-result-imperfecto-subjuntivo" class="mt-6 overflow-x-auto"></div>
-                    </div>
-                </div>
-
-                <div id="imperfecto-subjuntivo-practice-mode" class="mode-section hidden">
-                    <div class="bg-white p-6 rounded-lg shadow-sm">
-                        <h3 class="text-xl font-semibold text-teal-700 mb-4">Practicar Conjugación en Imperfecto de Subjuntivo</h3>
-                        <div class="flex flex-col sm:flex-row gap-2 items-center mb-4">
-                            <input type="text" id="practice-verb-input-imperfecto-subjuntivo" placeholder="Escribe un verbo (e.g., comer, ir)" class="w-full px-4 py-2 border border-stone-300 rounded-md focus:ring-2 focus:ring-teal-500 focus:border-teal-500 transition">
-                            <button id="start-practice-btn-imperfecto-subjuntivo" class="w-full sm:w-auto bg-teal-600 text-white px-6 py-2 rounded-md hover:bg-teal-700 transition font-semibold">Empezar Práctica</button>
-                            <button id="random-verb-btn-imperfecto-subjuntivo" class="w-full sm:w-auto bg-stone-400 text-white px-6 py-2 rounded-md hover:bg-stone-500 transition font-semibold">Sugerir Verbo Aleatorio</button>
-                        </div>
-                        <div class="flex flex-col sm:flex-row gap-2 items-center mb-4">
-                            <label for="practice-category-imperfecto-subjuntivo" class="text-sm font-medium text-stone-700">Categoría:</label>
-                            <select id="practice-category-imperfecto-subjuntivo" class="w-full sm:w-auto px-3 py-2 border border-stone-300 rounded-md focus:ring-2 focus:ring-teal-500 focus:border-teal-500 transition">
-                                <option value="all">Todos los verbos</option>
-                                <option value="regular_ar">Regulares -AR</option>
-                                <option value="regular_er">Regulares -ER</option>
-                                <option value="regular_ir">Regulares -IR</option>
-                                <option value="irregular_common">Irregulares Comunes</option>
-                                <option value="reflexive">Reflexivos</option>
-                                <option value="stem_changing_e_ie">Cambio E>IE</option>
-                                <option value="stem_changing_o_ue">Cambio O>UE</option>
-                                <option value="stem_changing_e_i">Cambio E>I</option>
-                                <option value="go_verbs_present">Verbos con -go</option>
-                                <option value="z_c_verbs_present">Verbos con -zco</option>
-                                <option value="subjunctive_common_irreg">Irregulares Subjuntivo</option>
-                            </select>
-                        </div>
-                        <div id="practice-table-imperfecto-subjuntivo" class="mt-6 overflow-x-auto"></div>
-                        <div id="practice-feedback-imperfecto-subjuntivo" class="mt-4 text-center font-bold"></div>
-                        <div class="flex justify-center gap-4 mt-4">
-                            <button id="check-practice-btn-imperfecto-subjuntivo" class="bg-blue-600 text-white px-6 py-2 rounded-md hover:bg-blue-700 transition font-semibold hidden">Comprobar Respuestas</button>
-                            <button id="show-practice-btn-imperfecto-subjuntivo" class="bg-stone-500 text-white px-6 py-2 rounded-md hover:bg-stone-600 transition font-semibold hidden">Mostrar Respuestas</button>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
             <!-- Comparación -->
             <div id="comparacion" class="tab-content space-y-8 hidden">
                 <div class="bg-white p-6 rounded-lg shadow-sm">
                     <h2 class="text-2xl font-bold text-teal-700 mb-4">Comparación de Tiempos del Pasado</h2>
-                    <p class="mb-4 text-stone-600">Diferenciar entre los tiempos del pasado es uno de los mayores retos en español. Aquí te explicamos sus usos más comunes para que no los confundas.</p>
+                    <p class="mb-4 text-stone-600">Entender la diferencia entre los tiempos del pasado es clave. El indefinido es para acciones completas (una foto), el imperfecto es para el fondo o acciones habituales (un vídeo), y el perfecto conecta el pasado con el presente.</p>
                     <div class="overflow-x-auto">
                         <table class="w-full border-collapse">
                             <thead>
@@ -666,334 +391,7 @@
                             </tbody>
                         </table>
                     </div>
-                     <p class="mt-6 text-stone-600"><b>Escenario Detallado: Contando una Historia</b></p>
-                     <p class="mt-2 text-stone-600">Imagina que quieres contar lo que pasó un día específico:</p>
-                     <ul class="list-disc list-inside space-y-2 text-stone-700">
-                        <li>**Imperfecto (para el escenario y acciones en curso):** "Ayer por la tarde, <b>hacía</b> mucho sol y los pájaros <b>cantaban</b>. Yo <b>estaba leyendo</b> un libro en el jardín." (Describes the ongoing conditions and what you *were doing*.)</li>
-                        <li>**Indefinido (para la acción principal y completada):** "De repente, <b>sonó</b> el teléfono y mi amigo Juan <b>me llamó</b>. Él <b>me invitó</b> a cenar." (Describes specific, completed actions that happened.)</li>
-                        <li>**Pretérito Perfecto (para acciones recientes con impacto en el presente):** "<b>He hablado</b> con Juan hoy, y <b>hemos decidido</b> ir a un restaurante nuevo." (The conversation and decision happened recently and are still relevant to current plans.)</li>
-                    </ul>
-                    <p class="mt-4 text-stone-600"><b>Otro Ejemplo de Contraste (Conocer):</b></p>
-                    <ul class="list-disc list-inside space-y-2 text-stone-700">
-                        <li><b>Pretérito:</b> <i>Ayer <b>conocí</b> a una persona muy interesante.</i> (I *met* someone yesterday - a specific event.)</li>
-                        <li><b>Imperfecto:</b> <i>Yo ya <b>conocía</b> a esa persona desde hace tiempo.</i> (I *knew* that person for a while - an ongoing state of knowing.)</li>
-                    </ul>
-                </div>
-            </div>
-
-            <!-- Pluscuamperfecto -->
-            <div id="pluscuamperfecto" class="tab-content space-y-8 hidden">
-                <div class="bg-white p-6 rounded-lg shadow-sm">
-                    <h2 class="text-2xl font-bold text-teal-700 mb-4">Pluscuamperfecto (Past Perfect)</h2>
-                    <p class="mb-4 text-stone-600">El pluscuamperfecto se utiliza para expresar una acción que ocurrió y fue completada *antes* de otra acción o momento en el pasado. Es el "pasado del pasado".</p>
-                    <ul class="list-disc list-inside space-y-2 text-stone-700">
-                        <li><b>Acción anterior a otra en el pasado:</b> <i>Cuando llegué, Juan ya <b>había salido</b>.</i> (When I arrived, Juan had already left.)</li>
-                        <li><b>Experiencias antes de un momento pasado:</b> <i>Nunca <b>había visto</b> tanta nieve hasta el año pasado.</i> (I had never seen so much snow until last year.)</li>
-                    </ul>
-                    <p class="mt-4 text-stone-600"><b>Notas Gramaticales Clave:</b></p>
-                    <ul class="list-disc list-inside space-y-2 text-stone-700">
-                        <li>Es un tiempo compuesto: se forma con el imperfecto del verbo auxiliar *haber* + el participio pasado del verbo principal.</li>
-                        <li><b>Verbo auxiliar *haber* en imperfecto:</b> *había, habías, había, habíamos, habíais, habían*.</li>
-                        <li>Los participios pasados son los mismos que los del pretérito perfecto.</li>
-                    </ul>
-                </div>
-                <div class="flex justify-center gap-4 mb-6">
-                    <button class="mode-button mode-active" data-mode="view" data-tense="pluscuamperfecto">Ver Conjugación</button>
-                    <button class="mode-button" data-mode="practice" data-tense="pluscuamperfecto">Practicar Conjugación</button>
-                </div>
-                <div id="pluscuamperfecto-view-mode" class="mode-section">
-                    <div class="bg-white p-6 rounded-lg shadow-sm">
-                        <h3 class="text-xl font-semibold text-teal-700 mb-4">Ver Conjugación en Pluscuamperfecto</h3>
-                        <div class="flex flex-col sm:flex-row gap-2 items-center">
-                            <input type="text" id="verb-input-pluscuamperfecto" placeholder="Escribe un verbo (e.g., hablar, hacer)" class="w-full px-4 py-2 border border-stone-300 rounded-md focus:ring-2 focus:ring-teal-500 focus:border-teal-500 transition">
-                            <button id="conjugate-btn-pluscuamperfecto" class="w-full sm:w-auto bg-teal-600 text-white px-6 py-2 rounded-md hover:bg-teal-700 transition font-semibold">Conjugar</button>
-                        </div>
-                        <div id="conjugation-result-pluscuamperfecto" class="mt-6 overflow-x-auto"></div>
-                    </div>
-                </div>
-                <div id="pluscuamperfecto-practice-mode" class="mode-section hidden">
-                    <div class="bg-white p-6 rounded-lg shadow-sm">
-                        <h3 class="text-xl font-semibold text-teal-700 mb-4">Practicar Conjugación en Pluscuamperfecto</h3>
-                        <div class="flex flex-col sm:flex-row gap-2 items-center mb-4">
-                            <input type="text" id="practice-verb-input-pluscuamperfecto" placeholder="Escribe un verbo (e.g., comer, ir)" class="w-full px-4 py-2 border border-stone-300 rounded-md focus:ring-2 focus:ring-teal-500 focus:border-teal-500 transition">
-                            <button id="start-practice-btn-pluscuamperfecto" class="w-full sm:w-auto bg-teal-600 text-white px-6 py-2 rounded-md hover:bg-teal-700 transition font-semibold">Empezar Práctica</button>
-                            <button id="random-verb-btn-pluscuamperfecto" class="w-full sm:w-auto bg-stone-400 text-white px-6 py-2 rounded-md hover:bg-stone-500 transition font-semibold">Sugerir Verbo Aleatorio</button>
-                        </div>
-                        <div class="flex flex-col sm:flex-row gap-2 items-center mb-4">
-                            <label for="practice-category-pluscuamperfecto" class="text-sm font-medium text-stone-700">Categoría:</label>
-                            <select id="practice-category-pluscuamperfecto" class="w-full sm:w-auto px-3 py-2 border border-stone-300 rounded-md focus:ring-2 focus:ring-teal-500 focus:border-teal-500 transition">
-                                <option value="all">Todos los verbos</option>
-                                <option value="regular_ar">Regulares -AR</option>
-                                <option value="regular_er">Regulares -ER</option>
-                                <option value="regular_ir">Regulares -IR</option>
-                                <option value="irregular_common">Irregulares Comunes</option>
-                                <option value="reflexive">Reflexivos</option>
-                                <option value="stem_changing_e_ie">Cambio E>IE</option>
-                                <option value="stem_changing_o_ue">Cambio O>UE</option>
-                                <option value="stem_changing_e_i">Cambio E>I</option>
-                                <option value="go_verbs_present">Verbos con -go</option>
-                                <option value="z_c_verbs_present">Verbos con -zco</option>
-                                <option value="irregular_future_cond">Irregulares Futuro/Condicional</option>
-                                <option value="subjunctive_common_irreg">Irregulares Subjuntivo</option>
-                            </select>
-                        </div>
-                        <div id="practice-table-pluscuamperfecto" class="mt-6 overflow-x-auto"></div>
-                        <div id="practice-feedback-pluscuamperfecto" class="mt-4 text-center font-bold"></div>
-                        <div class="flex justify-center gap-4 mt-4">
-                            <button id="check-practice-btn-pluscuamperfecto" class="bg-blue-600 text-white px-6 py-2 rounded-md hover:bg-blue-700 transition font-semibold hidden">Comprobar Respuestas</button>
-                            <button id="show-practice-btn-pluscuamperfecto" class="bg-stone-500 text-white px-6 py-2 rounded-md hover:bg-stone-600 transition font-semibold hidden">Mostrar Respuestas</button>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-            <!-- Futuro Perfecto -->
-            <div id="futuro-perfecto" class="tab-content space-y-8 hidden">
-                <div class="bg-white p-6 rounded-lg shadow-sm">
-                    <h2 class="text-2xl font-bold text-teal-700 mb-4">Futuro Perfecto (Future Perfect)</h2>
-                    <p class="mb-4 text-stone-600">El futuro perfecto se utiliza para expresar una acción que habrá sido completada en el futuro, antes de otro momento o acción futura. También se usa para expresar una suposición sobre una acción que ya se ha completado en el pasado reciente.</p>
-                    <ul class="list-disc list-inside space-y-2 text-stone-700">
-                        <li><b>Acción completada en el futuro:</b> <i>Para el lunes, <b>habré terminado</b> el proyecto.</i> (By Monday, I will have finished the project.)</li>
-                        <li><b>Suposición sobre el pasado:</b> <i>Juan no está. <b>Habrá ido</b> al supermercado.</i> (Juan is not here. He must have gone to the supermarket.)</li>
-                    </ul>
-                    <p class="mt-4 text-stone-600"><b>Notas Gramaticales Clave:</b></p>
-                    <ul class="list-disc list-inside space-y-2 text-stone-700">
-                        <li>Es un tiempo compuesto: se forma con el futuro simple del verbo auxiliar *haber* + el participio pasado del verbo principal.</li>
-                        <li><b>Verbo auxiliar *haber* en futuro:</b> *habré, habrás, habrá, habremos, habréis, habrán*.</li>
-                        <li>Los participios pasados son los mismos que los del pretérito perfecto.</li>
-                    </ul>
-                </div>
-                <div class="flex justify-center gap-4 mb-6">
-                    <button class="mode-button mode-active" data-mode="view" data-tense="futuro-perfecto">Ver Conjugación</button>
-                    <button class="mode-button" data-mode="practice" data-tense="futuro-perfecto">Practicar Conjugación</button>
-                </div>
-                <div id="futuro-perfecto-view-mode" class="mode-section">
-                    <div class="bg-white p-6 rounded-lg shadow-sm">
-                        <h3 class="text-xl font-semibold text-teal-700 mb-4">Ver Conjugación en Futuro Perfecto</h3>
-                        <div class="flex flex-col sm:flex-row gap-2 items-center">
-                            <input type="text" id="verb-input-futuro-perfecto" placeholder="Escribe un verbo (e.g., hablar, hacer)" class="w-full px-4 py-2 border border-stone-300 rounded-md focus:ring-2 focus:ring-teal-500 focus:border-teal-500 transition">
-                            <button id="conjugate-btn-futuro-perfecto" class="w-full sm:w-auto bg-teal-600 text-white px-6 py-2 rounded-md hover:bg-teal-700 transition font-semibold">Conjugar</button>
-                        </div>
-                        <div id="conjugation-result-futuro-perfecto" class="mt-6 overflow-x-auto"></div>
-                    </div>
-                </div>
-                <div id="futuro-perfecto-practice-mode" class="mode-section hidden">
-                    <div class="bg-white p-6 rounded-lg shadow-sm">
-                        <h3 class="text-xl font-semibold text-teal-700 mb-4">Practicar Conjugación en Futuro Perfecto</h3>
-                        <div class="flex flex-col sm:flex-row gap-2 items-center mb-4">
-                            <input type="text" id="practice-verb-input-futuro-perfecto" placeholder="Escribe un verbo (e.g., comer, ir)" class="w-full px-4 py-2 border border-stone-300 rounded-md focus:ring-2 focus:ring-teal-500 focus:border-teal-500 transition">
-                            <button id="start-practice-btn-futuro-perfecto" class="w-full sm:w-auto bg-teal-600 text-white px-6 py-2 rounded-md hover:bg-teal-700 transition font-semibold">Empezar Práctica</button>
-                            <button id="random-verb-btn-futuro-perfecto" class="w-full sm:w-auto bg-stone-400 text-white px-6 py-2 rounded-md hover:bg-stone-500 transition font-semibold">Sugerir Verbo Aleatorio</button>
-                        </div>
-                        <div class="flex flex-col sm:flex-row gap-2 items-center mb-4">
-                            <label for="practice-category-futuro-perfecto" class="text-sm font-medium text-stone-700">Categoría:</label>
-                            <select id="practice-category-futuro-perfecto" class="w-full sm:w-auto px-3 py-2 border border-stone-300 rounded-md focus:ring-2 focus:ring-teal-500 focus:border-teal-500 transition">
-                                <option value="all">Todos los verbos</option>
-                                <option value="regular_ar">Regulares -AR</option>
-                                <option value="regular_er">Regulares -ER</option>
-                                <option value="regular_ir">Regulares -IR</option>
-                                <option value="irregular_common">Irregulares Comunes</option>
-                                <option value="reflexive">Reflexivos</option>
-                                <option value="stem_changing_e_ie">Cambio E>IE</option>
-                                <option value="stem_changing_o_ue">Cambio O>UE</option>
-                                <option value="stem_changing_e_i">Cambio E>I</option>
-                                <option value="go_verbs_present">Verbos con -go</option>
-                                <option value="z_c_verbs_present">Verbos con -zco</option>
-                                <option value="irregular_future_cond">Irregulares Futuro/Condicional</option>
-                            </select>
-                        </div>
-                        <div id="practice-table-futuro-perfecto" class="mt-6 overflow-x-auto"></div>
-                        <div id="practice-feedback-futuro-perfecto" class="mt-4 text-center font-bold"></div>
-                        <div class="flex justify-center gap-4 mt-4">
-                            <button id="check-practice-btn-futuro-perfecto" class="bg-blue-600 text-white px-6 py-2 rounded-md hover:bg-blue-700 transition font-semibold hidden">Comprobar Respuestas</button>
-                            <button id="show-practice-btn-futuro-perfecto" class="bg-stone-500 text-white px-6 py-2 rounded-md hover:bg-stone-600 transition font-semibold hidden">Mostrar Respuestas</button>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-            <!-- Condicional Perfecto -->
-            <div id="condicional-perfecto" class="tab-content space-y-8 hidden">
-                <div class="bg-white p-6 rounded-lg shadow-sm">
-                    <h2 class="text-2xl font-bold text-teal-700 mb-4">Condicional Perfecto (Conditional Perfect)</h2>
-                    <p class="mb-4 text-stone-600">El condicional perfecto se utiliza para expresar acciones que habrían ocurrido en el pasado bajo ciertas condiciones, o para expresar una suposición sobre una acción que debería haber ocurrido en el pasado.</p>
-                    <ul class="list-disc list-inside space-y-2 text-stone-700">
-                        <li><b>Acción hipotética en el pasado:</b> <i>Si hubiera tenido tiempo, <b>habría ido</b> al gimnasio.</i> (If I had had time, I would have gone to the gym.)</li>
-                        <li><b>Suposición sobre el pasado:</b> <i>Juan no vino. <b>Habría estado</b> enfermo.</i> (Juan didn't come. He must have been sick.)</li>
-                    </ul>
-                    <p class="mt-4 text-stone-600"><b>Notas Gramaticales Clave:</b></p>
-                    <ul class="list-disc list-inside space-y-2 text-stone-700">
-                        <li>Es un tiempo compuesto: se forma con el condicional simple del verbo auxiliar *haber* + el participio pasado del verbo principal.</li>
-                        <li><b>Verbo auxiliar *haber* en condicional:</b> *habría, habrías, habría, habríamos, habríais, habrían*.</li>
-                        <li>Los participios pasados son los mismos que los del pretérito perfecto.</li>
-                    </ul>
-                </div>
-                <div class="flex justify-center gap-4 mb-6">
-                    <button class="mode-button mode-active" data-mode="view" data-tense="condicional-perfecto">Ver Conjugación</button>
-                    <button class="mode-button" data-mode="practice" data-tense="condicional-perfecto">Practicar Conjugación</button>
-                </div>
-                <div id="condicional-perfecto-view-mode" class="mode-section">
-                    <div class="bg-white p-6 rounded-lg shadow-sm">
-                        <h3 class="text-xl font-semibold text-teal-700 mb-4">Ver Conjugación en Condicional Perfecto</h3>
-                        <div class="flex flex-col sm:flex-row gap-2 items-center">
-                            <input type="text" id="verb-input-condicional-perfecto" placeholder="Escribe un verbo (e.g., hablar, hacer)" class="w-full px-4 py-2 border border-stone-300 rounded-md focus:ring-2 focus:ring-teal-500 focus:border-teal-500 transition">
-                            <button id="conjugate-btn-condicional-perfecto" class="w-full sm:w-auto bg-teal-600 text-white px-6 py-2 rounded-md hover:bg-teal-700 transition font-semibold">Conjugar</button>
-                        </div>
-                        <div id="conjugation-result-condicional-perfecto" class="mt-6 overflow-x-auto"></div>
-                    </div>
-                </div>
-                <div id="condicional-perfecto-practice-mode" class="mode-section hidden">
-                    <div class="bg-white p-6 rounded-lg shadow-sm">
-                        <h3 class="text-xl font-semibold text-teal-700 mb-4">Practicar Conjugación en Condicional Perfecto</h3>
-                        <div class="flex flex-col sm:flex-row gap-2 items-center mb-4">
-                            <input type="text" id="practice-verb-input-condicional-perfecto" placeholder="Escribe un verbo (e.g., comer, ir)" class="w-full px-4 py-2 border border-stone-300 rounded-md focus:ring-2 focus:ring-teal-500 focus:border-teal-500 transition">
-                            <button id="start-practice-btn-condicional-perfecto" class="w-full sm:w-auto bg-teal-600 text-white px-6 py-2 rounded-md hover:bg-teal-700 transition font-semibold">Empezar Práctica</button>
-                            <button id="random-verb-btn-condicional-perfecto" class="w-full sm:w-auto bg-stone-400 text-white px-6 py-2 rounded-md hover:bg-stone-500 transition font-semibold">Sugerir Verbo Aleatorio</button>
-                        </div>
-                        <div class="flex flex-col sm:flex-row gap-2 items-center mb-4">
-                            <label for="practice-category-condicional-perfecto" class="text-sm font-medium text-stone-700">Categoría:</label>
-                            <select id="practice-category-condicional-perfecto" class="w-full sm:w-auto px-3 py-2 border border-stone-300 rounded-md focus:ring-2 focus:ring-teal-500 focus:border-teal-500 transition">
-                                <option value="all">Todos los verbos</option>
-                                <option value="regular_ar">Regulares -AR</option>
-                                <option value="regular_er">Regulares -ER</option>
-                                <option value="regular_ir">Regulares -IR</option>
-                                <option value="irregular_common">Irregulares Comunes</option>
-                                <option value="reflexive">Reflexivos</option>
-                                <option value="stem_changing_e_ie">Cambio E>IE</option>
-                                <option value="stem_changing_o_ue">Cambio O>UE</option>
-                                <option value="stem_changing_e_i">Cambio E>I</option>
-                                <option value="go_verbs_present">Verbos con -go</option>
-                                <option value="z_c_verbs_present">Verbos con -zco</option>
-                                <option value="irregular_future_cond">Irregulares Futuro/Condicional</option>
-                            </select>
-                        </div>
-                        <div id="practice-table-condicional-perfecto" class="mt-6 overflow-x-auto"></div>
-                        <div id="practice-feedback-condicional-perfecto" class="mt-4 text-center font-bold"></div>
-                        <div class="flex justify-center gap-4 mt-4">
-                            <button id="check-practice-btn-condicional-perfecto" class="bg-blue-600 text-white px-6 py-2 rounded-md hover:bg-blue-700 transition font-semibold hidden">Comprobar Respuestas</button>
-                            <button id="show-practice-btn-condicional-perfecto" class="bg-stone-500 text-white px-6 py-2 rounded-md hover:bg-stone-600 transition font-semibold hidden">Mostrar Respuestas</button>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-            <!-- Imperativo -->
-            <div id="imperativo" class="tab-content space-y-8 hidden">
-                <div class="bg-white p-6 rounded-lg shadow-sm">
-                    <h2 class="text-2xl font-bold text-teal-700 mb-4">Imperativo (Commands)</h2>
-                    <p class="mb-4 text-stone-600">El imperativo se utiliza para dar órdenes, instrucciones, hacer peticiones o sugerencias directas. Tiene formas específicas para comandos afirmativos y negativos, y varía según la persona (tú, vosotros, usted, ustedes, nosotros).</p>
-                    <ul class="list-disc list-inside space-y-2 text-stone-700">
-                        <li><b>Orden afirmativa (tú):</b> <i>¡<b>Habla</b> más alto!</i> (Speak louder!)</li>
-                        <li><b>Orden negativa (tú):</b> <i>¡No <b>hables</b>!</i> (Don't speak!)</li>
-                        <li><b>Petición formal (usted):</b> <i>¡<b>Venga</b> aquí, por favor!</i> (Come here, please!)</li>
-                        <li><b>Sugerencia (nosotros):</b> <i>¡<b>Comamos</b> juntos!</i> (Let's eat together!)</li>
-                    </ul>
-                    <p class="mt-4 text-stone-600"><b>Notas Gramaticales Clave:</b></p>
-                    <ul class="list-disc list-inside space-y-2 text-stone-700">
-                        <li><b>Formación Regular:</b>
-                            <ul>
-                                <li>**Tú (afirmativo):** Misma forma que él/ella del presente de indicativo (e.g., *hablar > habla, comer > come, vivir > vive*).</li>
-                                <li>**Vosotros/as (afirmativo):** Reemplaza la -r del infinitivo por -d (e.g., *hablar > hablad, comer > comed, vivir > vivid*).</li>
-                                <li>**Usted/Ustedes/Nosotros (afirmativo y todos los negativos):** Derivan del presente de subjuntivo. Para -AR, usan terminaciones de -ER/-IR del subjuntivo (e.g., *hable, hablen, hablemos*). Para -ER/-IR, usan terminaciones de -AR del subjuntivo (e.g., *coma, coman, comamos*).</li>
-                            </ul>
-                        </li>
-                        <li><b>Irregulares:</b> Muchos verbos comunes son irregulares, especialmente en la forma *tú* afirmativa (e.g., *decir > di, hacer > haz, ir > ve, ser > sé*). Las formas negativas y las formas de usted/ustedes/nosotros de los irregulares del imperativo suelen seguir las irregularidades del presente de subjuntivo.</li>
-                    </ul>
-                </div>
-                <div class="flex justify-center gap-4 mb-6">
-                    <button class="mode-button mode-active" data-mode="view" data-tense="imperativo">Ver Conjugación</button>
-                    <button class="mode-button" data-mode="practice" data-tense="imperativo">Practicar Conjugación</button>
-                </div>
-                <div id="imperativo-view-mode" class="mode-section">
-                    <div class="bg-white p-6 rounded-lg shadow-sm">
-                        <h3 class="text-xl font-semibold text-teal-700 mb-4">Ver Conjugación en Imperativo</h3>
-                        <div class="flex flex-col sm:flex-row gap-2 items-center">
-                            <input type="text" id="verb-input-imperativo" placeholder="Escribe un verbo (e.g., ir, hacer)" class="w-full px-4 py-2 border border-stone-300 rounded-md focus:ring-2 focus:ring-teal-500 focus:border-teal-500 transition">
-                            <button id="conjugate-btn-imperativo" class="w-full sm:w-auto bg-teal-600 text-white px-6 py-2 rounded-md hover:bg-teal-700 transition font-semibold">Conjugar</button>
-                        </div>
-                        <div id="conjugation-result-imperativo" class="mt-6 overflow-x-auto"></div>
-                    </div>
-                </div>
-                <div id="imperativo-practice-mode" class="mode-section hidden">
-                    <div class="bg-white p-6 rounded-lg shadow-sm">
-                        <h3 class="text-xl font-semibold text-teal-700 mb-4">Practicar Conjugación en Imperativo</h3>
-                        <div class="flex flex-col sm:flex-row gap-2 items-center mb-4">
-                            <input type="text" id="practice-verb-input-imperativo" placeholder="Escribe un verbo (e.g., comer, ser)" class="w-full px-4 py-2 border border-stone-300 rounded-md focus:ring-2 focus:ring-teal-500 focus:border-teal-500 transition">
-                            <button id="start-practice-btn-imperativo" class="w-full sm:w-auto bg-teal-600 text-white px-6 py-2 rounded-md hover:bg-teal-700 transition font-semibold">Empezar Práctica</button>
-                            <button id="random-verb-btn-imperativo" class="w-full sm:w-auto bg-stone-400 text-white px-6 py-2 rounded-md hover:bg-stone-500 transition font-semibold">Sugerir Verbo Aleatorio</button>
-                        </div>
-                        <div class="flex flex-col sm:flex-row gap-2 items-center mb-4">
-                            <label for="practice-category-imperativo" class="text-sm font-medium text-stone-700">Categoría:</label>
-                            <select id="practice-category-imperativo" class="w-full sm:w-auto px-3 py-2 border border-stone-300 rounded-md focus:ring-2 focus:ring-teal-500 focus:border-teal-500 transition">
-                                <option value="all">Todos los verbos</option>
-                                <option value="regular_ar">Regulares -AR</option>
-                                <option value="regular_er">Regulares -ER</option>
-                                <option value="regular_ir">Regulares -IR</option>
-                                <option value="irregular_common">Irregulares Comunes</option>
-                                <option value="reflexive">Reflexivos</option>
-                                <option value="stem_changing_e_ie">Cambio E>IE</option>
-                                <option value="stem_changing_o_ue">Cambio O>UE</option>
-                                <option value="stem_changing_e_i">Cambio E>I</option>
-                                <option value="go_verbs_present">Verbos con -go</option>
-                                <option value="z_c_verbs_present">Verbos con -zco</option>
-                                <option value="imperative_irreg">Irregulares Imperativo</option>
-                            </select>
-                        </div>
-                        <div id="practice-table-imperativo" class="mt-6 overflow-x-auto"></div>
-                        <div id="practice-feedback-imperativo" class="mt-4 text-center font-bold"></div>
-                        <div class="flex justify-center gap-4 mt-4">
-                            <button id="check-practice-btn-imperativo" class="bg-blue-600 text-white px-6 py-2 rounded-md hover:bg-blue-700 transition font-semibold hidden">Comprobar Respuestas</button>
-                            <button id="show-practice-btn-imperativo" class="bg-stone-500 text-white px-6 py-2 rounded-md hover:bg-stone-600 transition font-semibold hidden">Mostrar Respuestas</button>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-            <!-- Comparación -->
-            <div id="comparacion" class="tab-content space-y-8 hidden">
-                <div class="bg-white p-6 rounded-lg shadow-sm">
-                    <h2 class="text-2xl font-bold text-teal-700 mb-4">Comparación de Tiempos del Pasado</h2>
-                    <p class="mb-4 text-stone-600">Diferenciar entre los tiempos del pasado es uno de los mayores retos en español. Aquí te explicamos sus usos más comunes para que no los confundas.</p>
-                    <div class="overflow-x-auto">
-                        <table class="w-full border-collapse">
-                            <thead>
-                                <tr>
-                                    <th class="table-cell table-header">Tiempo</th>
-                                    <th class="table-cell table-header">Enfoque</th>
-                                    <th class="table-cell table-header">Ejemplo</th>
-                                </tr>
-                            </thead>
-                            <tbody>
-                                <tr>
-                                    <td class="table-cell font-semibold">P. Indefinido</td>
-                                    <td class="table-cell">Acción completada (snapshot)</td>
-                                    <td class="table-cell"><i>Ayer <b>fui</b> al cine.</i></td>
-                                </tr>
-                                <tr>
-                                    <td class="table-cell font-semibold">P. Imperfecto</td>
-                                    <td class="table-cell">Acción habitual/descripción (background)</td>
-                                    <td class="table-cell"><i>Cuando era niño, <b>iba</b> al cine.</i></td>
-                                </tr>
-                                <tr>
-                                    <td class="table-cell font-semibold">P. Perfecto</td>
-                                    <td class="table-cell">Pasado reciente / Relevancia presente</td>
-                                    <td class="table-cell"><i>Esta semana <b>he ido</b> al cine.</i></td>
-                                </tr>
-                            </tbody>
-                        </table>
-                    </div>
-                     <p class="mt-6 text-stone-600"><b>Escenario Detallado: Contando una Historia</b></p>
-                     <p class="mt-2 text-stone-600">Imagina que quieres contar lo que pasó un día específico:</p>
-                     <ul class="list-disc list-inside space-y-2 text-stone-700">
-                        <li>**Imperfecto (para el escenario y acciones en curso):** "Ayer por la tarde, <b>hacía</b> mucho sol y los pájaros <b>cantaban</b>. Yo <b>estaba leyendo</b> un libro en el jardín." (Describes the ongoing conditions and what you *were doing*.)</li>
-                        <li>**Indefinido (para la acción principal y completada):** "De repente, <b>sonó</b> el teléfono y mi amigo Juan <b>me llamó</b>. Él <b>me invitó</b> a cenar." (Describes specific, completed actions that happened.)</li>
-                        <li>**Pretérito Perfecto (para acciones recientes con impacto en el presente):** "<b>He hablado</b> con Juan hoy, y <b>hemos decidido</b> ir a un restaurante nuevo." (The conversation and decision happened recently and are still relevant to current plans.)</li>
-                    </ul>
-                    <p class="mt-4 text-stone-600"><b>Otro Ejemplo de Contraste (Conocer):</b></p>
-                    <ul class="list-disc list-inside space-y-2 text-stone-700">
-                        <li><b>Pretérito:</b> <i>Ayer <b>conocí</b> a una persona muy interesante.</i> (I *met* someone yesterday - a specific event.)</li>
-                        <li><b>Imperfecto:</b> <i>Yo ya <b>conocía</b> a esa persona desde hace tiempo.</i> (I *knew* that person for a while - an ongoing state of knowing.)</li>
-                    </ul>
+                     <p class="mt-6 text-stone-600"><b>Escenario:</b> Imagina que estás contando una historia. Usarías el <b>imperfecto</b> para describir la escena ("<b>Hacía</b> sol y los pájaros <b>cantaban</b>.") y el <b>indefinido</b> para la acción principal que ocurrió ("De repente, <b>vi</b> a mi amigo.").</p>
                 </div>
             </div>
 
@@ -1043,8 +441,7 @@
                         hacer: ['hago', 'haces', 'hace', 'hacemos', 'hacéis', 'hacen'],
                         poder: ['puedo', 'puedes', 'puede', 'podemos', 'podéis', 'pueden'],
                         querer: ['quiero', 'quieres', 'quiere', 'queremos', 'queréis', 'quieren'],
-                        decir: ['digo', 'dices', 'dice', 'decimos', 'decís', 'dicen'],
-                        volver: ['vuelvo', 'vuelves', 'vuelve', 'volvemos', 'volvéis', 'vuelven'] // Added volver
+                        decir: ['digo', 'dices', 'dice', 'decimos', 'decís', 'dicen']
                     }
                 },
                 indefinido: {
@@ -1060,8 +457,7 @@
                         tener: ['tuve', 'tuviste', 'tuvo', 'tuvimos', 'tuvisteis', 'tuvieron'],
                         hacer: ['hice', 'hiciste', 'hizo', 'hicimos', 'hicisteis', 'hicieron'],
                         poder: ['pude', 'pudiste', 'pudo', 'pudimos', 'pudisteis', 'pudieron'],
-                        decir: ['dije', 'dijiste', 'dijo', 'dijimos', 'dijisteis', 'dijeron'],
-                        volver: ['volví', 'volviste', 'volvió', 'volvimos', 'volvisteis', 'volvieron']
+                        decir: ['dije', 'dijiste', 'dijo', 'dijimos', 'dijisteis', 'dijeron']
                     }
                 },
                 imperfecto: {
@@ -1073,8 +469,7 @@
                     irreg: {
                         ser: ['era', 'eras', 'era', 'éramos', 'erais', 'eran'],
                         ir: ['iba', 'ibas', 'iba', 'íbamos', 'ibais', 'iban'],
-                        ver: ['veía', 'veías', 'veía', 'veíamos', 'veíais', 'veían'],
-                        volver: ['volvía', 'volvías', 'volvía', 'volvíamos', 'volvíais', 'volvían']
+                        ver: ['veía', 'veías', 'veía', 'veíamos', 'veíais', 'veían']
                     }
                 },
                 futuro: {
@@ -1089,8 +484,7 @@
                         salir: ['saldré', 'saldrás', 'saldrá', 'saldremos', 'saldréis', 'saldrán'],
                         tener: ['tendré', 'tendrás', 'tendrá', 'tendremos', 'tendréis', 'tendrán'],
                         venir: ['vendré', 'vendrás', 'vendrá', 'vendremos', 'vendréis', 'vendrán'],
-                        querer: ['querré', 'querrás', 'querrá', 'querremos', 'querréis', 'querrán'],
-                        volver: ['volveré', 'volverás', 'volverá', 'volveremos', 'volveréis', 'volverán']
+                        querer: ['querré', 'querrás', 'querrá', 'querremos', 'querréis', 'querrán']
                     }
                 },
                 condicional: {
@@ -1105,8 +499,7 @@
                         salir: ['saldría', 'saldrías', 'saldría', 'saldríamos', 'saldríais', 'saldrían'],
                         tener: ['tendría', 'tendrías', 'tendría', 'tendríamos', 'tendríais', 'tendrían'],
                         venir: ['vendría', 'vendrías', 'vendría', 'vendríamos', 'vendríais', 'vendrían'],
-                        querer: ['querría', 'querrías', 'querría', 'querríamos', 'querríais', 'querrían'],
-                        volver: ['volvería', 'volverías', 'volvería', 'volveríamos', 'volveríais', 'volverían']
+                        querer: ['querría', 'querrías', 'querría', 'querríamos', 'querríais', 'querrían']
                     }
                 },
                 perfecto: {
@@ -1119,122 +512,9 @@
                             volver: 'vuelto', morir: 'muerto', romper: 'roto'
                         }
                     }
-                },
-                presente_subjuntivo: {
-                    reg: {
-                        // For -AR verbs, use -ER/-IR endings of Presente de Indicativo
-                        ar: ['e', 'es', 'e', 'emos', 'éis', 'en'],
-                        // For -ER/-IR verbs, use -AR endings of Presente de Indicativo
-                        er: ['a', 'as', 'a', 'amos', 'áis', 'an'],
-                        ir: ['a', 'as', 'a', 'amos', 'áis', 'an']
-                    },
-                    irreg: {
-                        ser: ['sea', 'seas', 'sea', 'seamos', 'seáis', 'sean'],
-                        estar: ['esté', 'estés', 'esté', 'estemos', 'estéis', 'estén'],
-                        ir: ['vaya', 'vayas', 'vaya', 'vayamos', 'vayáis', 'vayan'],
-                        haber: ['haya', 'hayas', 'haya', 'hayamos', 'hayáis', 'hayan'],
-                        saber: ['sepa', 'sepas', 'sepa', 'sepamos', 'sepáis', 'sepan'],
-                        dar: ['dé', 'des', 'dé', 'demos', 'deis', 'den'],
-                        conocer: ['conozca', 'conozcas', 'conozca', 'conozcamos', 'conozcáis', 'conozcan'], // -zco verbs
-                        hacer: ['haga', 'hagas', 'haga', 'hagamos', 'hagáis', 'hagan'], // -go verbs
-                        decir: ['diga', 'digas', 'diga', 'digamos', 'digáis', 'digan'],
-                        tener: ['tenga', 'tengas', 'tenga', 'tengamos', 'tengáis', 'tengan'],
-                        venir: ['venga', 'vengas', 'venga', 'vengamos', 'vengáis', 'vengan'],
-                        oír: ['oiga', 'oigas', 'oiga', 'oigamos', 'oigáis', 'oigan'],
-                        poder: ['pueda', 'puedas', 'pueda', 'podamos', 'podáis', 'puedan'], // Stem-changing o>ue
-                        querer: ['quiera', 'quieras', 'quiera', 'queramos', 'queráis', 'quieran'], // Stem-changing e>ie
-                        pedir: ['pida', 'pidas', 'pida', 'pidamos', 'pidáis', 'pidan'], // Stem-changing e>i
-                        dormir: ['duerma', 'duermas', 'duerma', 'durmamos', 'durmáis', 'duerman'], // Stem-changing o>ue with u in nosotros/vosotros
-                        volver: ['vuelva', 'vuelvas', 'vuelva', 'volvamos', 'volváis', 'vuelvan']
-                    }
-                },
-                imperfecto_subjuntivo: {
-                    reg: {
-                        // Formed from 3rd person plural of Preterite (-ron ending)
-                        ar: ['ara', 'aras', 'ara', 'áramos', 'arais', 'aran'],
-                        er: ['iera', 'ieras', 'iera', 'iéramos', 'ierais', 'ieran'],
-                        ir: ['iera', 'ieras', 'iera', 'iéramos', 'ierais', 'ieran']
-                    },
-                    irreg: {
-                        // Irregular stems are based on Preterite irregular stems
-                        ser: ['fuera', 'fueras', 'fuera', 'fuéramos', 'fuerais', 'fueran'],
-                        ir: ['fuera', 'fueras', 'fuera', 'fuéramos', 'fuerais', 'fueran'],
-                        estar: ['estuviera', 'estuvieras', 'estuviera', 'estuviéramos', 'estuvierais', 'estuvieran'],
-                        tener: ['tuviera', 'tuvieras', 'tuviera', 'tuviéramos', 'tuvierais', 'tuvieran'],
-                        hacer: ['hiciera', 'hicieras', 'hiciera', 'hiciéramos', 'hicierais', 'hicieran'],
-                        poder: ['pudiera', 'pudieras', 'pudiera', 'pudiéramos', 'pudierais', 'pudieran'],
-                        decir: ['dijera', 'dijeras', 'dijera', 'dijéramos', 'dijerais', 'dijeran'],
-                        venir: ['viniera', 'vinieras', 'viniera', 'viniéramos', 'vinierais', 'vinieran'],
-                        saber: ['supiera', 'supieras', 'supiera', 'supiéramos', 'supierais', 'supieran'],
-                        poner: ['pusiera', 'pusieras', 'pusiera', 'pusiéramos', 'pusierais', 'pusieran'],
-                        querer: ['quisiera', 'quisieras', 'quisiera', 'quisiéramos', 'quisierais', 'quisieran'],
-                        traer: ['trajiera', 'trajieras', 'trajiera', 'trajéramos', 'trajierais', 'trajieran'],
-                        dormir: ['durmiera', 'durmieras', 'durmiera', 'durmiéramos', 'durmierais', 'durmieran'], // e.g. durmieron -> durmiera
-                        pedir: ['pidiera', 'pidieras', 'pidiera', 'pidiéramos', 'pidierais', 'pidieran'], // e.g. pidieron -> pidiera
-                        volver: ['volviera', 'volvieras', 'volviera', 'volviéramos', 'volvierais', 'volvieran']
-                    }
-                },
-                pluscuamperfecto: {
-                    haber_imp: ['había', 'habías', 'había', 'habíamos', 'habíais', 'habían'],
-                    participles: {
-                        reg: { ar: 'ado', er: 'ido', ir: 'ido' },
-                        irreg: {
-                            hacer: 'hecho', decir: 'dicho', ver: 'visto',
-                            abrir: 'abierto', escribir: 'escrito', poner: 'puesto',
-                            volver: 'vuelto', morir: 'muerto', romper: 'roto',
-                            traer: 'traído', oír: 'oído', caer: 'caído', levantar: 'levantado'
-                        }
-                    }
-                },
-                futuro_perfecto: {
-                    haber_fut: ['habré', 'habrás', 'habrá', 'habremos', 'habréis', 'habrán'],
-                    participles: {
-                        reg: { ar: 'ado', er: 'ido', ir: 'ido' },
-                        irreg: {
-                            hacer: 'hecho', decir: 'dicho', ver: 'visto',
-                            abrir: 'abierto', escribir: 'escrito', poner: 'puesto',
-                            volver: 'vuelto', morir: 'muerto', romper: 'roto',
-                            traer: 'traído', oír: 'oído', caer: 'caído', levantar: 'levantado'
-                        }
-                    }
-                },
-                condicional_perfecto: {
-                    haber_cond: ['habría', 'habrías', 'habría', 'habríamos', 'habríais', 'habrían'],
-                    participles: {
-                        reg: { ar: 'ado', er: 'ido', ir: 'ido' },
-                        irreg: {
-                            hacer: 'hecho', decir: 'dicho', ver: 'visto',
-                            abrir: 'abierto', escribir: 'escrito', poner: 'puesto',
-                            volver: 'vuelto', morir: 'muerto', romper: 'roto',
-                            traer: 'traído', oír: 'oído', caer: 'caído', levantar: 'levantado'
-                        }
-                    }
-                },
-                imperativo: {
-                    reg: { // Only for regular affirmative tú, and vosotros
-                        ar: { tu_aff: 'a', vos_aff: 'ad' },
-                        er: { tu_aff: 'e', vos_aff: 'ed' },
-                        ir: { tu_aff: 'e', vos_aff: 'id' }
-                    },
-                    irreg: {
-                        // Affirmatives
-                        'decir': { tu_aff: 'di', vos_aff: 'decid' },
-                        'hacer': { tu_aff: 'haz', vos_aff: 'haced' },
-                        'ir': { tu_aff: 've', vos_aff: 'id' },
-                        'poner': { tu_aff: 'pon', vos_aff: 'poned' },
-                        'salir': { tu_aff: 'sal', vos_aff: 'salid' },
-                        'ser': { tu_aff: 'sé', vos_aff: 'sed' },
-                        'tener': { tu_aff: 'ten', vos_aff: 'tened' },
-                        'venir': { tu_aff: 'ven', vos_aff: 'venid' },
-                        'volver': { tu_aff: 'vuelve', vos_aff: 'volved' } // Added volver
-                        // All other forms (usted, ustedes, nosotros, and all negative forms) derive from Presente Subjuntivo
-                        // We will rely on the conjugate function to get these from presente_subjuntivo
-                    }
                 }
             };
             const pronouns = ['Yo', 'Tú', 'Él/Ella/Ud.', 'Nosotros/as', 'Vosotros/as', 'Ellos/as/Uds.'];
-            const imperativePronouns = ['Tú (afirmativo)', 'Tú (negativo)', 'Usted', 'Nosotros/as', 'Vosotros/as (afirmativo)', 'Vosotros/as (negativo)', 'Ustedes'];
-
 
             const verbTranslations = {
                 'hablar': 'to speak', 'comer': 'to eat', 'vivir': 'to live',
@@ -1327,43 +607,7 @@
                 'viviría': 'vivir', 'vivirías': 'vivir', 'viviría': 'vivir', 'viviríamos': 'vivir', 'viviríais': 'vivir', 'vivirían': 'vivir',
                 'diría': 'decir', 'dirías': 'decir', 'diría': 'decir', 'diríamos': 'decir', 'diríais': 'decir', 'dirían': 'decir',
                 'haría': 'hacer', 'harías': 'hacer', 'haría': 'hacer', 'haríamos': 'hacer', 'haríais': 'hacer', 'harían': 'hacer',
-                'podría': 'poder', 'podrías': 'poder', 'podría': 'poder', 'podríamos': 'poder', 'podríais': 'poder', 'podrían': 'poder',
-                // Presente de Subjuntivo
-                'hable': 'hablar', 'hables': 'hablar', 'hablemos': 'hablar', 'habléis': 'hablar', 'hablen': 'hablar',
-                'coma': 'comer', 'comas': 'comer', 'comamos': 'comer', 'comáis': 'comer', 'coman': 'comer',
-                'viva': 'vivir', 'vivas': 'vivir', 'vivamos': 'vivir', 'viváis': 'vivir', 'vivan': 'vivir',
-                'sea': 'ser', 'seas': 'ser', 'seamos': 'ser', 'seáis': 'ser', 'sean': 'ser',
-                'esté': 'estar', 'estés': 'estar', 'estemos': 'estar', 'estéis': 'estar', 'estén': 'estar',
-                'vaya': 'ir', 'vayas': 'ir', 'vaya': 'ir', 'vayamos': 'ir', 'vayáis': 'ir', 'vayan': 'ir',
-                'tenga': 'tener', 'tengas': 'tener', 'tengamos': 'tener', 'tengáis': 'tener', 'tengan': 'tener',
-                'haga': 'hacer', 'hagas': 'hacer', 'hagamos': 'hacer', 'hagáis': 'hacer', 'hagan': 'hacer',
-                'pueda': 'poder', 'puedas': 'poder', 'pueda': 'poder', 'podamos': 'poder', 'podáis': 'poder', 'puedan': 'poder',
-                'quiera': 'querer', 'quieras': 'querer', 'quiera': 'querer', 'queramos': 'querer', 'queráis': 'querer', 'quieran': 'querer',
-                'diga': 'decir', 'digas': 'decir', 'digamos': 'decir', 'digáis': 'decir', 'digan': 'decir',
-                'sepa': 'saber', 'sepas': 'saber', 'sepamos': 'saber', 'sepáis': 'saber', 'sepan': 'saber',
-                'dé': 'dar', 'des': 'dar', 'demos': 'dar', 'deis': 'dar', 'den': 'dar',
-                'conozca': 'conocer', 'conozcas': 'conocer', 'conozcamos': 'conocer', 'conozcáis': 'conocer', 'conozcan': 'conocer',
-                'oiga': 'oír', 'oigas': 'oír', 'oigamos': 'oír', 'oigáis': 'oír', 'oigan': 'oír',
-                'duerma': 'dormir', 'duermas': 'dormir', 'duerma': 'dormir', 'durmamos': 'dormir', 'durmáis': 'dormir', 'duerman': 'dormir',
-                'pida': 'pedir', 'pidas': 'pedir', 'pida': 'pedir', 'pidamos': 'pedir', 'pidáis': 'pedir', 'pidan': 'pidan',
-                // Imperfecto de Subjuntivo (-ra form)
-                'hablara': 'hablar', 'hablaras': 'hablar', 'hablara': 'hablar', 'habláramos': 'hablar', 'hablarais': 'hablar', 'hablaran': 'hablar',
-                'comiera': 'comer', 'comieras': 'comer', 'comiera': 'comer', 'comiéramos': 'comer', 'comierais': 'comer', 'comieran': 'comer',
-                'viviera': 'vivir', 'vivieras': 'vivir', 'viviera': 'vivir', 'viviéramos': 'vivir', 'vivierais': 'vivir', 'vivieran': 'vivir',
-                'fuera': 'ser/ir', 'fueras': 'ser/ir', 'fuera': 'ser/ir', 'fuéramos': 'ser/ir', 'fuerais': 'ser/ir', 'fueran': 'ser/ir',
-                'estuviera': 'estar', 'estuvieras': 'estar', 'estuviera': 'estar', 'estuviéramos': 'estar', 'estuvierais': 'estar', 'estuvieran': 'estar',
-                'tuviera': 'tener', 'tuvieras': 'tener', 'tuviera': 'tener', 'tuviéramos': 'tener', 'tuvierais': 'tener', 'tuvieran': 'tener',
-                'hiciera': 'hacer', 'hicieras': 'hacer', 'hiciera': 'hacer', 'hiciéramos': 'hacer', 'hicierais': 'hacer', 'hicieran': 'hacer',
-                'pudiera': 'poder', 'pudieras': 'poder', 'pudiera': 'poder', 'pudiéramos': 'poder', 'pudierais': 'poder', 'pudieran': 'poder',
-                'dijera': 'decir', 'dijeras': 'decir', 'dijera': 'decir', 'dijéramos': 'decir', 'dijerais': 'decir', 'dijeran': 'decir',
-                'viniera': 'venir', 'vinieras': 'venir', 'viniera': 'venir', 'viniéramos': 'venir', 'vinierais': 'venir', 'vinieran': 'venir',
-                'supiera': 'saber', 'supieras': 'saber', 'supiera': 'saber', 'supiéramos': 'saber', 'supierais': 'saber', 'supieran': 'saber',
-                'pusiera': 'poner', 'pusieras': 'poner', 'pusiera': 'poner', 'pusiéramos': 'poner', 'pusierais': 'poner', 'pusieran': 'poner',
-                'quisiera': 'querer', 'quisieras': 'querer', 'quisiera': 'querer', 'quisiéramos': 'querer', 'quisierais': 'querer', 'quisieran': 'querer',
-                'trajera': 'traer', 'trajeras': 'traer', 'trajera': 'traer', 'trajéramos': 'traer', 'trajierais': 'traer', 'trajieran': 'traer',
-                'durmiera': 'dormir', 'durmieras': 'dormir', 'durmiera': 'dormir', 'durmiéramos': 'dormir', 'durmierais': 'dormir', 'durmieran': 'dormir',
-                'pidiera': 'pedir', 'pidieras': 'pedir', 'pidiera': 'pedir', 'pidiéramos': 'pedir', 'pidierais': 'pedir', 'pidieran': 'pidieran',
-                'volviera': 'volver', 'volvieras': 'volver', 'volviéramos': 'volver', 'volvierais': 'volver', 'volvieran': 'volver'
+                'podría': 'poder', 'podrías': 'poder', 'podría': 'poder', 'podríamos': 'poder', 'podríais': 'poder', 'podrían': 'poder'
             };
 
             // List of common verbs for random suggestion
@@ -1371,26 +615,8 @@
                 'hablar', 'comer', 'vivir', 'ser', 'estar', 'ir', 'tener', 'hacer', 'poder', 'querer',
                 'decir', 'ver', 'jugar', 'salir', 'poner', 'saber', 'conocer', 'dar', 'venir', 'leer',
                 'escribir', 'abrir', 'dormir', 'pedir', 'sentir', 'encontrar', 'volver', 'empezar', 'pensar',
-                'levantar', 'levantarse',
-                'esperar', 'alegrarse', 'dudar', 'aconsejar'
+                'levantar', 'levantarse'
             ];
-
-            // Categorized verbs for random suggestion
-            const categorizedVerbs = {
-                regular_ar: ['hablar', 'cantar', 'estudiar', 'bailar', 'comprar', 'escuchar'],
-                regular_er: ['comer', 'beber', 'aprender', 'correr', 'vender', 'leer'],
-                regular_ir: ['vivir', 'escribir', 'abrir', 'subir', 'recibir', 'decidir'],
-                irregular_common: ['ser', 'estar', 'ir', 'tener', 'hacer', 'poder', 'querer', 'decir', 'ver', 'saber', 'dar', 'venir', 'poner', 'salir', 'volver'],
-                reflexive: ['levantarse', 'ducharse', 'vestirse', 'acostarse', 'sentarse', 'llamarse'],
-                stem_changing_e_ie: ['querer', 'empezar', 'pensar', 'cerrar', 'entender', 'perder', 'sentir'],
-                stem_changing_o_ue: ['poder', 'dormir', 'encontrar', 'volver', 'costar', 'morir'],
-                stem_changing_e_i: ['pedir', 'servir', 'repetir', 'seguir', 'vestir'],
-                go_verbs_present: ['tener', 'venir', 'salir', 'poner', 'decir', 'oír', 'traer', 'caer'], // verbs with 'go' in yo form
-                z_c_verbs_present: ['conocer', 'producir', 'traducir', 'conducir'], // verbs with 'zco' in yo form
-                irregular_future_cond: ['decir', 'hacer', 'poder', 'poner', 'haber', 'saber', 'salir', 'tener', 'venir', 'querer'],
-                subjunctive_common_irreg: ['ser', 'estar', 'ir', 'haber', 'saber', 'dar', 'conocer', 'hacer', 'decir', 'tener', 'venir', 'oír', 'poder', 'querer', 'pedir', 'dormir'],
-                imperative_irreg: ['decir', 'hacer', 'ir', 'poner', 'salir', 'ser', 'tener', 'ven', 'volver']
-            };
 
 
             function conjugate(verb, tense) {
@@ -1407,90 +633,8 @@
                 // Handle future and conditional regular verbs (endings added to infinitive)
                 if (tense === 'futuro' || tense === 'condicional') {
                     const endings = tenseData.reg;
-                    if (!endings) return null;
+                    if (!endings) return null; // Should not happen if data is correct
                     return endings.map(e => verb + e);
-                }
-
-                // Handle subjunctive regular verbs (stem changes based on indicative 'yo' form)
-                if (tense === 'presente_subjuntivo' || tense === 'imperfecto_subjuntivo') {
-                    let stem;
-                    // For Presente de Subjuntivo, base stem on 'yo' form of Presente de Indicativo
-                    if (tense === 'presente_subjuntivo') {
-                        const yoFormIndicative = conjugate(verb, 'presente')[0];
-                        if (!yoFormIndicative) return null; // Cannot get yo form for stem derivation
-                        stem = yoFormIndicative.slice(0, -1); // Remove 'o'
-                    } else { // imperfecto_subjuntivo
-                        // For Imperfecto de Subjuntivo, base stem on 3rd person plural of Preterite
-                        const ellosFormPreterite = conjugate(verb, 'indefinido')[5]; // 3rd person plural preterite
-                        if (!ellosFormPreterite) return null; // Cannot get ellos form for stem derivation
-                        stem = ellosFormPreterite.slice(0, ellosFormPreterite.length - 4); // Remove 'eron' or 'aron'
-                    }
-
-                    const endings = tenseData.reg[verb.slice(-2)]; // Get endings based on original infinitive ending
-                    if (!endings) return null;
-
-                    // Specific stem changes for subjunctive that are not derived from indicative 'yo' form
-                    // These are often irregulars that have specific patterns, or verbs with vowel changes in specific persons.
-                    // For a comprehensive solution, this would require a more complex lookup or a dedicated library.
-                    // For now, these are hardcoded based on common irregular patterns.
-                    if (verb === 'dormir' && tense === 'presente_subjuntivo') {
-                        return ['duerma', 'duermas', 'duerma', 'durmamos', 'durmáis', 'duerman'];
-                    }
-                    if (verb === 'pedir' && tense === 'presente_subjuntivo') {
-                        return ['pida', 'pidas', 'pida', 'pidamos', 'pidáis', 'pidan'];
-                    }
-                    // For imperfecto_subjuntivo, stem is derived from preterite, so it handles many irregularities.
-                    
-                    return endings.map(e => stem + e);
-                }
-
-                // Handle Imperative
-                if (tense === 'imperativo') {
-                    const result = [];
-                    const subjPresente = conjugate(verb, 'presente_subjuntivo');
-                    const irregImperative = tenseData.irreg[verb];
-
-                    if (!subjPresente) return null; // Imperative relies heavily on subjunctive
-
-                    // Tú (affirmative)
-                    if (irregImperative && irregImperative.tu_aff) {
-                        result.push(irregImperative.tu_aff);
-                    } else {
-                        // Regular tú affirmative is same as él/ella presente indicativo
-                        const elEllaPresente = conjugate(verb, 'presente')[2];
-                        if (!elEllaPresente) return null;
-                        result.push(elEllaPresente);
-                    }
-
-                    // Tú (negative) - uses presente subjuntivo 'tú' form
-                    result.push('no ' + subjPresente[1]);
-
-                    // Usted - uses presente subjuntivo 'usted' form
-                    result.push(subjPresente[2]);
-
-                    // Nosotros/as - uses presente subjuntivo 'nosotros' form
-                    result.push(subjPresente[3]);
-
-                    // Vosotros/as (affirmative)
-                    if (irregImperative && irregImperative.vos_aff) {
-                        result.push(irregImperative.vos_aff);
-                    } else {
-                        // Regular vosotros affirmative: replace -r of infinitive with -d
-                        const infinitiveEnding = verb.slice(-2);
-                        if (infinitiveEnding === 'ar' || infinitiveEnding === 'er' || infinitiveEnding === 'ir') {
-                            result.push(verb.slice(0, -1) + 'd');
-                        } else {
-                            return null; // Should not happen for valid verbs
-                        }
-                    }
-
-                    // Vosotros/as (negative) - uses presente subjuntivo 'vosotros' form
-                    result.push('no ' + subjPresente[4]);
-
-                    // Ustedes - uses presente subjuntivo 'ustedes' form
-                    result.push(subjPresente[5]);
-
-                    return result;
                 }
 
                 const ending = verb.slice(-2);
@@ -1522,37 +666,13 @@
                 return haberForms.map(h => `${h} ${participle}`);
             }
 
-            function conjugateCompoundPerfect(verb, tenseKey) {
-                verb = verb.toLowerCase().trim();
-                if (!verb) return null;
-
-                const tenseData = verbData[tenseKey];
-                const haberForms = tenseData[`haber_${tenseKey.split('_')[0]}`]; // e.g., haber_imp, haber_fut, haber_cond
-
-                let participle;
-                // Check if the verb has an irregular participle defined in the main perfecto.participles
-                if (verbData.perfecto.participles.irreg[verb]) {
-                    participle = verbData.perfecto.participles.irreg[verb];
-                } else {
-                    const ending = verb.slice(-2);
-                    const stem = verb.slice(0, -2);
-                    const participleEnding = verbData.perfecto.participles.reg[ending];
-                    if (!participleEnding) return null;
-                    participle = stem + participleEnding;
-                }
-
-                if (!haberForms || !participle) return null;
-
-                return haberForms.map(h => `${h} ${participle}`);
-            }
-
             function displayConjugation(verb, tense) {
                 const resultDiv = document.getElementById(`conjugation-result-${tense}`);
                 if (!resultDiv) return;
 
                 let conjugations;
-                if (['perfecto', 'pluscuamperfecto', 'futuro_perfecto', 'condicional_perfecto'].includes(tense)) {
-                    conjugations = (tense === 'perfecto') ? conjugatePerfecto(verb) : conjugateCompoundPerfect(verb, tense);
+                if(tense === 'perfecto') {
+                    conjugations = conjugatePerfecto(verb);
                 } else {
                     conjugations = conjugate(verb, tense);
                 }
@@ -1565,8 +685,7 @@
                 const englishTranslation = verbTranslations[verb] || 'Translation N/A';
 
                 let tableHTML = `<table class="w-full mt-4 border-collapse"><thead><tr><th class="table-cell table-header">Pronombre</th><th class="table-cell table-header">Conjugación</th><th class="table-cell table-header">Traducción (English)</th></tr></thead><tbody>`;
-                const currentPronouns = (tense === 'imperativo') ? imperativePronouns : pronouns;
-                currentPronouns.forEach((pronoun, index) => {
+                pronouns.forEach((pronoun, index) => {
                     tableHTML += `<tr><td class="table-cell">${pronoun}</td><td class="table-cell font-mono">${conjugations[index]}</td><td class="table-cell">${englishTranslation}</td></tr>`;
                 });
                 tableHTML += `</tbody></table>`;
@@ -1624,14 +743,18 @@
                     return;
                 }
 
+                // Normalize input for comparison (remove accents)
                 const normalizedConjugatedWord = conjugatedWord.normalize("NFD").replace(/[\u0300-\u036f]/g, "");
 
+                // Attempt to identify reflexive pronoun and base form
                 let baseForm = conjugatedWord;
                 let isReflexive = false;
+                let reflexivePronoun = '';
                 const reflexivePrefixes = ['me ', 'te ', 'se ', 'nos ', 'os '];
 
                 for (const prefix of reflexivePrefixes) {
                     if (conjugatedWord.startsWith(prefix)) {
+                        reflexivePronoun = prefix.trim();
                         baseForm = conjugatedWord.substring(prefix.length);
                         isReflexive = true;
                         break;
@@ -1653,143 +776,57 @@
                         }
                     }
                 }
-                
-                // Check for Pluscuamperfecto (había + participle)
-                const haberImpForms = verbData.pluscuamperfecto.haber_imp;
-                for (let i = 0; i < haberImpForms.length; i++) {
-                    const haberImpForm = haberImpForms[i];
-                    if (conjugatedWord.startsWith(haberImpForm + ' ')) {
-                        const participlePart = conjugatedWord.substring(haberImpForm.length + 1);
-                        const infinitive = infinitiveLookup[participlePart] || infinitiveLookup[participlePart.normalize("NFD").replace(/[\u0300-\u036f]/g, "")];
-                        if (infinitive) {
-                            const person = pronouns[i];
-                            const tenseName = 'Pluscuamperfecto';
-                            identificationResultDiv.innerHTML = `<p><b>${conjugatedWord}</b>: <span class="text-teal-700">${tenseName}</span>, <span class="text-teal-700">${person}</span> del verbo <span class="font-bold text-teal-700">${infinitive.toUpperCase()}</span>.</p>`;
-                            return;
-                        }
-                    }
-                }
 
-                // Check for Futuro Perfecto (habré + participle)
-                const haberFutForms = verbData.futuro_perfecto.haber_fut;
-                for (let i = 0; i < haberFutForms.length; i++) {
-                    const haberFutForm = haberFutForms[i];
-                    if (conjugatedWord.startsWith(haberFutForm + ' ')) {
-                        const participlePart = conjugatedWord.substring(haberFutForm.length + 1);
-                        const infinitive = infinitiveLookup[participlePart] || infinitiveLookup[participlePart.normalize("NFD").replace(/[\u0300-\u036f]/g, "")];
-                        if (infinitive) {
-                            const person = pronouns[i];
-                            const tenseName = 'Futuro Perfecto';
-                            identificationResultDiv.innerHTML = `<p><b>${conjugatedWord}</b>: <span class="text-teal-700">${tenseName}</span>, <span class="text-teal-700">${person}</span> del verbo <span class="font-bold text-teal-700">${infinitive.toUpperCase()}</span>.</p>`;
-                            return;
-                        }
-                    }
-                }
-
-                // Check for Condicional Perfecto (habría + participle)
-                const haberCondForms = verbData.condicional_perfecto.haber_cond;
-                for (let i = 0; i < haberCondForms.length; i++) {
-                    const haberCondForm = haberCondForms[i];
-                    if (conjugatedWord.startsWith(haberCondForm + ' ')) {
-                        const participlePart = conjugatedWord.substring(haberCondForm.length + 1);
-                        const infinitive = infinitiveLookup[participlePart] || infinitiveLookup[participlePart.normalize("NFD").replace(/[\u0300-\u036f]/g, "")];
-                        if (infinitive) {
-                            const person = pronouns[i];
-                            const tenseName = 'Condicional Perfecto';
-                            identificationResultDiv.innerHTML = `<p><b>${conjugatedWord}</b>: <span class="text-teal-700">${tenseName}</span>, <span class="text-teal-700">${person}</span> del verbo <span class="font-bold text-teal-700">${infinitive.toUpperCase()}</span>.</p>`;
-                            return;
-                        }
-                    }
-                }
-
-                const tenseDisplayNames = {
-                    'presente': 'Presente de Indicativo',
-                    'indefinido': 'Pretérito Indefinido',
-                    'imperfecto': 'Pretérito Imperfecto',
-                    'futuro': 'Futuro Simple',
-                    'condicional': 'Condicional Simple',
-                    'presente_subjuntivo': 'Presente de Subjuntivo',
-                    'imperfecto_subjuntivo': 'Imperfecto de Subjuntivo',
-                    'imperativo': 'Imperativo'
-                };
-                const allTenses = ['presente', 'indefinido', 'imperfecto', 'futuro', 'condicional', 'presente_subjuntivo', 'imperfecto_subjuntivo', 'imperativo'];
-
-                for (const tenseKey of allTenses) { // Iterate through all defined tenses
-                    if (['perfecto', 'pluscuamperfecto', 'futuro_perfecto', 'condicional_perfecto'].includes(tenseKey)) continue; // Already handled compound tenses
+                // Iterate through all tenses and verbs to find a match
+                for (const tenseKey in verbData) {
+                    if (tenseKey === 'perfecto') continue; // Already handled compound tense
 
                     const tenseInfo = verbData[tenseKey];
-                    
-                    // Try irregular verbs first
+                    const tenseDisplayName = {
+                        'presente': 'Presente de Indicativo',
+                        'indefinido': 'Pretérito Indefinido',
+                        'imperfecto': 'Pretérito Imperfecto',
+                        'futuro': 'Futuro Simple',
+                        'condicional': 'Condicional Simple'
+                    }[tenseKey];
+
+                    // Check irregular verbs for this tense
                     for (const infinitiveVerb in tenseInfo.irreg) {
                         const conjugations = tenseInfo.irreg[infinitiveVerb];
-                        // Imperative irregulars are special, check them directly
-                        if (tenseKey === 'imperativo' && tenseInfo.irreg[infinitiveVerb]) {
-                            const irregForms = tenseInfo.irreg[infinitiveVerb];
-                            const imperativePersons = ['tu_aff', 'vos_aff']; // Specific keys for imperative irregulars
-                            for (const p of imperativePersons) {
-                                if (irregForms[p] && irregForms[p].toLowerCase() === baseForm) {
-                                    let displayInfinitive = infinitiveVerb.toUpperCase();
-                                    if (isReflexive && !displayInfinitive.endsWith('SE')) {
-                                        displayInfinitive += 'SE';
-                                    }
-                                    identificationResultDiv.innerHTML = `<p><b>${conjugatedWord}</b>: <span class="text-teal-700">${tenseDisplayNames[tenseKey]}</span>, <span class="text-teal-700">${p.replace('_aff', ' (afirmativo)')}</span> del verbo <span class="font-bold text-teal-700">${displayInfinitive}</span>.</p>`;
-                                    return;
+                        for (let i = 0; i < conjugations.length; i++) {
+                            const conjugatedForm = conjugations[i];
+                            // Compare both with and without accents
+                            if (conjugatedForm.toLowerCase() === baseForm || conjugatedForm.toLowerCase().normalize("NFD").replace(/[\u0300-\u036f]/g, "") === normalizedConjugatedWord) {
+                                let displayInfinitive = infinitiveVerb.toUpperCase();
+                                if (isReflexive && !displayInfinitive.endsWith('SE')) {
+                                    displayInfinitive += 'SE'; // Add SE for reflexive infinitives
                                 }
-                            }
-                            // Also check subjunctive-derived forms for imperative
-                            const subjForms = conjugate(infinitiveVerb, 'presente_subjuntivo');
-                            if (subjForms) {
-                                // Negative tú, Usted, Nosotros, Ustedes forms
-                                if (('no ' + subjForms[1]).toLowerCase() === conjugatedWord) { // Negative tú
-                                    identificationResultDiv.innerHTML = `<p><b>${conjugatedWord}</b>: <span class="text-teal-700">${tenseDisplayNames[tenseKey]}</span>, <span class="text-teal-700">Tú (negativo)</span> del verbo <span class="font-bold text-teal-700">${infinitiveVerb.toUpperCase()}</span>.</p>`;
-                                    return;
-                                }
-                                if (subjForms[2].toLowerCase() === baseForm) { // Usted
-                                    identificationResultDiv.innerHTML = `<p><b>${conjugatedWord}</b>: <span class="text-teal-700">${tenseDisplayNames[tenseKey]}</span>, <span class="text-teal-700">Usted</span> del verbo <span class="font-bold text-teal-700">${infinitiveVerb.toUpperCase()}</span>.</p>`;
-                                    return;
-                                }
-                                if (subjForms[3].toLowerCase() === baseForm) { // Nosotros
-                                    identificationResultDiv.innerHTML = `<p><b>${conjugatedWord}</b>: <span class="text-teal-700">${tenseDisplayNames[tenseKey]}</span>, <span class="text-teal-700">Nosotros/as</span> del verbo <span class="font-bold text-teal-700">${infinitiveVerb.toUpperCase()}</span>.</p>`;
-                                    return;
-                                }
-                                if (('no ' + subjForms[4]).toLowerCase() === conjugatedWord) { // Negative vosotros
-                                     identificationResultDiv.innerHTML = `<p><b>${conjugatedWord}</b>: <span class="text-teal-700">${tenseDisplayNames[tenseKey]}</span>, <span class="text-teal-700">Vosotros/as (negativo)</span> del verbo <span class="font-bold text-teal-700">${infinitiveVerb.toUpperCase()}</span>.</p>`;
-                                    return;
-                                }
-                                if (subjForms[5].toLowerCase() === baseForm) { // Ustedes
-                                    identificationResultDiv.innerHTML = `<p><b>${conjugatedWord}</b>: <span class="text-teal-700">${tenseDisplayNames[tenseKey]}</span>, <span class="text-teal-700">Ustedes</span> del verbo <span class="font-bold text-teal-700">${infinitiveVerb.toUpperCase()}</span>.</p>`;
-                                    return;
-                                }
-                            }
-                        } else { // Standard irregulars (non-imperative)
-                            for (let i = 0; i < conjugations.length; i++) {
-                                const conjugatedForm = conjugations[i];
-                                if (conjugatedForm.toLowerCase() === baseForm || conjugatedForm.toLowerCase().normalize("NFD").replace(/[\u0300-\u036f]/g, "") === normalizedConjugatedWord) {
-                                    let displayInfinitive = infinitiveVerb.toUpperCase();
-                                    if (isReflexive && !displayInfinitive.endsWith('SE')) {
-                                        displayInfinitive += 'SE';
-                                    }
-                                    identificationResultDiv.innerHTML = `<p><b>${conjugatedWord}</b>: <span class="text-teal-700">${tenseDisplayNames[tenseKey]}</span>, <span class="text-teal-700">${pronouns[i]}</span> del verbo <span class="font-bold text-teal-700">${displayInfinitive}</span>.</p>`;
-                                    return;
-                                }
+                                identificationResultDiv.innerHTML = `<p><b>${conjugatedWord}</b>: <span class="text-teal-700">${tenseDisplayName}</span>, <span class="text-teal-700">${pronouns[i]}</span> del verbo <span class="font-bold text-teal-700">${displayInfinitive}</span>.</p>`;
+                                return;
                             }
                         }
                     }
 
-                    // Try regular verbs
+                    // Check regular verbs for this tense
+                    // This part is trickier for reverse lookup without a pre-computed map,
+                    // so we'll try to generate and match.
                     for (const infinitiveVerb of Object.keys(verbTranslations)) {
-                        if (tenseInfo.irreg[infinitiveVerb]) continue; // Skip irregulars already checked
+                        // Skip irregulars already checked
+                        if (tenseInfo.irreg[infinitiveVerb]) continue;
+
+                        const endingType = infinitiveVerb.slice(-2); // ar, er, ir
+                        if (!tenseInfo.reg[endingType]) continue; // Tense doesn't have this ending type
 
                         const generatedConjugations = conjugate(infinitiveVerb, tenseKey);
                         if (generatedConjugations) {
                             for (let i = 0; i < generatedConjugations.length; i++) {
                                 const genForm = generatedConjugations[i];
-                                if (genForm && (genForm.toLowerCase() === baseForm || genForm.toLowerCase().normalize("NFD").replace(/[\u0300-\u036f]/g, "") === normalizedConjugatedWord)) {
+                                if (genForm.toLowerCase() === baseForm || genForm.toLowerCase().normalize("NFD").replace(/[\u0300-\u036f]/g, "") === normalizedConjugatedWord) {
                                     let displayInfinitive = infinitiveVerb.toUpperCase();
                                     if (isReflexive && !displayInfinitive.endsWith('SE')) {
                                         displayInfinitive += 'SE';
                                     }
-                                    identificationResultDiv.innerHTML = `<p><b>${conjugatedWord}</b>: <span class="text-teal-700">${tenseDisplayNames[tenseKey]}</span>, <span class="text-teal-700">${tenseKey === 'imperativo' ? imperativePronouns[i] : pronouns[i]}</span> del verbo <span class="font-bold text-teal-700">${displayInfinitive}</span>.</p>`;
+                                    identificationResultDiv.innerHTML = `<p><b>${conjugatedWord}</b>: <span class="text-teal-700">${tenseDisplayName}</span>, <span class="text-teal-700">${pronouns[i]}</span> del verbo <span class="font-bold text-teal-700">${displayInfinitive}</span>.</p>`;
                                     return;
                                 }
                             }
@@ -1797,6 +834,7 @@
                     }
                 }
 
+                // If no match found
                 identificationResultDiv.innerHTML = `<p class="text-red-600">No se pudo identificar la conjugación de "<b>${conjugatedWord}</b>". Intenta con una forma verbal común.</p>`;
             }
             
@@ -1819,12 +857,6 @@
                 setupConjugator('perfecto');
                 setupConjugator('futuro');
                 setupConjugator('condicional');
-                setupConjugator('presente_subjuntivo');
-                setupConjugator('imperfecto_subjuntivo');
-                setupConjugator('pluscuamperfecto');
-                setupConjugator('futuro_perfecto');
-                setupConjugator('condicional_perfecto');
-                setupConjugator('imperativo');
 
                 const findInfinitiveButton = document.getElementById('find-infinitive-btn');
                 const infinitiveInput = document.getElementById('word-input-infinitivo');
@@ -1837,6 +869,7 @@
                     });
                 }
 
+                // Setup for Identify Conjugation
                 const identifyVerbInput = document.getElementById('identify-verb-input');
                 const identifyVerbBtn = document.getElementById('identify-verb-btn');
                 if (identifyVerbInput && identifyVerbBtn) {
@@ -1858,7 +891,6 @@
                     const showBtn = document.getElementById(`show-practice-btn-${tense}`);
                     const feedbackDiv = document.getElementById(`practice-feedback-${tense}`);
                     const randomVerbBtn = document.getElementById(`random-verb-btn-${tense}`);
-                    const categorySelect = document.getElementById(`practice-category-${tense}`); // Get category select
 
                     if (!startBtn) return;
 
@@ -1874,8 +906,8 @@
                         }
 
                         let correctConjugations;
-                        if (['perfecto', 'pluscuamperfecto', 'futuro_perfecto', 'condicional_perfecto'].includes(tense)) {
-                            correctConjugations = (tense === 'perfecto') ? conjugatePerfecto(verb) : conjugateCompoundPerfect(verb, tense);
+                        if (tense === 'perfecto') {
+                            correctConjugations = conjugatePerfecto(verb);
                         } else {
                             correctConjugations = conjugate(verb, tense);
                         }
@@ -1894,8 +926,7 @@
                         feedbackDiv.className = 'mt-4 text-center font-bold';
 
                         let tableHTML = `<table class="w-full mt-4 border-collapse"><thead><tr><th class="table-cell table-header">Pronombre</th><th class="table-cell table-header">Tu Conjugación</th><th class="table-cell table-header">Feedback</th></tr></thead><tbody>`;
-                        const currentPracticePronouns = (tense === 'imperativo') ? imperativePronouns : pronouns;
-                        currentPracticePronouns.forEach((pronoun, index) => {
+                        pronouns.forEach((pronoun, index) => {
                             tableHTML += `<tr>
                                 <td class="table-cell">${pronoun}</td>
                                 <td class="table-cell"><input type="text" class="practice-input w-full px-2 py-1 border border-stone-300 rounded-md text-sm" data-index="${index}"></td>
@@ -1917,25 +948,11 @@
                         showPracticeAnswers(tense);
                     });
 
-                    if (randomVerbBtn && categorySelect) { // Ensure categorySelect exists
+                    if (randomVerbBtn) {
                         randomVerbBtn.addEventListener('click', () => {
-                            const selectedCategory = categorySelect.value;
-                            let verbsToChooseFrom = [];
-
-                            if (selectedCategory === 'all') {
-                                verbsToChooseFrom = randomVerbsList;
-                            } else {
-                                verbsToChooseFrom = categorizedVerbs[selectedCategory] || [];
-                            }
-
-                            if (verbsToChooseFrom.length > 0) {
-                                const randomIndex = Math.floor(Math.random() * verbsToChooseFrom.length);
-                                practiceVerbInput.value = verbsToChooseFrom[randomIndex];
-                                startBtn.click();
-                            } else {
-                                feedbackDiv.textContent = 'No hay verbos en esta categoría para practicar.';
-                                feedbackDiv.className = 'mt-4 text-center font-bold text-red-600';
-                            }
+                            const randomIndex = Math.floor(Math.random() * randomVerbsList.length);
+                            practiceVerbInput.value = randomVerbsList[randomIndex];
+                            startBtn.click();
                         });
                     }
                 }
@@ -1972,8 +989,7 @@
                         feedbackDiv.textContent = `¡Felicidades! Todas las conjugaciones son correctas.`;
                         feedbackDiv.className = 'mt-4 text-center font-bold text-green-600';
                     } else {
-                        const totalPronouns = (tense === 'imperativo' ? imperativePronouns.length : pronouns.length);
-                        feedbackDiv.textContent = `Tienes ${correctCount} de ${totalPronouns} correctas. Sigue practicando.`;
+                        feedbackDiv.textContent = `Tienes ${correctCount} de ${pronouns.length} correctas. Sigue practicando.`;
                         feedbackDiv.className = 'mt-4 text-center font-bold text-red-600';
                     }
                 }
@@ -1993,8 +1009,7 @@
                         <th class="table-cell table-header">Feedback</th>
                     </tr></thead><tbody>`;
 
-                    const currentPracticePronouns = (tense === 'imperativo') ? imperativePronouns : pronouns;
-                    currentPracticePronouns.forEach((pronoun, index) => {
+                    pronouns.forEach((pronoun, index) => {
                         const userAnswer = currentUserAnswers[index];
                         const correctAnswer = correctConjugations[index];
                         const isCorrect = userAnswer.toLowerCase().trim() === correctAnswer.toLowerCase().trim();
@@ -2047,12 +1062,6 @@
                 setupPracticeMode('perfecto');
                 setupPracticeMode('futuro');
                 setupPracticeMode('condicional');
-                setupPracticeMode('presente_subjuntivo');
-                setupPracticeMode('imperfecto_subjuntivo');
-                setupPracticeMode('pluscuamperfecto');
-                setupPracticeMode('futuro_perfecto');
-                setupPracticeMode('condicional_perfecto');
-                setupPracticeMode('imperativo');
             });
         })(); // IIFE ends here
     </script>
